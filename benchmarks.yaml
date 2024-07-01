@@ -1,0 +1,19 @@
+rajaperf:
+  name: RAJAPerf
+  tags: [raja]
+  license: BSD-3-Clause
+  url: https://github.com/LLNL/RAJAPerf/
+  # ref: none
+  benchmarks:
+    stream:
+      name: STREAM
+      tags: [benchmark-scale:single-node, memory-access-characteristics:regular-memory-access, programming-language:c]  # inline lists are a little more space-efficient
+      license: free
+      url: https://www.cs.virginia.edu/stream/
+      ref: doi/1.2jladf
+    polybench:
+      name: PolyBench
+      #...
+benchmarks:
+  hpl:
+    name: HPL
