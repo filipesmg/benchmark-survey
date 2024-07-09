@@ -1,34 +1,34 @@
 rajaperf:
   name: RAJAPerf
-  tags: [raja]
+  tags: [programming-model:raja, programming-language:c++]
   license: BSD-3-Clause
   url: https://github.com/LLNL/RAJAPerf/
   ref: 10.1109/P3HPC49587.2019.00012
-  notes: The sutie comes with re-implementations of well-known benchmarks/benchmark suites in a variety of programming models
+  notes: The suite comes with re-implementations of well-known benchmarks/benchmark suites in a variety of programming models
   benchmarks:
     stream:
       name: STREAM
-      tags: [benchmark-scale:single-node, memory-access-characteristics:regular-memory-access, programming-language:c++, programming-model:cuda, programming-model:hip, programming-model:openmp, programming-model:openmp-target, programming-model:sycl, programming-model:raja, programming-model:kokkos]  # inline lists are a little more space-efficient
+      tags: [benchmark-scale:single-node, memory-access-characteristics:regular-memory-access, programming-model:cuda, programming-model:hip, programming-model:openmp, programming-model:openmp-target, programming-model:sycl, programming-model:raja, programming-model:kokkos]  # inline lists are a little more space-efficient
     polybench:
       name: PolyBench
-      tags: [benchmark-scale:single-node, programming-language:cpp, programming-model:cuda, programming-model:hip, programming-model:openmp, programming-model:openmp-target, programming-model:sycl, programming-model:raja]
+      tags: [benchmark-scale:single-node, programming-model:cuda, programming-model:hip, programming-model:openmp, programming-model:openmp-target, programming-model:sycl, programming-model:raja]
     lcals:
       name: LCALS
       longname: Livermore Compiler Analysis Loop Suite
-      tags: [benchmark-scale:single-node, programming-language:cpp, programming-model:cuda, programming-model:hip, programming-model:openmp, programming-model:openmp-target, programming-model:sycl, programming-model:raja, programming-model:kokkos]
+      tags: [benchmark-scale:single-node, programming-model:cuda, programming-model:hip, programming-model:openmp, programming-model:openmp-target, programming-model:sycl, programming-model:raja, programming-model:kokkos]
     comm:
       name: Halo Communication
-      tags: [benchmark-scale:single-node, programming-language:cpp, programming-model:cuda, programming-model:hip, programming-model:openmp, programming-model:openmp-target, programming-model:sycl, programming-model:raja]
+      tags: [benchmark-scale:single-node, programming-model:cuda, programming-model:hip, programming-model:openmp, programming-model:openmp-target, programming-model:sycl, programming-model:raja]
     basic:
       name: Basic Patterns
-      tags: [benchmark-scale:single-node, programming-language:cpp, programming-model:cuda, programming-model:hip, programming-model:openmp, programming-model:openmp-target, programming-model:sycl, programming-model:raja, programming-model:kokkos]
+      tags: [benchmark-scale:single-node, programming-model:cuda, programming-model:hip, programming-model:openmp, programming-model:openmp-target, programming-model:sycl, programming-model:raja, programming-model:kokkos]
     apps:
       name: Application Kernels
-      tags: [benchmark-scale:single-node, programming-language:cpp, programming-model:cuda, programming-model:hip, programming-model:openmp, programming-model:openmp-target, programming-model:sycl, programming-model:raja]
+      tags: [benchmark-scale:single-node, programming-model:cuda, programming-model:hip, programming-model:openmp, programming-model:openmp-target, programming-model:sycl, programming-model:raja]
       notes: Variety of kernels extracted from real-world applications
     algorithm:
       name: Algorithms
-      tags: [benchmark-scale:single-node, programming-language:cpp, programming-model:cuda, programming-model:hip, programming-model:openmp, programming-model:openmp-target, programming-model:sycl, programming-model:raja]
+      tags: [benchmark-scale:single-node, programming-model:cuda, programming-model:hip, programming-model:openmp, programming-model:openmp-target, programming-model:sycl, programming-model:raja]
       notes: Algorithm primites (Atomic, Memcopy, Memset, Reduce, Scan, Sort, Sort-Pairs)
 benchmarks:
   hpl:
