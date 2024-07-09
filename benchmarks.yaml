@@ -30,6 +30,87 @@ rajaperf:
       name: Algorithms
       tags: [benchmark-scale:single-node, programming-model:cuda, programming-model:hip, programming-model:openmp, programming-model:openmp-target, programming-model:sycl, programming-model:raja]
       notes: Algorithm primites (Atomic, Memcopy, Memset, Reduce, Scan, Sort, Sort-Pairs)
+hecbench:
+  name: HeCBench
+  tags: [programming-model:cuda, programming-model:hip, programming-model:sycl, programming-model:openmp-target, benchmark-scale:single-node, programming-language:c++]
+  url: https://github.com/zjin-lcf/HeCBench
+  ref: 10.1109/ISPASS57527.2023.00041
+  notes: A collection of heterogeneous computing benchmarks, aligned in categories
+  benchmarks:
+    automotive:
+      name: Automotive benchmarks
+      tags: [application-domain:automotive]
+      notes: "Benchmark: daphne"
+    bandwidth:
+      name: Bandwidth benchmarks
+      tags: [memory-access-characteristics:high-memory-bandwidth, memory-access-characteristics:regular-memory-access] #tbd
+      notes: "Benchmarks: cmembench, babelstream, memcpy, memtest, randomAccess, shmembench, triad"
+    bioinformatics:
+      name: Bioinformatics benchmarks
+      tags: [application-domain:biology]
+      notes: "Benchmarks: all-pairs-distance, bsw, ccs, cm, deredundancy, diamond, epistasis, extend2, frna, fsm, ga, logan, minibude, minimap2, nbnxm, nw, pcc, prna, sa, snake"
+    computer-vision:
+      name: Computer vision and image processing
+      tags: [application-domain:computer-vision]
+      notes: "A set of 49 benchmarks"
+    cryptography:
+      name: Cryptography
+      tags: [application-domain:cryptography]
+      notes: "Benchmarks: aes, bitcracker, chacha20, columnarSolver, ecdh, keccaktreehash, merkle, present"
+    data-compression:
+      name: Data compression and reduction
+      tags: [method-type:compression] #tbd
+      notes: "A set of 25 benchmarks"
+    data-encoding:
+      name: Data encoding, decoding, or verification
+      notes: "Benchmarks: ans, crc64, crs, entropy, jenkins-hash, ldpc, md5hash, murmurhash3"
+    finance:
+      name: Finance
+      tags: [application-domain:finance]
+      notes: "Benchmarks: aop, black-scholes, binomial, bonds, libor"
+    geoscience:
+      name: Geoscience
+      tags: [application-domain:geoscience]
+      notes: "Benchmarks: aidw, coordinates, geodesic, hausdorff, haversine, stsg"
+    graph:
+      name: Graph and tree
+      tags: [method-type:graph]
+      notes: "Benchmarks: cc, floydwarshall, floydwarshall2, gc, hbc, hungarian, mis, sssp, rsmt"
+    language-features:
+      name: Language and kernel features
+      tags: [programming-language:c++]
+      notes: "A set of 40 benchmarks"
+    machine-learning:
+      name: Machine learning
+      tags: [method-type:ai]
+      notes: "A set of 69 benchmarks"
+    math:
+      name: Math
+      tags: [method-type:math]
+      notes: "A set of 64 benchmarks"
+    rng:
+      name: Random number generation
+      tags: [method-type:rng]
+      notes: "Benchmarks: mt, permutate, qrg, rng-wallace, sobol, urng"
+    search:
+      name: Search
+      notes: "Benchmarks: bfs, bsearch, b+tree, grep, keogh, s8n, ss, sss, tsp"
+    signals:
+      name: Signal processing
+      tags: [method-type:fft, method-type:signal-processing]
+      notes: "Benchmarks: extrema, fft, lombscargle, sosfil, zmddft"
+    simulation:
+      name: Simulation
+      notes: "A set of 97 benchmarks"
+    sorting:
+      name: Sorting
+      tags: [method-type:sorting]
+      notes: "Benchmarks: bitonic-sort, hybridsort, is, merge, quicksort, radixsort, segsort, sort, sortKV, split, warpsort"
+    robotics:
+      name: Robotics
+      tags: [application-domain:robotics]
+      notes: "Benchmarks: inversek2j, rodrigues"
+
 benchmarks:
   hpl:
     name: HPL
