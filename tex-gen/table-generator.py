@@ -31,7 +31,7 @@ tpl_suite_header = r"""
     ((*- endif *))
     ((* for tag in tags *)) \((( tag[0] ))){((( tag[1] )))} ((*- endfor *)) &
     ((* if license -*)) ((( license ))) ((* endif -*)) & 
-    ((* if url['long'] -*)) \href{((( url['long'] )))}{((( url['short'] )))}} ((* endif -*)) ((* if citekey -*)) \cite{((( citekey )))} ((* endif -*)) & 
+    ((* if url['long'] -*)) \href{((( url['long'] )))}{\url{((( url['short'] )))}} ((* endif -*)) ((* if citekey -*)) \cite{((( citekey )))} ((* endif -*)) & 
     ((* if notes -*)) ((( notes ))) ((* endif -*))\\
 """
 def main(args):
@@ -80,7 +80,7 @@ def genTableRow(benchkey, benchdata, suite, jinjaenv):
         'long': benchdata['url'] if 'url' in benchdata else '',
         'short': benchdata['url'].replace('https://', '').replace('http://', '') if 'url' in benchdata else ''
     }
-    return jinjaenv.from_string(textwrap.dedent(tpl_suite_header).strip()).render(key=benchkey, name=name, license=license, notes=notes, citekey=ref, tags=tags, url=url, suite=suite)
+    return jinjaenv.from_string(textwrap.dedent(tpl_suite_header)).render(key=benchkey, name=name, license=license, notes=notes, citekey=ref, tags=tags, url=url, suite=suite)
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(prog='HPC Benchmarks Survey Table Generator', description='Generate a LaTeX table from YAML')
     parser.add_argument('-p', '--print', action='store_true', default=True, help='Print generated template(s)')
