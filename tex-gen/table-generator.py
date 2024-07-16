@@ -25,7 +25,7 @@ def parseTags(rawTags):
         _tags.append((cat, name))
     return _tags
 tpl_suite_header = r"""
-    ((* if suite -*))\multicolumn{2}{l}{((( name )))} & 
+    ((* if multicol -*))\multicolumn{2}{l}{((( name )))} & 
     ((*- else -*))
     & ((( name ))) &
     ((*- endif *))
@@ -56,13 +56,15 @@ def main(args):
     benchmark_tex = ""
     sorted_benchmarks = sorted(benchmarks.items(), key=lambda b: b[0].startswith('benchmark'))  # sort "benchmarks key to the end (https://stackoverflow.com/a/57301615)
     for suitekey, suitedata in dict(sorted_benchmarks).items():
+        multicol=True
         if suitekey != "benchmarks":  # go to next loop
-            benchmark_tex += genTableRow(suitekey, suitedata, suite=True, jinjaenv=environment)
+            benchmark_tex += genTableRow(suitekey, suitedata, multicol=multicol, jinjaenv=environment)
             benchmarks = suitedata['benchmarks']
+            multicol=False
         else:
             benchmarks = suitedata
         for benchkey, benchdata in benchmarks.items():
-            benchmark_tex += genTableRow(benchkey, benchdata, suite=False, jinjaenv=environment)
+            benchmark_tex += genTableRow(benchkey, benchdata, multicol=multicol, jinjaenv=environment)
     if args.print:
         print(benchmark_tex)
     if args.write:
