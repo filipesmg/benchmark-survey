@@ -15,13 +15,13 @@ tags_cats_to_tex_commands = {
     'application-domain': 'btAppDomain'
 }
 license_to_tex_commands = {
-    'BSD': r'\licBsd',
-    'BSD-3-Clause': r'\licBsdThree',
-    'MIT': r'\licMit',
-    'None': r'\licNone',
-    'Free': r'\licFree',
-    'GPL': r'\licGpl',
-    'GPL-3.0': r'\licGplThree'
+    'bsd': r'\licBsd',
+    'bsd-3-clause': r'\licBsdThree',
+    'mit': r'\licMit',
+    'none': r'\licNone',
+    'free': r'\licFree',
+    'gpl': r'\licGpl',
+    'gpl-3.0': r'\licGplThree'
 }
 sort_order_tags = {cat: (i, cat) for i, cat in enumerate(["programming-language", "programming-model"])}
 def customSortTags(tags):
@@ -33,17 +33,19 @@ def parseTags(rawTags):
         cat = tags_cats_to_tex_commands[rawcat] if rawcat in tags_cats_to_tex_commands else 'NA'
         _tags.append((cat, name))
     return _tags
-tpl_suite_tableheader = r"""
+tpl_suite_tableheader = r"""% do not change this file manually! it's auto-generated
 \begin{longtblr}[
-    caption={Benchmark Overview}
+    caption={Benchmark Overview. Benchmark suites are indicated by leftmost entries with individual subordinated benchmark entries, connected by a dotted line. Per benchmark, tags, license (\emph{Lic.}), URL, reference (\emph{Ref.}), and notes are given; if each component is common to all benchmarks in a suite, the components are listed for the suite itself.},
+    entry = {Benchmark Overview Table},
+    label = {table:benchmarks}
 ]{
-    width   =\textwidth,
-    colspec ={X[0.01]|[dotted]X[0.8,l]X[1.4]ccX[3]},
+    width   = \textwidth,
+    colspec = {X[0.01]|[dotted]X[0.8,l]X[1.4]ccX[3]},
     cells   = {font=\footnotesize},
     row{1}  = {font=\footnotesize\bfseries}, rowhead = 1,
     rowsep = 0.3pt
 }
-\SetCell[c=2]{l} \emph{(Suite-)}Name & & Tags & License & URL, Reference & Notes \\
+\SetCell[c=2]{l} \emph{(Suite-)}Name & & Tags & Lic. & URL, Ref. & Notes \\
 \midrule"""
 tpl_suite_tablefooter = r"""
 \end{longtblr}
@@ -55,7 +57,7 @@ tpl_suite_table = r"""
     ((*- endif *))
     ((* for tag in tags *)) \((( tag[0] ))){((( tag[1] )))} ((*- endfor *)) &
     ((* if license -*)) ((( license ))) ((* endif -*)) & 
-    ((* if url['key'] -*)) \cite{((( url['key'] )))} \href{((( url['long'] )))}{\scalebox{0.8}{\faIcon{link}}}((* endif -*)) ((* if url and citekey -*)), ((* endif -*)) ((* if citekey -*)) \cite{((( citekey )))} ((* endif -*)) & 
+    ((* if url['key'] -*))\href{((( url['long'] )))}{\scalebox{0.8}{\faIcon{link}}}~\cite{((( url['key'] )))}((* endif -*)) ((* if url and citekey -*)), ((* endif -*)) ((* if citekey -*)) \cite{((( citekey )))} ((* endif -*)) & 
     ((* if notes -*)) ((( notes ))) ((* endif -*))\\
 """
 
@@ -106,7 +108,7 @@ def main(args):
             output.write(benchmark_tex)
 def genTableRow(benchkey, benchdata, suitekey, last_suite_bench, multicol, jinjaenv):
     name = benchdata['name']
-    license = license_to_tex_commands.get(benchdata['license'], benchdata['license']) if 'license' in benchdata else ''
+    license = license_to_tex_commands.get(benchdata['license'].lower(), benchdata['license']) if 'license' in benchdata else ''
     notes = benchdata['notes'] if 'notes' in benchdata else ''
     ref = f'{benchkey}_ref' if 'ref' in benchdata else ''
     tags = parseTags(benchdata['tags']) if 'tags' in benchdata else ''
