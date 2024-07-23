@@ -38,7 +38,7 @@ tpl_suite_tableheader = r"""
     caption={Benchmark Overview}
 ]{
     width   =\textwidth,
-    colspec ={X[0.01]X[0.8,l]X[1.4]ccX[3]},
+    colspec ={X[0.01]|[dotted]X[0.8,l]X[1.4]ccX[3]},
     cells   = {font=\footnotesize},
     row{1}  = {font=\footnotesize\bfseries}, rowhead = 1,
     rowsep = 0.3pt
@@ -49,9 +49,9 @@ tpl_suite_tablefooter = r"""
 \end{longtblr}
 """
 tpl_suite_table = r"""
-    ((* if multicol -*))((* if suitekey -*))\tikzmark{((( suitekey ))) start}((* endif-*))\SetCell[c=2]{l}((( name ))) & &
+    ((* if multicol -*))\SetCell[c=2]{l} ((( name ))) & &
     ((*- else -*))
-    ((* if last_suite_bench -*))\tikzmark{((( suitekey ))) end}\connectorLine{((( suitekey ))) start}{((( suitekey ))) end} ((*- endif *))& ((( name ))) &
+    & ((( name ))) &
     ((*- endif *))
     ((* for tag in tags *)) \((( tag[0] ))){((( tag[1] )))} ((*- endfor *)) &
     ((* if license -*)) ((( license ))) ((* endif -*)) & 
