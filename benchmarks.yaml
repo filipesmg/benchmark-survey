@@ -1,6 +1,6 @@
 rajaperf:
   name: RAJAPerf
-  tags: [programming-model:raja, programming-language:c++, programming-model:cuda, programming-model:hip, programming-model:openmp, programming-model:openmp-target, programming-model:sycl]
+  tags: [programming-model:raja, programming-language:c++, programming-model:cuda, programming-model:hip, programming-model:openmp, programming-model:openmp-target, programming-model:sycl, benchmark-scale:single-node]
   license: BSD-3-Clause
   url: https://github.com/LLNL/RAJAPerf/
   ref: 10.1109/P3HPC49587.2019.00012
@@ -8,27 +8,23 @@ rajaperf:
   benchmarks:
     stream:
       name: STREAM
-      tags: [benchmark-scale:single-node, memory-access-characteristics:regular-memory-access, programming-model:kokkos]  # inline lists are a little more space-efficient
+      tags: [memory-access-characteristics:regular-memory-access, programming-model:kokkos]  # inline lists are a little more space-efficient
     polybench:
       name: PolyBench
-      tags: [benchmark-scale:single-node]
     lcals:
       name: LCALS
       longname: Livermore Compiler Analysis Loop Suite
-      tags: [benchmark-scale:single-node, programming-model:kokkos]
+      tags: [programming-model:kokkos]
     comm:
       name: Halo Communication
-      tags: [benchmark-scale:single-node]
     basic:
       name: Basic Patterns
-      tags: [benchmark-scale:single-node, programming-model:kokkos]
+      tags: [programming-model:kokkos]
     apps:
       name: Application Kernels
-      tags: [benchmark-scale:single-node]
       notes: Variety of kernels extracted from real-world applications
     algorithm:
       name: Algorithms
-      tags: [benchmark-scale:single-node]
       notes: Algorithm primites (Atomic, Memcopy, Memset, Reduce, Scan, Sort, Sort-Pairs)
 hecbench:
   name: HeCBench
@@ -120,6 +116,10 @@ benchmarks:
     url: https://web.cs.ucla.edu/~pouchet/software/polybench/
   stream:
     name: STREAM
+    license: free #https://www.cs.virginia.edu/stream/FTP/Code/LICENSE.txt
+    url: https://www.cs.virginia.edu/stream/
+    ref: mcalpin1996 #https://www.cs.virginia.edu/stream/ref.html#citing: Memory Bandwidth and Machine Balance in Current High Performance  Computers
+    tags: [programming-language:c, programming-language:fortran, benchmark-scale:single-node, memory-access-characteristics:regular-memory-access]
   lcals:
     name: LCALS
     url: https://codesign.llnl.gov/LCALS.php
