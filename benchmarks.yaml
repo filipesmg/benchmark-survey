@@ -1,6 +1,6 @@
 rajaperf:
   name: RAJAPerf
-  tags: [programming-model:raja, programming-language:c++]
+  tags: [programming-model:raja, programming-language:c++, programming-model:cuda, programming-model:hip, programming-model:openmp, programming-model:openmp-target, programming-model:sycl]
   license: BSD-3-Clause
   url: https://github.com/LLNL/RAJAPerf/
   ref: 10.1109/P3HPC49587.2019.00012
@@ -8,33 +8,34 @@ rajaperf:
   benchmarks:
     stream:
       name: STREAM
-      tags: [benchmark-scale:single-node, memory-access-characteristics:regular-memory-access, programming-model:cuda, programming-model:hip, programming-model:openmp, programming-model:openmp-target, programming-model:sycl, programming-model:raja, programming-model:kokkos]  # inline lists are a little more space-efficient
+      tags: [benchmark-scale:single-node, memory-access-characteristics:regular-memory-access, programming-model:kokkos]  # inline lists are a little more space-efficient
     polybench:
       name: PolyBench
-      tags: [benchmark-scale:single-node, programming-model:cuda, programming-model:hip, programming-model:openmp, programming-model:openmp-target, programming-model:sycl, programming-model:raja]
+      tags: [benchmark-scale:single-node]
     lcals:
       name: LCALS
       longname: Livermore Compiler Analysis Loop Suite
-      tags: [benchmark-scale:single-node, programming-model:cuda, programming-model:hip, programming-model:openmp, programming-model:openmp-target, programming-model:sycl, programming-model:raja, programming-model:kokkos]
+      tags: [benchmark-scale:single-node, programming-model:kokkos]
     comm:
       name: Halo Communication
-      tags: [benchmark-scale:single-node, programming-model:cuda, programming-model:hip, programming-model:openmp, programming-model:openmp-target, programming-model:sycl, programming-model:raja]
+      tags: [benchmark-scale:single-node]
     basic:
       name: Basic Patterns
-      tags: [benchmark-scale:single-node, programming-model:cuda, programming-model:hip, programming-model:openmp, programming-model:openmp-target, programming-model:sycl, programming-model:raja, programming-model:kokkos]
+      tags: [benchmark-scale:single-node, programming-model:kokkos]
     apps:
       name: Application Kernels
-      tags: [benchmark-scale:single-node, programming-model:cuda, programming-model:hip, programming-model:openmp, programming-model:openmp-target, programming-model:sycl, programming-model:raja]
+      tags: [benchmark-scale:single-node]
       notes: Variety of kernels extracted from real-world applications
     algorithm:
       name: Algorithms
-      tags: [benchmark-scale:single-node, programming-model:cuda, programming-model:hip, programming-model:openmp, programming-model:openmp-target, programming-model:sycl, programming-model:raja]
+      tags: [benchmark-scale:single-node]
       notes: Algorithm primites (Atomic, Memcopy, Memset, Reduce, Scan, Sort, Sort-Pairs)
 hecbench:
   name: HeCBench
   tags: [programming-model:cuda, programming-model:hip, programming-model:sycl, programming-model:openmp-target, benchmark-scale:single-node, programming-language:c++]
   url: https://github.com/zjin-lcf/HeCBench
   ref: 10.1109/ISPASS57527.2023.00041
+  license: BSD-3-Clause
   notes: A collection of heterogeneous computing benchmarks, aligned in categories
   benchmarks:
     automotive:
