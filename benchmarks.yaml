@@ -120,6 +120,13 @@ benchmarks:
     url: https://www.cs.virginia.edu/stream/
     ref: mcalpin1996 #https://www.cs.virginia.edu/stream/ref.html#citing: Memory Bandwidth and Machine Balance in Current High Performance  Computers
     tags: [programming-language:c, programming-language:fortran, benchmark-scale:single-node, memory-access-characteristics:regular-memory-access]
+  babelstream:
+    name: BabelStream
+    license: free # based on STREAM's license: https://github.com/UoB-HPC/BabelStream?tab=License-1-ov-file#readme
+    url: https://github.com/UoB-HPC/BabelStream
+    ref: 10.1504/IJCSE.2018.095847
+    tags: [programming-language:c++, benchmark-scale:single-node, memory-access-characteristics:regular-memory-access, programming-model:opencl, programming-model:cuda, programming-model:hip, programming-model:openacc, programming-model:openmp, programming-model:pstl, programming-model:kokkos, programming-model:raja, programming-model:sycl, programming-model:tbb, programming-model:thrust, programming-model:futhark]
+    notes: "STREAM in many models for many devices; also available: Julia, Rust, Scala, Java"
   lcals:
     name: LCALS
     url: https://codesign.llnl.gov/LCALS.php
