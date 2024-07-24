@@ -12,7 +12,8 @@ tags_cats_to_tex_commands = {
     'memory-access-characteristics': 'btMemAcc',
     'method-type': 'btMethod',
     'communication': 'btComm',
-    'application-domain': 'btAppDomain'
+    'application-domain': 'btAppDomain',
+    'compute-performance-characteristics': 'btCompPerf'
 }
 license_to_tex_commands = {
     'bsd': r'\licBsd',
