@@ -130,3 +130,25 @@ benchmarks:
   lcals:
     name: LCALS
     url: https://codesign.llnl.gov/LCALS.php
+coral2:
+  name: CORAL-2
+  tags: [programming-model:openmp, programming-model:cuda, programming-language:c++, programming-language:c, programming-language:fortran, programming-language:python]
+  license: none
+  url: https://asc.llnl.gov/coral-2-benchmarks
+  notes: The suite comes with re-implementations of well-known benchmarks/benchmark suites in a variety of programming models
+  benchmarks:
+    hacc:
+      name: HACC
+      tags: [application-domain:astrophysics, method-type:nbody, method-type:fft, benchmark-scale:large-scale, communication:mpi, programming-model:openmp, programming-model:cuda, programming-language:c++, compute-performance-characteristics:high-fp]
+      notes: "The Hardware Accelerated Cosmology Code (HACC) simulates the formation of structure in collisionless fluids under the influence of gravity in an expanding universe. Achieves 13.92 Petaflops, 69.2% of machine peak on Sequoia."
+    nekbone:
+      name: NEKBONE  
+      tags: [application-domain:cfd, method-type:conjugate-gradient, benchmark-scale:large-scale, communication:mpi, programming-model:cuda, programming-language:fortran, programming-language:c, compute-performance-characteristics:high-fp, communication-performance-characteristics:network-collectives]
+      notes: "Nekbone is a mini-app derived from the Nek5000 CFD code which is a high order, incompressible Navier-Stokes CFD solver based on the spectral element method."
+    qmcpack:
+      name: QMCPACK
+      tags: [application-domain:molecular-dynamics, method-type:montecarlo, benchmark-scale:large-scale, communication:mpi, programming-model:openmp, programming-model:cuda, programming-language:c, programming-language:c++, memory-access-characteristics:high-memory-bandwidth]
+      notes: "QMCPACK is a many-body ab initio quantum Monte Carlo code for computing the electronic structure of atoms, molecules, and solids."  
+    lammps:
+      name: LAMMPS
+      tags: [application-domain: molecular-dynamics, benchmark-scale:large-scale, communication:mpi, programming-model:openmp, programming-model:cuda, programming-language:c++, compute-performance-characteristics:high-fp,  memory-access-characteristics:high-memory-bandwidth, communication-performance-characteristics:network-bandwidth-bound,communication-performance-characteristics:network-latency-bound]
