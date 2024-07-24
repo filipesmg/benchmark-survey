@@ -132,7 +132,8 @@ coral2:
     hacc:
       name: HACC
       tags: [application-domain:astrophysics, method-type:nbody, method-type:fft, benchmark-scale:large-scale, communication:mpi, programming-model:openmp, programming-model:cuda, programming-language:c++, compute-performance-characteristics:high-fp]
-      notes: "The Hardware Accelerated Cosmology Code (HACC) simulates the formation of structure in collisionless fluids under the influence of gravity in an expanding universe. Achieves 13.92 Petaflops, 69.2% of machine peak on Sequoia."
+      notes: >
+        The Hardware Accelerated Cosmology Code (HACC) simulates the formation of structure in collisionless fluids under the influence of gravity in an expanding universe. Achieves 13.92 Petaflops, 69.2\% of machine peak on Sequoia.
     nekbone:
       name: NEKBONE  
       tags: [application-domain:cfd, method-type:conjugate-gradient, benchmark-scale:large-scale, communication:mpi, programming-model:cuda, programming-language:fortran, programming-language:c, compute-performance-characteristics:high-fp, communication-performance-characteristics:network-collectives]
@@ -143,4 +144,4 @@ coral2:
       notes: "QMCPACK is a many-body ab initio quantum Monte Carlo code for computing the electronic structure of atoms, molecules, and solids."  
     lammps:
       name: LAMMPS
-      tags: [application-domain: molecular-dynamics, benchmark-scale:large-scale, communication:mpi, programming-model:openmp, programming-model:cuda, programming-language:c++, compute-performance-characteristics:high-fp,  memory-access-characteristics:high-memory-bandwidth, communication-performance-characteristics:network-bandwidth-bound,communication-performance-characteristics:network-latency-bound]
+      tags: [application-domain:molecular-dynamics, benchmark-scale:large-scale, communication:mpi, programming-model:openmp, programming-model:cuda, programming-language:c++, compute-performance-characteristics:high-fp,  memory-access-characteristics:high-memory-bandwidth, communication-performance-characteristics:network-bandwidth-bound,communication-performance-characteristics:network-latency-bound]
