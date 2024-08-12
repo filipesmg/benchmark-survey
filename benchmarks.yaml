@@ -107,6 +107,106 @@ hecbench:
       name: Robotics
       tags: [application-domain:robotics]
       notes: "Benchmarks: inversek2j, rodrigues"
+rodinia:
+  name: Rodinia
+  tags: [programming-model:cuda, programming-model:opencl, programming-model:openmp, benchmark-scale:single-node, programming-language:c]
+  url: https://www.cs.virginia.edu/rodinia/doku.php?id=start
+  ref: 10.1109/IISWC.2009.5306797
+  license: free
+  notes: "No updates since a long time; customized BSD-3-Clause license"
+  benchmarks:
+    leukocyte:
+      name: Leukocyte
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=leukocyte
+      tags: [mesh-representation:structured-grid, application-domain:medical]
+    heart:
+      name: Heart Wall
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=heart_wall
+      tags: [mesh-representation:structured-grid, application-domain:medical]
+    mummergpu:
+      name: MUMmerGPU
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=mummergpu
+      tags: [method-type:graph-traversal, application-domain:bioinformatics]
+    cfdsolver:
+      name: CFD Solver
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=cfd_solver
+      tags: [application-domain:cfd, method-type:finite-volume, mesh-representation:unstructured-grid]
+    ludecomp:
+      name: LU Decomposition
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=lu_decomposition
+      tags: [method-type:dense-linear-algebra]
+    hotspot:
+      name: HotSpot
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=hotspot
+      tags: [method-type:ode, mesh-representation:structured-grid, application-domain:physics]
+    backpropagation:
+      name: Back Propagation
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=back_propagation
+      tags: [method-type:ai, mesh-representation:unstructured-grid]
+    needleman:
+      name: Needleman-Wunsch
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=needleman-wunsch
+      tags: []
+    kmeans:
+      name: Kmeans
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=kmeans
+      tags: []
+    bfs:
+      name: Breadth-First Search
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=graph_traversal
+      tags: []
+    srad:
+      name: SRAD
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=srad
+      tags: []
+    streamcluster:
+      name: Streamcluster
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=streamcluster
+      tags: []
+    particlefilter:
+      name: Particle Filter
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=particle_filter
+      tags: []
+    pathfinder:
+      name: PathFinder
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=pathfinder
+      tags: []
+    gaussian:
+      name: Gaussian Elimination
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=gaussian_elimination
+      tags: []
+    knn:
+      name: k-Nearest Neighbors
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=k-nearest_neighbors
+      tags: []
+    lavamd2:
+      name: LavaMD2
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=lavamd2
+      tags: []
+    myocyte:
+      name: Myocyte
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=myocyte
+      tags: []
+    btree:
+      name: "B+ Tree"
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=b_tree
+      tags: []
+    gpudwt:
+      name: GPUDWT
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=gpudwt
+      tags: []
+    hybridsort:
+      name: Hybrid Sort
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=hybrid_sort
+      tags: []
+    htospot3d:
+      name: Hotspot3D
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=hotspot3d
+      tags: []
+    huffman:
+      name: Huffman
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=huffman
+      tags: []
 
 benchmarks:
   hpl:
@@ -130,6 +230,24 @@ benchmarks:
   lcals:
     name: LCALS
     url: https://codesign.llnl.gov/LCALS.php
+  rodiniajl:
+    name: Rodinia (Julia)
+    license: free
+    url: https://github.com/JuliaParallel/rodinia/
+    tags: [programming-model:cuda, programming-model:opencl, programming-model:openmp, benchmark-scale:single-node, programming-language:julia]
+    notes: "Julia-port of the Rodinia benchmarks, with single and multi-threaded implementations and Julia+CUDA; has the Rodinia license (customized BSD-3-Clause)"
+  rodiniadpcpp:
+    name: Rodinia (DPC++)
+    license: MIT
+    url: https://github.com/artecs-group/rodinia-dpct-dpcpp/
+    tags: [programming-model:dpc++, programming-model:sycl, programming-language:c++]
+    notes: "DPC++-translation of Rodinia benchmarks (SYCL tag added for visibility)"
+  rodiniasycl:
+    name: Rodinia (SYCL)
+    license: BSD-3-Clause
+    url: https://github.com/zjin-lcf/Rodinia_SYCL
+    tags: [programming-model:sycl, programming-language:c++]
+    notes: "SYCL implementations of Rodinia benchmarks, currently deprecated (integrated into/maintained through HeCBench)"
 coral2:
   name: CORAL-2
   tags: [programming-model:openmp, programming-model:cuda, programming-language:c++, programming-language:c, programming-language:fortran, programming-language:python]
