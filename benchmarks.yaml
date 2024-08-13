@@ -207,7 +207,133 @@ rodinia:
       name: Huffman
       url: https://www.cs.virginia.edu/rodinia/doku.php?id=huffman
       tags: []
-
+specaccel2023:
+  name: SPECaccel 2023
+  url: https://www.spec.org/accel2023/
+  license: Proprietary
+  tags: [programming-model:openmp, programming-model:openmp-target, programming-model:openacc, benchmark-scale:single-node, benchmark-scale:sub-node]
+  notes: "Commercial suite with distinct execution instructions, focusing on accelerators. Update of the preceding SPEC ACCEL suite, extending selected benchmarks."
+  benchmarks:
+    stencil:
+      name: 403.stencil
+      tags: [programming-language:c, method-type:pde, application-domain:thermodynamics, mesh-representation:structured-grid, method-type:solver]
+      url: https://www.spec.org/accel2023/Docs/benchmarks/403.stencil.html
+    lbm:
+      name: 404.lbm
+      tags: [programming-language:c, application-domain:cfd, application-domain:material-science, method-type:lbm]
+      url: https://www.spec.org/accel2023/Docs/benchmarks/404.lbm.html
+    md:
+      name: 450.md
+      tags: [programming-language:fortran, application-domain:molecular-dynamics]
+      url: https://www.spec.org/accel2023/Docs/benchmarks/450.md.html
+    ep:
+      name: 452.ep
+      tags: [programming-language:c]
+      url: https://www.spec.org/accel2023/Docs/benchmarks/452.ep.html
+    clvrleaf:
+      name: 453.clvrleaf
+      tags: [programming-language:c, programming-language:fortran, application-domain:hydrodynamics, method-type:eulerian, method-type:finite-volume, mesh-representation:structured-grid, application-domain:climate]
+      url: https://www.spec.org/accel2023/Docs/benchmarks/453.clvrleaf.html
+    seismic:
+      name: 455.seismic
+      tags: [programming-language:fortran, method-type:finite-difference, application-domain:seismic]
+      url: https://www.spec.org/accel2023/Docs/benchmarks/455.seismic.html
+    spF:
+      name: 456.spF
+      tags: [programming-language:fortran, application-domain:cfd, method-type:solver]
+      url: https://www.spec.org/accel2023/Docs/benchmarks/456.spF.html
+    spC:
+      name: 457.spC
+      tags: [programming-language:c, application-domain:cfd, method-type:solver]
+      url: https://www.spec.org/accel2023/Docs/benchmarks/457.spC.html
+    miniGhost:
+      name: 459.miniGhost
+      tags: [programming-language:c, programming-language:fortran, method-type:finite-difference]
+      url: https://www.spec.org/accel2023/Docs/benchmarks/459.miniGhost.html
+    ilbdc:
+      name: 460.ilbdc
+      tags: [programming-language:fortran, method-type:lbm, method-type:eulerian, method-type:finite-difference, application-domain:cfd]
+      url: https://www.spec.org/accel2023/Docs/benchmarks/460.ilbdc.html
+    swim:
+      name: 463.swim
+      tags: [programming-language:fortran, application-domain:climate, method-type:finite-difference, memory-access-characteristics:high-memory-bandwidth]
+      url: https://www.spec.org/accel2023/Docs/benchmarks/463.swim.html
+    bt:
+      name: 470.bt
+      tags: [programming-language:c, method-type:pde]
+      url: https://www.spec.org/accel2023/Docs/benchmarks/470.bt.html
+specaccel:
+  name: SPEC ACCEL
+  url: https://www.spec.org/accel/
+  license: Proprietary
+  tags: [programming-model:openmp-target, programming-model:openacc, programming-model:opencl, benchmark-scale:single-node, benchmark-scale:sub-node, programming-language:fortran, programming-language:c, programming-language:c++]
+  notes: "Commercial suite with distinct execution instructions, focusing on accelerators. Current version: v1.3. Individual benchmarks are combined here per category for brevity."
+  benchmarks:
+    specocl:
+      name: SPEC ACCEL_OCL
+      tags: [programming-language:c++, programming-language:c, programming-model:opencl]
+      notes: "19 OpenCL-enabled benchmarks: 101.tpacf, 103.stencil, 104.lbm, 110.fft, 112.spmv, 114.mriq, 116.histo, 117.bfs, 118.cutcp, 120.kmeans, 121.lavamd, 122.cfd, 123.nw, 124.hotspot, 125.lud, 126.ge, 127.srad, 128.heartwall, 140.bplustree"
+    specoacc:
+      name: SPEC ACCEL_OACC
+      tags: [programming-language:fortran, programming-language:c, programming-model:openacc]
+      notes: "15 OpenACC-enabled benchmarks: 303.ostencil, 304.olbm, 314.omriq, 350.md, 351.palm, 352.ep, 353.clvrleaf, 354.cg, 355.seismic, 356.sp, 357.csp, 359.miniGhost, 360.ilbdc, 363.swim, 370.bt"
+    specomp:
+      name: SPEC ACCEL_OMP
+      tags: [programming-language:fortran, programming-language:c, programming-model:openmp, programming-model:openmp-target]
+      notes: "15 OpenMP-enabled benchmarks: 503.postencil, 504.polbm, 514.pomriq, 550.pmd, 551.ppalm, 552.pep, 553.pclvrleaf, 554.pcg, 555.pseismic, 556.psp, 557.pcsp, 559.pmniGhost, 560.pilbdc, 563.pswim, 570.pbt"
+spechpc:
+  name: SPEChpc
+  url: https://www.spec.org/hpc2021/
+  tags: [programming-model:openmp, programming-model:openmp-target, programming-model:openacc, communication:mpi, benchmark-scale:single-node, benchmark-scale:multi-node,benchmark-scale:large-scale]
+  notes: "SPEChpc collects its benchmarks into suites of different workload sizes: tiny, small, medium, large. Each size targets different number of tasks and higher memory usage."
+  benchmarks:
+    lbm:
+      name: LBM D2Q37
+      tags: [programming-language:c, application-domain:cfd]
+      url: https://www.spec.org/hpc2021/docs/benchmarks/505.lbm_t.html
+      license: BSD-3-Clause
+    soma:
+      name: SOMA
+      tags: [programming-language:c, application-domain:physics, application-domain:polymers]
+      url: https://www.spec.org/hpc2021/docs/benchmarks/513.soma_t.html
+      license: GPL-3
+    tealeaf:
+      name: Tealeaf
+      tags: [programming-language:c, application-domain:physics, application-domain:hep]
+      url: https://www.spec.org/hpc2021/docs/benchmarks/518.tealeaf_t.html
+      license: GPL-3
+    clvleaf:
+      name: Cloverleaf
+      tags: [programming-language:fortran, application-domain:physics, application-domain:hep]
+      url: https://www.spec.org/hpc2021/docs/benchmarks/519.clvleaf_t.html
+      license: GPL-3
+    miniswp:
+      name: Minisweep
+      tags: [programming-language:c, application-domain:physics, application-domain:nuclear]
+      url: https://www.spec.org/hpc2021/docs/benchmarks/521.miniswp_t.html
+      license: GPL-3
+      note: "License in linked repository is BSD-2-Clause."
+    pot3d:
+      name: POT3D
+      tags: [programming-language:fortran, application-domain:physics, application-domain:solar-physics]
+      url: https://www.spec.org/hpc2021/docs/benchmarks/528.pot3d_t.html
+      license: Apache-2
+      note: "Custom Apache license"
+    sphexa:
+      name: SPH-EXA
+      tags: [programming-language:c++, application-domain:physics, application-domain:astro-physics, application-domain:cosmology]
+      url: https://www.spec.org/hpc2021/docs/benchmarks/532.sph_exa_t.html
+      license: MIT
+    hpgmgfv:
+      name: HPGMG-FV
+      tags: [programming-language:c, application-domain:physics, application-domain:cosmology, application-domain:astro-physics, application-domain:combustion]
+      url: https://www.spec.org/hpc2021/docs/benchmarks/534.hpgmgfv_t.html
+      note: "While the SPEC site lists only copyright, the HPMG repository contains a BSD-2-Clause license."
+    weather:
+      name: miniWeather
+      tags: [programming-language:fortran, application-domain:climate]
+      url: https://www.spec.org/hpc2021/docs/benchmarks/535.weather_t.html
+      license: BSD-2-Clause
 benchmarks:
   hpl:
     name: HPL
@@ -254,7 +380,18 @@ benchmarks:
     url: https://mvapich.cse.ohio-state.edu/benchmarks/
     tags: [benchmark-scale:single-node, benchmark-scale:multi-node, benchmark-scale:large-scale, communication:mpi, communication:nccl, communication:rccl, communication:openshmem, communication:upc, communication:upc++, communication-performance-characteristics:network-bandwidth-bound, communication-performance-characteristics:network-bisection-bandwidth-bound, communication-performance-characteristics:network-collectives, communication-performance-characteristics:network-latency-bound, communication-performance-characteristics:network-multi-threaded, communication-performance-characteristics:network-nonblocking-collectives, communication-performance-characteristics:network-onesided, communication-performance-characteristics:network-point-to-point, compute-performance-characteristics:atomics, memory-access-characteristics:managed-memory, memory-access-characteristics:regular-memory-access, programming-language:c, programming-language:java, programming-language:python, programming-model:cuda, programming-model:openacc, programming-model:rocm]
     notes: "A vast collection of network-related micro-benchmarks."
-
+  specmpi:
+    name: SPEC MPI 2007
+    license: Proprietary
+    url: https://www.spec.org/mpi2007/
+    tags: [programming-language:c, programming-language:fortran, benchmark-scale:single-node, benchmark-scale:multi-node, benchmark-scale:large-scale, communication:mpi]
+    notes: "MPI-targeted benchmark suite. Last update: 2009 (v2.0). It features the following benchmarks: 104.milc, 107.leslie3d, 113.GemsFDTD, 115.fds4, 121.pop2, 122.tachyon, 125.RAxML, 126.lammps, 127.wrf2, 128.GAPgeofem, 129.tera_tf, 130.socorro, 132.zeusmp2, 137.lu, 142.dmilc, 143.dleslie, 145.lGemsFDTD, 147.l2wrf2"
+  specomp:
+    name: SPEC OMP 2012
+    license: Proprietary
+    url: https://www.spec.org/omp2012/
+    tags: [programming-model:openmp, programming-language:c, programming-language:c++, programming-language:fortran]
+    notes: "OpenMP-focused benchmark, successor of SPEC OMP 2001 benchmark. Includes the following benchmarks: 350.md, 351.bwaves, 352.nab, 357.bt331, 358.botsalgn, 359.botsspar, 360.ilbdc, 362.fma3d, 363.swim, 367.imagick, 370.mgrid331, 371.applu331, 372.smithwa, 376.kdtree"
 coral2:
   name: CORAL-2
   tags: [programming-model:openmp, programming-model:cuda, programming-language:c++, programming-language:c, programming-language:fortran, programming-language:python]
