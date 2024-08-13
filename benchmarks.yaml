@@ -248,6 +248,13 @@ benchmarks:
     url: https://github.com/zjin-lcf/Rodinia_SYCL
     tags: [programming-model:sycl, programming-language:c++]
     notes: "SYCL implementations of Rodinia benchmarks, currently deprecated (integrated into/maintained through HeCBench)"
+  osu:
+    name: OSU Micro-Benchmarks
+    license: BSD-3-Clause
+    url: https://mvapich.cse.ohio-state.edu/benchmarks/
+    tags: [benchmark-scale:single-node, benchmark-scale:multi-node, benchmark-scale:large-scale, communication:mpi, communication:nccl, communication:rccl, communication:openshmem, communication:upc, communication:upc++, communication-performance-characteristics:network-bandwidth-bound, communication-performance-characteristics:network-bisection-bandwidth-bound, communication-performance-characteristics:network-collectives, communication-performance-characteristics:network-latency-bound, communication-performance-characteristics:network-multi-threaded, communication-performance-characteristics:network-nonblocking-collectives, communication-performance-characteristics:network-onesided, communication-performance-characteristics:network-point-to-point, compute-performance-characteristics:atomics, memory-access-characteristics:managed-memory, memory-access-characteristics:regular-memory-access, programming-language:c, programming-language:java, programming-language:python, programming-model:cuda, programming-model:openacc, programming-model:rocm]
+    notes: "A vast collection of network-related micro-benchmarks."
+
 coral2:
   name: CORAL-2
   tags: [programming-model:openmp, programming-model:cuda, programming-language:c++, programming-language:c, programming-language:fortran, programming-language:python]
