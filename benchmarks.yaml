@@ -131,7 +131,7 @@ benchmarks:
     name: LCALS
     url: https://codesign.llnl.gov/LCALS.php
 coral2:
-  name: CORAL-2
+  name: "CORAL-2"
   tags: [programming-model:openmp, programming-model:cuda, programming-language:c++, programming-language:c, programming-language:fortran, programming-language:python]
   license: none
   url: https://asc.llnl.gov/coral-2-benchmarks
@@ -181,9 +181,9 @@ coral2:
       tags: [application-domain:synthetic, benchmark-scale:large-scale, communication:mpi, programming-language:c, communication-performance-characteristics:network-latency-bound, communication-performance-characteristics:network-bandwith-bound, communication-performance-characteristics:network-bisection-bandwidth-bound, communication-performance-characteristics:network-collectives]
       notes: "Subsystem functionality and performance tests. Collection of independent MPI benchmarks to measure various aspects of MPI performance including interconnect messaging rate, latency, aggregate bandwidth, and collective latencies."
     stream:
-      name: Stream
+      name: STREAM
       tags: [application-domain:synthetic, benchmark-scale:single-node, programming-model:openmp, programming-language:c, memory-access-characteristics:high-memory-bandwidth, memory-access-characteristics:regular-memory-access]
-      notes: "Memory subsystem functionality and performance tests."
+      notes: "See dedicated entry. Memory subsystem functionality and performance tests."
     stride:
       name: Stride
       tags: [application-domain:synthetic, benchmark-scale:single-node, programming-model:openmp, programming-language:c, memory-access-characteristics:high-memory-bandwidth, memory-access-characteristics:regular-memory-access]
@@ -201,12 +201,13 @@ coral2:
       tags: [application-domain:synthetic, benchmark-scale:single-node, programming-model:openmp, programming-language:c]
       notes: "Threading benchmark focused on performance of thread overheads evaluation."
     pynamic:
+      name: Pynamic
       tags: [application-domain:asc, benchmark-scale:large-scale, communication:mpi, programming-model:raja, programming-model:openmp, programming-model:cuda, programming-language:python, programming-language:c]
       notes: "Subsystem functionality and performance test. Dummy application that closely models the footprint of an important Python-based multi-physics ASC code."
     rajaperf:
-      name: RAJAPerformanceSuite
+      name: RAJAPerf
       tags: [application-domain:asc, benchmark-scale:single-node, programming-model:raja, programming-model:openmp, programming-model:cuda, programming-language:c++]
-      notes: "The RAJA performance suite is designed to explore performance of loop-based computational kernels of the sort found in HPC applications. In particular, it is used to assess, monitor, and compare runtime performance of kernels implemented using RAJA and variants implemented using standard or vendor-supported parallel programming models directly. Each kernel in the suite appears in multiple RAJA and non-RAJA variants using parallel programming models such as OpenMP and CUDA."
+      notes: "See dedicated entry. The RAJA performance suite is designed to explore performance of loop-based computational kernels of the sort found in HPC applications. In particular, it is used to assess, monitor, and compare runtime performance of kernels implemented using RAJA and variants implemented using standard or vendor-supported parallel programming models directly. Each kernel in the suite appears in multiple RAJA and non-RAJA variants using parallel programming models such as OpenMP and CUDA."
     e3sm:
       name: E3SM
       tags: [application-domain:climate, benchmark-scale:large-scale, communication:mpi, programming-model:openmp, programming-model:cuda, programming-language:fortran, memory-access-characteristics:high-memory-bandwidth]
