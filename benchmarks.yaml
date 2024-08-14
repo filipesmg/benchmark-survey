@@ -143,13 +143,44 @@ coral2:
       notes: >
         The Hardware Accelerated Cosmology Code (HACC) simulates the formation of structure in collisionless fluids under the influence of gravity in an expanding universe. Achieves 13.92 Petaflops, 69.2\% of machine peak on Sequoia.
     nekbone:
-      name: NEKBONE  
+      name: NEKBONE
       tags: [application-domain:cfd, method-type:conjugate-gradient, benchmark-scale:large-scale, communication:mpi, programming-model:cuda, programming-language:fortran, programming-language:c, compute-performance-characteristics:high-fp, communication-performance-characteristics:network-collectives]
       notes: "Nekbone is a mini-app derived from the Nek5000 CFD code which is a high order, incompressible Navier-Stokes CFD solver based on the spectral element method."
     qmcpack:
       name: QMCPACK
       tags: [application-domain:molecular-dynamics, method-type:montecarlo, benchmark-scale:large-scale, communication:mpi, programming-model:openmp, programming-model:cuda, programming-language:c, programming-language:c++, memory-access-characteristics:high-memory-bandwidth]
-      notes: "QMCPACK is a many-body ab initio quantum Monte Carlo code for computing the electronic structure of atoms, molecules, and solids."  
+      notes: "QMCPACK is a many-body ab initio quantum Monte Carlo code for computing the electronic structure of atoms, molecules, and solids."
     lammps:
       name: LAMMPS
       tags: [application-domain:molecular-dynamics, benchmark-scale:large-scale, communication:mpi, programming-model:openmp, programming-model:cuda, programming-language:c++, compute-performance-characteristics:high-fp,  memory-access-characteristics:high-memory-bandwidth, communication-performance-characteristics:network-bandwidth-bound,communication-performance-characteristics:network-latency-bound]
+olcf-6:
+  name: OLCF-2
+  tags: [programming-model:openmp, programming-language:c++, programming-language:fortran, communication:mpi]
+  license: none
+  url: https:https://www.olcf.ornl.gov/draft-olcf-6-technical-requirements/benchmarks
+  benchmarks:
+    lammps:
+      name: LAMMPS
+      tags: [application-domain:molecular-dynamics, benchmark-scale:large-scale, communication:mpi, programming-model:openmp, programming-model:cuda, programming-language:c++, compute-performance-characteristics:high-fp,  memory-access-characteristics:high-memory-bandwidth, communication-performance-characteristics:network-bandwidth-bound,communication-performance-characteristics:network-latency-bound]
+      notes: "Short and long range interactions."
+    m-psdns:
+      name: M-PSDNS
+      tags: [application-domain:cfd, method-type:direct-solve, method-type:fft, communication-performance-characteristics:network-latency-bound, communication-performance-characteristics:network-bisection-bandwidth-bound, communication-performance-characteristics:network-bandwidth-bound, communication-performance-characteristics:network-point-to-point, benchmark-scale:large-scale, programming-model:hip]
+      notes: "Minimalist version of PSDNS."
+    milk:
+      name: MILC
+      tags: [application-domain:qcd, benchmark-scale:large-scale, benchmark-scale:strong-scaling, communication-performance-characteristics:network-bandwidth-bound, communication-performance-characteristics:network-latency-bound, math-libraries:quda]
+      notes: "Generation on su3_rhmd_hisq problem from the MIMD Lattice Collaboration (MILC) code."
+    qmcpack:
+      name: QMCPACK
+      tags: [application-domain:molecular-dynamics, method-type:montecarlo, benchmark-scale:large-scale, communication:mpi, programming-model:openmp, programming-model:cuda, programming-language:c, programming-language:c++, memory-access-characteristics:high-memory-bandwidth]
+      notes: "QMCPACK is a many-body ab initio quantum Monte Carlo code for computing the electronic structure of atoms, molecules, and solids."
+      url: https://www.qmcpack.org
+    forge:
+      name: FORGE
+      tags: [method-type:ai, method-type:gpt, method-type:transformer, method-type:llm, method-type:ai-training, compute-performance-characteristics:tensor, compute-performance-characteristics:pipeline-parallelism, compute-performance-characteristics:low-precision]
+      notes: "For scientific downstream tasks, such as domain-subject classification."
+    workflow:
+      name: Workflow
+      tags: [method-type:ai, method-type:tpt, method-type:transformer, method-type:particles, method-type:ai-training]
+      notes: "This benchmark aims to evaluate the efficiency of a HPC system in handling dynamic workloads from data streams."
