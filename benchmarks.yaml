@@ -14,7 +14,7 @@ rajaperf:
     lcals:
       name: LCALS
       longname: Livermore Compiler Analysis Loop Suite
-      tags: [programming-model:kokkos]
+      tags: [programming-model:kokkos, memory-access-characteristics:regular-memory-access]
     comm:
       name: Halo Communication
     basic:
@@ -107,7 +107,233 @@ hecbench:
       name: Robotics
       tags: [application-domain:robotics]
       notes: "Benchmarks: inversek2j, rodrigues"
-
+rodinia:
+  name: Rodinia
+  tags: [programming-model:cuda, programming-model:opencl, programming-model:openmp, benchmark-scale:single-node, programming-language:c]
+  url: https://www.cs.virginia.edu/rodinia/doku.php?id=start
+  ref: 10.1109/IISWC.2009.5306797
+  license: free
+  notes: "No updates since a long time; customized BSD-3-Clause license"
+  benchmarks:
+    leukocyte:
+      name: Leukocyte
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=leukocyte
+      tags: [mesh-representation:structured-grid, application-domain:medical]
+    heart:
+      name: Heart Wall
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=heart_wall
+      tags: [mesh-representation:structured-grid, application-domain:medical]
+    mummergpu:
+      name: MUMmerGPU
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=mummergpu
+      tags: [method-type:graph-traversal, application-domain:bioinformatics]
+    cfdsolver:
+      name: CFD Solver
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=cfd_solver
+      tags: [application-domain:cfd, method-type:finite-volume, mesh-representation:unstructured-grid]
+    ludecomp:
+      name: LU Decomposition
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=lu_decomposition
+      tags: [method-type:dense-linear-algebra]
+    hotspot:
+      name: HotSpot
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=hotspot
+      tags: [method-type:ode, mesh-representation:structured-grid, application-domain:physics]
+    backpropagation:
+      name: Back Propagation
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=back_propagation
+      tags: [method-type:ai, mesh-representation:unstructured-grid]
+    needleman:
+      name: Needleman-Wunsch
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=needleman-wunsch
+      tags: [application-domain:bioinformatics]
+    kmeans:
+      name: Kmeans
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=kmeans
+      tags: [application-domain:data-mining, method-type:clustering, method-type:dense-linear-algebra]
+    bfs:
+      name: Breadth-First Search
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=graph_traversal
+      tags: [method-type:graph-traversal]
+    srad:
+      name: SRAD
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=srad
+      tags: [application-domain:computer-vision, method-type:pde, mesh-representation:structured-grid]
+    streamcluster:
+      name: Streamcluster
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=streamcluster
+      tags: [application-domain:data-mining, method-type:clustering, method-type:dense-linear-algebra]
+    particlefilter:
+      name: Particle Filter
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=particle_filter
+      tags: [application-domain:medical, mesh-representation:structured-grid]
+    pathfinder:
+      name: PathFinder
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=pathfinder
+      tags: [mesh-representation:structured-grid]
+    gaussian:
+      name: Gaussian Elimination
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=gaussian_elimination
+      tags: [method-type:dense-linear-algebra]
+    knn:
+      name: k-Nearest Neighbors
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=k-nearest_neighbors
+      tags: [method-type:dense-linear-algebra]
+    lavamd2:
+      name: LavaMD2
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=lavamd2
+      tags: [application-domain:molecular-dynamics, method-type:paricles]
+    myocyte:
+      name: Myocyte
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=myocyte
+      tags: [application-domain:biology, mesh-representation:structured-grid, method-type:ode, method-type:solver]
+    btree:
+      name: "B+ Tree"
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=b_tree
+      tags: [method-type:graph-traversal]
+    gpudwt:
+      name: GPUDWT
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=gpudwt
+      tags: [method-type:spectral]
+    hybridsort:
+      name: Hybrid Sort
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=hybrid_sort
+      tags: [method-type:sorting, compute-performance-characteristics:atomics]
+    htospot3d:
+      name: Hotspot3D
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=hotspot3d
+      tags: [application-domain:physics, mesh-representation:structured-grid,]
+    huffman:
+      name: Huffman
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=huffman
+      tags: [method-type:state-machine]
+specaccel2023:
+  name: SPECaccel 2023
+  url: https://www.spec.org/accel2023/
+  license: Proprietary
+  tags: [programming-model:openmp, programming-model:openmp-target, programming-model:openacc, benchmark-scale:single-node, benchmark-scale:sub-node]
+  notes: "Commercial suite with distinct execution instructions, focusing on accelerators. Update of the preceding SPEC ACCEL suite, extending selected benchmarks."
+  benchmarks:
+    stencil:
+      name: 403.stencil
+      tags: [programming-language:c, method-type:pde, application-domain:thermodynamics, mesh-representation:structured-grid, method-type:solver]
+      url: https://www.spec.org/accel2023/Docs/benchmarks/403.stencil.html
+    lbm:
+      name: 404.lbm
+      tags: [programming-language:c, application-domain:cfd, application-domain:material-science, method-type:lbm]
+      url: https://www.spec.org/accel2023/Docs/benchmarks/404.lbm.html
+    md:
+      name: 450.md
+      tags: [programming-language:fortran, application-domain:molecular-dynamics]
+      url: https://www.spec.org/accel2023/Docs/benchmarks/450.md.html
+    ep:
+      name: 452.ep
+      tags: [programming-language:c]
+      url: https://www.spec.org/accel2023/Docs/benchmarks/452.ep.html
+    clvrleaf:
+      name: 453.clvrleaf
+      tags: [programming-language:c, programming-language:fortran, application-domain:hydrodynamics, method-type:eulerian, method-type:finite-volume, mesh-representation:structured-grid, application-domain:climate]
+      url: https://www.spec.org/accel2023/Docs/benchmarks/453.clvrleaf.html
+    seismic:
+      name: 455.seismic
+      tags: [programming-language:fortran, method-type:finite-difference, application-domain:seismic]
+      url: https://www.spec.org/accel2023/Docs/benchmarks/455.seismic.html
+    spF:
+      name: 456.spF
+      tags: [programming-language:fortran, application-domain:cfd, method-type:solver]
+      url: https://www.spec.org/accel2023/Docs/benchmarks/456.spF.html
+    spC:
+      name: 457.spC
+      tags: [programming-language:c, application-domain:cfd, method-type:solver]
+      url: https://www.spec.org/accel2023/Docs/benchmarks/457.spC.html
+    miniGhost:
+      name: 459.miniGhost
+      tags: [programming-language:c, programming-language:fortran, method-type:finite-difference]
+      url: https://www.spec.org/accel2023/Docs/benchmarks/459.miniGhost.html
+    ilbdc:
+      name: 460.ilbdc
+      tags: [programming-language:fortran, method-type:lbm, method-type:eulerian, method-type:finite-difference, application-domain:cfd]
+      url: https://www.spec.org/accel2023/Docs/benchmarks/460.ilbdc.html
+    swim:
+      name: 463.swim
+      tags: [programming-language:fortran, application-domain:climate, method-type:finite-difference, memory-access-characteristics:high-memory-bandwidth]
+      url: https://www.spec.org/accel2023/Docs/benchmarks/463.swim.html
+    bt:
+      name: 470.bt
+      tags: [programming-language:c, method-type:pde]
+      url: https://www.spec.org/accel2023/Docs/benchmarks/470.bt.html
+specaccel:
+  name: SPEC ACCEL
+  url: https://www.spec.org/accel/
+  license: Proprietary
+  tags: [programming-model:openmp-target, programming-model:openacc, programming-model:opencl, benchmark-scale:single-node, benchmark-scale:sub-node, programming-language:fortran, programming-language:c, programming-language:c++]
+  notes: "Commercial suite with distinct execution instructions, focusing on accelerators. Current version: v1.3. Individual benchmarks are combined here per category for brevity."
+  benchmarks:
+    specocl:
+      name: SPEC ACCEL_OCL
+      tags: [programming-language:c++, programming-language:c, programming-model:opencl]
+      notes: "19 OpenCL-enabled benchmarks: 101.tpacf, 103.stencil, 104.lbm, 110.fft, 112.spmv, 114.mriq, 116.histo, 117.bfs, 118.cutcp, 120.kmeans, 121.lavamd, 122.cfd, 123.nw, 124.hotspot, 125.lud, 126.ge, 127.srad, 128.heartwall, 140.bplustree"
+    specoacc:
+      name: SPEC ACCEL_OACC
+      tags: [programming-language:fortran, programming-language:c, programming-model:openacc]
+      notes: "15 OpenACC-enabled benchmarks: 303.ostencil, 304.olbm, 314.omriq, 350.md, 351.palm, 352.ep, 353.clvrleaf, 354.cg, 355.seismic, 356.sp, 357.csp, 359.miniGhost, 360.ilbdc, 363.swim, 370.bt"
+    specomp:
+      name: SPEC ACCEL_OMP
+      tags: [programming-language:fortran, programming-language:c, programming-model:openmp, programming-model:openmp-target]
+      notes: "15 OpenMP-enabled benchmarks: 503.postencil, 504.polbm, 514.pomriq, 550.pmd, 551.ppalm, 552.pep, 553.pclvrleaf, 554.pcg, 555.pseismic, 556.psp, 557.pcsp, 559.pmniGhost, 560.pilbdc, 563.pswim, 570.pbt"
+spechpc:
+  name: SPEChpc
+  url: https://www.spec.org/hpc2021/
+  tags: [programming-model:openmp, programming-model:openmp-target, programming-model:openacc, communication:mpi, benchmark-scale:single-node, benchmark-scale:multi-node,benchmark-scale:large-scale]
+  notes: "SPEChpc collects its benchmarks into suites of different workload sizes: tiny, small, medium, large. Each size targets different number of tasks and higher memory usage."
+  benchmarks:
+    lbm:
+      name: LBM D2Q37
+      tags: [programming-language:c, application-domain:cfd]
+      url: https://www.spec.org/hpc2021/docs/benchmarks/505.lbm_t.html
+      license: BSD-3-Clause
+    soma:
+      name: SOMA
+      tags: [programming-language:c, application-domain:physics, application-domain:polymers]
+      url: https://www.spec.org/hpc2021/docs/benchmarks/513.soma_t.html
+      license: GPL-3
+    tealeaf:
+      name: Tealeaf
+      tags: [programming-language:c, application-domain:physics, application-domain:hep]
+      url: https://www.spec.org/hpc2021/docs/benchmarks/518.tealeaf_t.html
+      license: GPL-3
+    clvleaf:
+      name: Cloverleaf
+      tags: [programming-language:fortran, application-domain:physics, application-domain:hep]
+      url: https://www.spec.org/hpc2021/docs/benchmarks/519.clvleaf_t.html
+      license: GPL-3
+    miniswp:
+      name: Minisweep
+      tags: [programming-language:c, application-domain:physics, application-domain:nuclear]
+      url: https://www.spec.org/hpc2021/docs/benchmarks/521.miniswp_t.html
+      license: GPL-3
+      note: "License in linked repository is BSD-2-Clause."
+    pot3d:
+      name: POT3D
+      tags: [programming-language:fortran, application-domain:physics, application-domain:solarphysics]
+      url: https://www.spec.org/hpc2021/docs/benchmarks/528.pot3d_t.html
+      license: Apache-2
+      note: "Custom Apache license"
+    sphexa:
+      name: SPH-EXA
+      tags: [programming-language:c++, application-domain:physics, application-domain:astrophysics, application-domain:cosmology]
+      url: https://www.spec.org/hpc2021/docs/benchmarks/532.sph_exa_t.html
+      license: MIT
+    hpgmgfv:
+      name: HPGMG-FV
+      tags: [programming-language:c, application-domain:physics, application-domain:cosmology, application-domain:astrophysics, application-domain:combustion]
+      url: https://www.spec.org/hpc2021/docs/benchmarks/534.hpgmgfv_t.html
+      note: "While the SPEC site lists only copyright, the HPMG repository contains a BSD-2-Clause license."
+    weather:
+      name: miniWeather
+      tags: [programming-language:fortran, application-domain:climate]
+      url: https://www.spec.org/hpc2021/docs/benchmarks/535.weather_t.html
+      license: BSD-2-Clause
 benchmarks:
   hpl:
     name: HPL
@@ -130,8 +356,44 @@ benchmarks:
   lcals:
     name: LCALS
     url: https://codesign.llnl.gov/LCALS.php
+  rodiniajl:
+    name: Rodinia (Julia)
+    license: free
+    url: https://github.com/JuliaParallel/rodinia/
+    tags: [programming-model:cuda, programming-model:opencl, programming-model:openmp, benchmark-scale:single-node, programming-language:julia]
+    notes: "Julia-port of the Rodinia benchmarks, with single and multi-threaded implementations and Julia+CUDA; has the Rodinia license (customized BSD-3-Clause)"
+  rodiniadpcpp:
+    name: Rodinia (DPC++)
+    license: MIT
+    url: https://github.com/artecs-group/rodinia-dpct-dpcpp/
+    tags: [programming-model:dpc++, programming-model:sycl, programming-language:c++]
+    notes: "DPC++-translation of Rodinia benchmarks (SYCL tag added for visibility)"
+  rodiniasycl:
+    name: Rodinia (SYCL)
+    license: BSD-3-Clause
+    url: https://github.com/zjin-lcf/Rodinia_SYCL
+    tags: [programming-model:sycl, programming-language:c++]
+    notes: "SYCL implementations of Rodinia benchmarks, currently deprecated (integrated into/maintained through HeCBench)"
+  osu:
+    name: OSU Micro-Benchmarks
+    license: BSD-3-Clause
+    url: https://mvapich.cse.ohio-state.edu/benchmarks/
+    tags: [benchmark-scale:single-node, benchmark-scale:multi-node, benchmark-scale:large-scale, communication:mpi, communication:nccl, communication:rccl, communication:openshmem, communication:upc, communication:upc++, communication-performance-characteristics:network-bandwidth-bound, communication-performance-characteristics:network-bisection-bandwidth-bound, communication-performance-characteristics:network-collectives, communication-performance-characteristics:network-latency-bound, communication-performance-characteristics:network-multi-threaded, communication-performance-characteristics:network-nonblocking-collectives, communication-performance-characteristics:network-onesided, communication-performance-characteristics:network-point-to-point, compute-performance-characteristics:atomics, memory-access-characteristics:managed-memory, memory-access-characteristics:regular-memory-access, programming-language:c, programming-language:java, programming-language:python, programming-model:cuda, programming-model:openacc, programming-model:rocm]
+    notes: "A vast collection of network-related micro-benchmarks."
+  specmpi:
+    name: SPEC MPI 2007
+    license: Proprietary
+    url: https://www.spec.org/mpi2007/
+    tags: [programming-language:c, programming-language:fortran, benchmark-scale:single-node, benchmark-scale:multi-node, benchmark-scale:large-scale, communication:mpi]
+    notes: "MPI-targeted benchmark suite. Last update: 2009 (v2.0). It features the following benchmarks: 104.milc, 107.leslie3d, 113.GemsFDTD, 115.fds4, 121.pop2, 122.tachyon, 125.RAxML, 126.lammps, 127.wrf2, 128.GAPgeofem, 129.tera_tf, 130.socorro, 132.zeusmp2, 137.lu, 142.dmilc, 143.dleslie, 145.lGemsFDTD, 147.l2wrf2"
+  specomp:
+    name: SPEC OMP 2012
+    license: Proprietary
+    url: https://www.spec.org/omp2012/
+    tags: [programming-model:openmp, programming-language:c, programming-language:c++, programming-language:fortran]
+    notes: "OpenMP-focused benchmark, successor of SPEC OMP 2001 benchmark. Includes the following benchmarks: 350.md, 351.bwaves, 352.nab, 357.bt331, 358.botsalgn, 359.botsspar, 360.ilbdc, 362.fma3d, 363.swim, 367.imagick, 370.mgrid331, 371.applu331, 372.smithwa, 376.kdtree"
 coral2:
-  name: CORAL-2
+  name: "CORAL-2"
   tags: [programming-model:openmp, programming-model:cuda, programming-language:c++, programming-language:c, programming-language:fortran, programming-language:python]
   license: none
   url: https://asc.llnl.gov/coral-2-benchmarks
@@ -140,8 +402,6 @@ coral2:
     hacc:
       name: HACC
       tags: [application-domain:astrophysics, method-type:nbody, method-type:fft, benchmark-scale:large-scale, communication:mpi, programming-model:openmp, programming-model:cuda, programming-language:c++, compute-performance-characteristics:high-fp]
-      notes: >
-        The Hardware Accelerated Cosmology Code (HACC) simulates the formation of structure in collisionless fluids under the influence of gravity in an expanding universe. Achieves 13.92 Petaflops, 69.2\% of machine peak on Sequoia.
     nekbone:
       name: NEKBONE
       tags: [application-domain:cfd, method-type:conjugate-gradient, benchmark-scale:large-scale, communication:mpi, programming-model:cuda, programming-language:fortran, programming-language:c, compute-performance-characteristics:high-fp, communication-performance-characteristics:network-collectives]
@@ -152,6 +412,84 @@ coral2:
       notes: "QMCPACK is a many-body ab initio quantum Monte Carlo code for computing the electronic structure of atoms, molecules, and solids."
     lammps:
       name: LAMMPS
+      tags: [application-domain:molecular-dynamics, benchmark-scale:large-scale, communication:mpi, programming-model:openmp, programming-model:cuda, programming-language:c++, compute-performance-characteristics:high-fp,  memory-access-characteristics:high-memory-bandwidth, communication-performance-characteristics:network-bandwidth-bound, communication-performance-characteristics:network-latency-bound]
+      notes: "LAMMPS is a classical molecular dynamics code."
+    amg:
+      name: AMG
+      tags: [application-domain:asc, method-type:solver, method-type:sparse-linear-algebra, benchmark-scale:large-scale, communication:mpi, programming-model:openmp, programming-model:cuda, programming-language:c, memory-access-characteristics:irregular-memory-access, memory-access-characteristics:high-memory-bandwidth, memory-access-characteristics:high-memory-latency, memory-access-characteristics:large-memory-footprint, communication-performance-characteristics:network-collectives, communication-performance-characteristics:network-latency-bound, mesh-representation:block-structured-grid, compute-performance-characteristics:high-branching, compute-performance-characteristics:mixed-precision]
+      notes: "AMG is a parallel algebraic multigrid solver for linear systems arising from problems on unstructured grids."
+    kripke:
+      name: Kripke
+      tags: [application-domain:asc, method-type:deterministic, method-type:transport, method-type:sparse-linear-algebra, benchmark-scale:large-scale, communication:mpi, programming-model:raja, programming-model:openmp, programming-model:cuda, programming-language:c++, memory-access-characteristics:regular-memory-access, memory-access-characteristics:high-memory-bandwidth, memory-access-characteristics:high-memory-latency, memory-access-characteristics:large-memory-footprint, communication-performance-characteristics:network-latency-bound, mesh-representation:structured-grid, compute-performance-characteristics:atomics, compute-performance-characteristics:high-fp, compute-performance-characteristics:register-pressure, compute-performance-characteristics:simd, compute-performance-characteristics:vectorization, compute-performance-characteristics:mixed-precision]
+      notes: "Kripke is a structured deterministic (Sn) transport using RAJA. It contains wavefront algorithms."
+    quicksilver:
+      name: Quicksilver
+      tags: [application-domain:asc, method-type:montecarlo, method-type:transport, benchmark-scale:large-scale, communication:mpi, programming-model:openmp, programming-model:cuda, programming-language:c++, memory-access-characteristics:irregular-memory-access, memory-access-characteristics:high-memory-latency, memory-access-characteristics:large-memory-footprint, communication-performance-characteristics:network-latency-bound, compute-performance-characteristics:high-branching, compute-performance-characteristics:register-pressure]
+      notes: "Monte Carlo transport benchmark with multi-group cross section lookups. One large kernel that is 1000’s of lines big."
+    pennant:
+      name: PENNANT
+      tags: [application-domain:asc, method-type:hydrodynamics, benchmark-scale:large-scale, communication:mpi, programming-model:openmp, programming-model:cuda, programming-language:c++, memory-access-characteristics:irregular-memory-access, memory-access-characteristics:high-memory-bandwidth, communication-performance-characteristics:network-latency-bound, mesh-representation:unstructured-grid]
+      notes: "PENNANT is hydrodynamics mini-app for unstructured meshes in 2D (arbitrary polygons). It makes heavy use of indirect addressing and irregular memory access patterns."
+    bdas:
+      name: BDAS
+      tags: [method-type:ai]
+      notes: "The big data analytic suite contains the K-Means observation label, PCA, and SVM benchmarks."
+    dls:
+      name: DLS
+      tags: [method-type:ai]
+      notes: "The deep learning suite contains: Convolutional Neural Networks (CNNs) that comprises convolutional layers followed by fully connected layers; LSTM recurrent neural network (RNN) architecture that remembers values over arbitrary intervals to deal with temporal and time-series prediction; and, distributed training code for classification in ImageNet data set at scale. Finally, the CANDLE benchmark codes implement deep learning architectures that are relevant to problems in cancer. These architectures address problems at different biological scales, specifically problems at the molecular, cellular and population scales. We will use two diverse benchmark problems, namely, a) P1B1, a sparse autoencoder to compress the expression profile into a low-dimensional vector, and, b) P3B1 a multi-task deep neural net for data extraction from clinical reports."
+    cmb:
+      name: CMB
+      tags: [application-domain:synthetic, benchmark-scale:large-scale, communication:mpi, programming-language:c, communication-performance-characteristics:network-latency-bound, communication-performance-characteristics:network-bandwith-bound, communication-performance-characteristics:network-bisection-bandwidth-bound, communication-performance-characteristics:network-collectives]
+      notes: "Subsystem functionality and performance tests. Collection of independent MPI benchmarks to measure various aspects of MPI performance including interconnect messaging rate, latency, aggregate bandwidth, and collective latencies."
+    stream:
+      name: STREAM
+      tags: [application-domain:synthetic, benchmark-scale:single-node, programming-model:openmp, programming-language:c, memory-access-characteristics:high-memory-bandwidth, memory-access-characteristics:regular-memory-access]
+      notes: "See dedicated entry. Memory subsystem functionality and performance tests."
+    stride:
+      name: Stride
+      tags: [application-domain:synthetic, benchmark-scale:single-node, programming-model:openmp, programming-language:c, memory-access-characteristics:high-memory-bandwidth, memory-access-characteristics:regular-memory-access]
+      notes: "Memory subsystem functionality and performance tests."
+    mldl:
+      name: MLDL
+      tags: [method-type:ai, method-type:dense-linear-algebra, method-type:sparse-linear-algebra, method-type:fft, compute-performance-characteristics:mixed-precision]
+      notes: "Sparse and dense convolutions, FFT, double, single and half precision GEMM and other machine/deep learning math algorithms not included in other CORAL benchmark suites."
+    io-suite:
+      name: IOR-MDTest-Simul-FTree
+      tags: [application-domain:synthetic]
+      notes: "File system metadata benchmark. Interleaved or Random I/O benchmark. Used for testing the performance of parallel filesystems and burst buffers using various interfaces and access patterns."
+    clomp:
+      name: CLOMP
+      tags: [application-domain:synthetic, benchmark-scale:single-node, programming-model:openmp, programming-language:c]
+      notes: "Threading benchmark focused on performance of thread overheads evaluation."
+    pynamic:
+      name: Pynamic
+      tags: [application-domain:asc, benchmark-scale:large-scale, communication:mpi, programming-model:raja, programming-model:openmp, programming-model:cuda, programming-language:python, programming-language:c]
+      notes: "Subsystem functionality and performance test. Dummy application that closely models the footprint of an important Python-based multi-physics ASC code."
+    rajaperf:
+      name: RAJAPerf
+      tags: [application-domain:asc, benchmark-scale:single-node, programming-model:raja, programming-model:openmp, programming-model:cuda, programming-language:c++]
+      notes: "See dedicated entry. The RAJA performance suite is designed to explore performance of loop-based computational kernels of the sort found in HPC applications. In particular, it is used to assess, monitor, and compare runtime performance of kernels implemented using RAJA and variants implemented using standard or vendor-supported parallel programming models directly. Each kernel in the suite appears in multiple RAJA and non-RAJA variants using parallel programming models such as OpenMP and CUDA."
+    e3sm:
+      name: E3SM
+      tags: [application-domain:climate, benchmark-scale:large-scale, communication:mpi, programming-model:openmp, programming-model:cuda, programming-language:fortran, memory-access-characteristics:high-memory-bandwidth]
+      notes: "E3SM is a high-resolution climate simulation code for the entire Earth system, containing five major components for the atmosphere, ocean, land surface, sea ice, and land ice along with a coupler."
+    vpic:
+      name: VPIC
+      tags: [method-type:particles, communication:mpi, programming-model:openmp, programming-language:c++]
+      notes: "VPIC (Vector Particle-In-Cell) is a general purpose particle-in-cell simulation code for modeling kinetic plasmas. It employs a second-order, explicit, leapfrog algorithm to update charged particle positions and velocities in order to solve the relativistic kinetic equation for each species in the plasma, along with a full Maxwell description for the electric and magnetic fields evolved via a second-order finite-difference-time-domain (FDTD) solve."
+    laghos:
+      name: Laghos
+      tags: [application-domain:asc, method-type:time-dependent, method-type:hydrodynamics, method-type:eulerian, method-type:lagrangian, method-type:high-order, method-type:finite-element, math-libraries:mfem, method-type:explicit-timestepping, method-type:conjugate-gradient, method-type:dense-linear-algebra, benchmark-scale:large-scale, communication:mpi, programming-model:cuda, programming-language:c++]
+      notes: "Laghos supports full assembly and partial assembly modes."
+    pis-ds:
+      name: ParallelIntegerSort
+      tags: [communication:mpi, programming-language:c, programming-language:fortran]
+      notes: "Sorts a large number of 64-bit integers (from 0 to T) in parallel. The total size of the data set can exceed the aggregated memory size of all nodes. The goal is to exercise and study a computer system’s memory hierarchy performance when it comes to big data management. The emphasis here is IO, all-to-all communication, and integer operations."
+    havoq:
+      name: Havoq
+      tags: [memory-access-characteristics:irregular-memory-access, memory-access-characteristics:large-memory-footprint]
+      notes: "Massively parallel graph analysis algorithms for computing triangles, edges, vertices. Emphasizes load imbalance and irregular random memory accesses."
       tags: [application-domain:molecular-dynamics, benchmark-scale:large-scale, communication:mpi, programming-model:openmp, programming-model:cuda, programming-language:c++, compute-performance-characteristics:high-fp,  memory-access-characteristics:high-memory-bandwidth, communication-performance-characteristics:network-bandwidth-bound,communication-performance-characteristics:network-latency-bound]
 olcf-6:
   name: OLCF-2
