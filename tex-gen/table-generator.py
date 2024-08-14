@@ -117,7 +117,8 @@ def main(args):
 
     benchmark_tex = tpl_suite_tableheader
     bib_urls_tex = ""
-    sorted_benchmarks = sorted(benchmarks.items(), key=lambda b: b[0].startswith('benchmark'))  # sort "benchmarks key to the end (https://stackoverflow.com/a/57301615)
+    sorted_benchmarks = dict(sorted(benchmarks.items()))
+    sorted_benchmarks = sorted(sorted_benchmarks.items(), key=lambda b: b[0].startswith('benchmark'))  # sort "benchmarks key to the end (https://stackoverflow.com/a/57301615)
     for suitekey, suitedata in dict(sorted_benchmarks).items():
         multicol=True
         last_suite_bench=False
