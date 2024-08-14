@@ -170,7 +170,7 @@ olcf-6:
     milk:
       name: MILC
       tags: [application-domain:qcd, benchmark-scale:large-scale, benchmark-scale:strong-scaling, communication-performance-characteristics:network-bandwidth-bound, communication-performance-characteristics:network-latency-bound, math-libraries:quda]
-      notes: "Generation on su3_rhmd_hisq problem from the MIMD Lattice Collaboration (MILC) code."
+      notes: "Generation on su3-rhmd-hisq problem from the MIMD Lattice Collaboration (MILC) code."
     qmcpack:
       name: QMCPACK
       tags: [application-domain:molecular-dynamics, method-type:montecarlo, benchmark-scale:large-scale, communication:mpi, programming-model:openmp, programming-model:cuda, programming-language:c, programming-language:c++, memory-access-characteristics:high-memory-bandwidth]
