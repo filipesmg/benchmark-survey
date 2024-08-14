@@ -287,7 +287,7 @@ spechpc:
   tags: [programming-model:openmp, programming-model:openmp-target, programming-model:openacc, communication:mpi, benchmark-scale:single-node, benchmark-scale:multi-node,benchmark-scale:large-scale]
   notes: "SPEChpc collects its benchmarks into suites of different workload sizes: tiny, small, medium, large. Each size targets different number of tasks and higher memory usage."
   benchmarks:
-    lbm:
+    lbmd2q37:
       name: LBM D2Q37
       tags: [programming-language:c, application-domain:cfd]
       url: https://www.spec.org/hpc2021/docs/benchmarks/505.lbm_t.html
@@ -296,28 +296,28 @@ spechpc:
       name: SOMA
       tags: [programming-language:c, application-domain:physics, application-domain:polymers]
       url: https://www.spec.org/hpc2021/docs/benchmarks/513.soma_t.html
-      license: GPL-3
+      license: GPL-3.0
     tealeaf:
       name: Tealeaf
       tags: [programming-language:c, application-domain:physics, application-domain:hep]
       url: https://www.spec.org/hpc2021/docs/benchmarks/518.tealeaf_t.html
-      license: GPL-3
+      license: GPL-3.0
     clvleaf:
       name: Cloverleaf
       tags: [programming-language:fortran, application-domain:physics, application-domain:hep]
       url: https://www.spec.org/hpc2021/docs/benchmarks/519.clvleaf_t.html
-      license: GPL-3
+      license: GPL-3.0
     miniswp:
       name: Minisweep
       tags: [programming-language:c, application-domain:physics, application-domain:nuclear]
       url: https://www.spec.org/hpc2021/docs/benchmarks/521.miniswp_t.html
-      license: GPL-3
+      license: GPL-3.0
       note: "License in linked repository is BSD-2-Clause."
     pot3d:
       name: POT3D
       tags: [programming-language:fortran, application-domain:physics, application-domain:solarphysics]
       url: https://www.spec.org/hpc2021/docs/benchmarks/528.pot3d_t.html
-      license: Apache-2
+      license: Apache-2.0
       note: "Custom Apache license"
     sphexa:
       name: SPH-EXA
