@@ -13,7 +13,10 @@ tags_cats_to_tex_commands = {
     'method-type': 'btMethod',
     'communication': 'btComm',
     'application-domain': 'btAppDomain',
-    'compute-performance-characteristics': 'btCompPerf'
+    'compute-performance-characteristics': 'btCompPerf',
+    'communication-performance-characteristics': 'btCommPerf',
+    'mesh-representation': 'btMesh',
+    'math-libraries': 'btMath'
 }
 license_to_tex_commands = {
     'bsd': r'\licBsd',
@@ -57,8 +60,8 @@ tpl_suite_table = r"""
     & ((( name ))) &
     ((*- endif *))
     ((* for tag in tags *)) \((( tag[0] ))){((( tag[1] )))} ((*- endfor *)) &
-    ((* if license -*)) ((( license ))) ((* endif -*)) & 
-    ((* if url['key'] -*))\href{((( url['long'] )))}{\scalebox{0.8}{\faIcon{link}}}~\cite{((( url['key'] )))}((* endif -*)) ((* if url and citekey -*)), ((* endif -*)) ((* if citekey -*)) \cite{((( citekey )))} ((* endif -*)) & 
+    ((* if license -*)) ((( license ))) ((* endif -*)) &
+    ((* if url['key'] -*))\href{((( url['long'] )))}{\scalebox{0.8}{\faIcon{link}}}~\cite{((( url['key'] )))}((* endif -*)) ((* if url and citekey -*)), ((* endif -*)) ((* if citekey -*)) \cite{((( citekey )))} ((* endif -*)) &
     ((* if notes -*)) ((( notes ))) ((* endif -*))\\
 """
 
