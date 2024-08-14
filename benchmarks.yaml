@@ -146,67 +146,67 @@ rodinia:
     needleman:
       name: Needleman-Wunsch
       url: https://www.cs.virginia.edu/rodinia/doku.php?id=needleman-wunsch
-      tags: []
+      tags: [application-domain:bioinformatics]
     kmeans:
       name: Kmeans
       url: https://www.cs.virginia.edu/rodinia/doku.php?id=kmeans
-      tags: []
+      tags: [application-domain:data-mining, method-type:clustering, method-type:dense-linear-algebra]
     bfs:
       name: Breadth-First Search
       url: https://www.cs.virginia.edu/rodinia/doku.php?id=graph_traversal
-      tags: []
+      tags: [method-type:graph-traversal]
     srad:
       name: SRAD
       url: https://www.cs.virginia.edu/rodinia/doku.php?id=srad
-      tags: []
+      tags: [application-domain:computer-vision, method-type:pde, mesh-representation:structured-grid]
     streamcluster:
       name: Streamcluster
       url: https://www.cs.virginia.edu/rodinia/doku.php?id=streamcluster
-      tags: []
+      tags: [application-domain:data-mining, method-type:clustering, method-type:dense-linear-algebra]
     particlefilter:
       name: Particle Filter
       url: https://www.cs.virginia.edu/rodinia/doku.php?id=particle_filter
-      tags: []
+      tags: [application-domain:medical, mesh-representation:structured-grid]
     pathfinder:
       name: PathFinder
       url: https://www.cs.virginia.edu/rodinia/doku.php?id=pathfinder
-      tags: []
+      tags: [mesh-representation:structured-grid]
     gaussian:
       name: Gaussian Elimination
       url: https://www.cs.virginia.edu/rodinia/doku.php?id=gaussian_elimination
-      tags: []
+      tags: [method-type:dense-linear-algebra]
     knn:
       name: k-Nearest Neighbors
       url: https://www.cs.virginia.edu/rodinia/doku.php?id=k-nearest_neighbors
-      tags: []
+      tags: [method-type:dense-linear-algebra]
     lavamd2:
       name: LavaMD2
       url: https://www.cs.virginia.edu/rodinia/doku.php?id=lavamd2
-      tags: []
+      tags: [application-domain:molecular-dynamics, method-type:paricles]
     myocyte:
       name: Myocyte
       url: https://www.cs.virginia.edu/rodinia/doku.php?id=myocyte
-      tags: []
+      tags: [application-domain:biology, mesh-representation:structured-grid, method-type:ode, method-type:solver]
     btree:
       name: "B+ Tree"
       url: https://www.cs.virginia.edu/rodinia/doku.php?id=b_tree
-      tags: []
+      tags: [method-type:graph-traversal]
     gpudwt:
       name: GPUDWT
       url: https://www.cs.virginia.edu/rodinia/doku.php?id=gpudwt
-      tags: []
+      tags: [method-type:spectral]
     hybridsort:
       name: Hybrid Sort
       url: https://www.cs.virginia.edu/rodinia/doku.php?id=hybrid_sort
-      tags: []
+      tags: [method-type:sorting, compute-performance-characteristics:atomics]
     htospot3d:
       name: Hotspot3D
       url: https://www.cs.virginia.edu/rodinia/doku.php?id=hotspot3d
-      tags: []
+      tags: [application-domain:physics, mesh-representation:structured-grid,]
     huffman:
       name: Huffman
       url: https://www.cs.virginia.edu/rodinia/doku.php?id=huffman
-      tags: []
+      tags: [method-type:state-machine]
 specaccel2023:
   name: SPECaccel 2023
   url: https://www.spec.org/accel2023/
@@ -315,18 +315,18 @@ spechpc:
       note: "License in linked repository is BSD-2-Clause."
     pot3d:
       name: POT3D
-      tags: [programming-language:fortran, application-domain:physics, application-domain:solar-physics]
+      tags: [programming-language:fortran, application-domain:physics, application-domain:solarphysics]
       url: https://www.spec.org/hpc2021/docs/benchmarks/528.pot3d_t.html
       license: Apache-2
       note: "Custom Apache license"
     sphexa:
       name: SPH-EXA
-      tags: [programming-language:c++, application-domain:physics, application-domain:astro-physics, application-domain:cosmology]
+      tags: [programming-language:c++, application-domain:physics, application-domain:astrophysics, application-domain:cosmology]
       url: https://www.spec.org/hpc2021/docs/benchmarks/532.sph_exa_t.html
       license: MIT
     hpgmgfv:
       name: HPGMG-FV
-      tags: [programming-language:c, application-domain:physics, application-domain:cosmology, application-domain:astro-physics, application-domain:combustion]
+      tags: [programming-language:c, application-domain:physics, application-domain:cosmology, application-domain:astrophysics, application-domain:combustion]
       url: https://www.spec.org/hpc2021/docs/benchmarks/534.hpgmgfv_t.html
       note: "While the SPEC site lists only copyright, the HPMG repository contains a BSD-2-Clause license."
     weather:
