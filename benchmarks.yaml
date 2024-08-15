@@ -491,11 +491,50 @@ coral2:
       tags: [memory-access-characteristics:irregular-memory-access, memory-access-characteristics:large-memory-footprint]
       notes: "Massively parallel graph analysis algorithms for computing triangles, edges, vertices. Emphasizes load imbalance and irregular random memory accesses."
       tags: [application-domain:molecular-dynamics, benchmark-scale:large-scale, communication:mpi, programming-model:openmp, programming-model:cuda, programming-language:c++, compute-performance-characteristics:high-fp,  memory-access-characteristics:high-memory-bandwidth, communication-performance-characteristics:network-bandwidth-bound,communication-performance-characteristics:network-latency-bound]
+ats-5:
+  name: ATS-5
+  tags: [programming-model:openmp, programming-language:c++, programming-language:fortran, communication:mpi]
+  license: none
+  url: https://lanl.github.io/benchmarks/
+  benchmarks:
+    branson:
+      name: Branson
+      tags: [application-domain:physics, benchmark-scale:multi-node, method-type:montecarlo, method-type:particles, method-type:transport, programming-model:cuda]
+      notes: ""
+    amg2023:
+      name: AMG2023
+      tags: [application-domain:asc, method-type:solver, method-type:sparse-linear-algebra, benchmark-scale:large-scale, communication:mpi, programming-model:openmp, programming-model:cuda, programming-language:c, memory-access-characteristics:irregular-memory-access, memory-access-characteristics:high-memory-bandwidth, memory-access-characteristics:high-memory-latency, memory-access-characteristics:large-memory-footprint, communication-performance-characteristics:network-collectives, communication-performance-characteristics:network-latency-bound, mesh-representation:block-structured-grid, compute-performance-characteristics:high-branching, compute-performance-characteristics:mixed-precision]
+      notes: "AMG is a parallel algebraic multigrid solver for linear systems arising from problems on unstructured grids."
+    parthenon-vibe:
+      name: Parthenon-VIBE
+      tags: [mesh-representation:amr, mesh-representation:block-structured-grid, method-type:finite-volume, programming-model:kokkos, benchmark-scale:multi-node]
+      notes: "Solves the Vector Inviscid Burgers' Equation on a block-AMR mesh."
+    mlmd:
+      name: MLMD
+      tags: [application-domain:molecular-dynamics, programming-model:kokkos, math-libraries:pytorch]
+      notes: "Benchmark for HIPPYNN driven kokkos-Lammps Molecular Dynamics.  Includes model training and inference."
+    umt:
+      name: UMT
+      tags: [application-domain:physics, benchmark-scale:multi-node, memory-access-characteristics:irregular-memory-access, mesh-representation:unstructured-grid, method-type:deterministic, method-type:particles, method-type:transport, programming-language:fortran, programming-model:openmp-target]
+      notes: ""
+    miniem:
+      name: MiniEM
+      tags: [application-domain:electromagnetics, math-libraries:tpetra, mesh-representation:structured-grid]
+      notes: "Proxy for EMPIRE"
+    sparta:
+      name: SPARTA
+      tags: [application-domain:molecular-dynamics, application-domain:chemistry, benchmark-scale:multi-node, method-type:direct-solve, method-type:montecarlo]
+      notes: "Stochastic PArallel Rarefied-gas Time-accurate Analyzer."
+    lammps:
+      name: LAMMPS
+      tags: [application-domain:molecular-dynamics, benchmark-scale:large-scale, communication:mpi, programming-model:openmp, programming-model:cuda, programming-language:c++, compute-performance-characteristics:high-fp,  memory-access-characteristics:high-memory-bandwidth, communication-performance-characteristics:network-bandwidth-bound,communication-performance-characteristics:network-latency-bound]
+      notes: "Short and long range interactions."
+
 olcf-6:
   name: OLCF-2
   tags: [programming-model:openmp, programming-language:c++, programming-language:fortran, communication:mpi]
   license: none
-  url: https:https://www.olcf.ornl.gov/draft-olcf-6-technical-requirements/benchmarks
+  url: https://www.olcf.ornl.gov/draft-olcf-6-technical-requirements/benchmarks
   benchmarks:
     lammps:
       name: LAMMPS
