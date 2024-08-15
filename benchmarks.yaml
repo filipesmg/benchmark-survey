@@ -4,7 +4,7 @@ rajaperf:
   license: BSD-3-Clause
   url: https://github.com/LLNL/RAJAPerf/
   ref: 10.1109/P3HPC49587.2019.00012
-  notes: The suite comes with re-implementations of well-known benchmarks/benchmark suites in a variety of programming models
+  notes: "The RAJA performance suite is designed to explore performance of loop-based computational kernels of the sort found in HPC applications. In particular, it is used to compare runtime performance of kernels implemented using RAJA, and the same kernels implemented using standard or vendor-supported parallel programming models directly (such as CUDA and ROCM)."
   benchmarks:
     stream:
       name: STREAM
@@ -437,7 +437,7 @@ coral2:
     dls:
       name: DLS
       tags: [method-type:ai]
-      notes: "The deep learning suite contains: Convolutional Neural Networks (CNNs) that comprises convolutional layers followed by fully connected layers; LSTM recurrent neural network (RNN) architecture that remembers values over arbitrary intervals to deal with temporal and time-series prediction; and, distributed training code for classification in ImageNet data set at scale. Finally, the CANDLE benchmark codes implement deep learning architectures that are relevant to problems in cancer. These architectures address problems at different biological scales, specifically problems at the molecular, cellular and population scales. We will use two diverse benchmark problems, namely, a) P1B1, a sparse autoencoder to compress the expression profile into a low-dimensional vector, and, b) P3B1 a multi-task deep neural net for data extraction from clinical reports."
+      notes: "The deep learning suite contains: Convolutional Neural Networks (CNNs), LSTM recurrent neural network (RNN) architecture, and CANDLE deep learning architectures relevant to problems in cancer."
     cmb:
       name: CMB
       tags: [application-domain:synthetic, benchmark-scale:large-scale, communication:mpi, programming-language:c, communication-performance-characteristics:network-latency-bound, communication-performance-characteristics:network-bandwith-bound, communication-performance-characteristics:network-bisection-bandwidth-bound, communication-performance-characteristics:network-collectives]
@@ -469,7 +469,7 @@ coral2:
     rajaperf:
       name: RAJAPerf
       tags: [application-domain:asc, benchmark-scale:single-node, programming-model:raja, programming-model:openmp, programming-model:cuda, programming-language:c++]
-      notes: "See dedicated entry. The RAJA performance suite is designed to explore performance of loop-based computational kernels of the sort found in HPC applications. In particular, it is used to assess, monitor, and compare runtime performance of kernels implemented using RAJA and variants implemented using standard or vendor-supported parallel programming models directly. Each kernel in the suite appears in multiple RAJA and non-RAJA variants using parallel programming models such as OpenMP and CUDA."
+      notes: "See dedicated entry."
     e3sm:
       name: E3SM
       tags: [application-domain:climate, benchmark-scale:large-scale, communication:mpi, programming-model:openmp, programming-model:cuda, programming-language:fortran, memory-access-characteristics:high-memory-bandwidth]
@@ -491,11 +491,49 @@ coral2:
       tags: [memory-access-characteristics:irregular-memory-access, memory-access-characteristics:large-memory-footprint]
       notes: "Massively parallel graph analysis algorithms for computing triangles, edges, vertices. Emphasizes load imbalance and irregular random memory accesses."
       tags: [application-domain:molecular-dynamics, benchmark-scale:large-scale, communication:mpi, programming-model:openmp, programming-model:cuda, programming-language:c++, compute-performance-characteristics:high-fp,  memory-access-characteristics:high-memory-bandwidth, communication-performance-characteristics:network-bandwidth-bound,communication-performance-characteristics:network-latency-bound]
+ats-5:
+  name: ATS-5
+  tags: [programming-model:openmp, programming-language:c++, programming-language:fortran, communication:mpi]
+  license: none
+  url: https://lanl.github.io/benchmarks/
+  benchmarks:
+    branson:
+      name: Branson
+      tags: [application-domain:physics, benchmark-scale:multi-node, method-type:montecarlo, method-type:particles, method-type:transport, programming-model:cuda]
+      notes: ""
+    amg2023:
+      name: AMG2023
+      tags: [application-domain:asc, method-type:solver, method-type:sparse-linear-algebra, benchmark-scale:large-scale, communication:mpi, programming-model:openmp, programming-model:cuda, programming-language:c, memory-access-characteristics:irregular-memory-access, memory-access-characteristics:high-memory-bandwidth, memory-access-characteristics:high-memory-latency, memory-access-characteristics:large-memory-footprint, communication-performance-characteristics:network-collectives, communication-performance-characteristics:network-latency-bound, mesh-representation:block-structured-grid, compute-performance-characteristics:high-branching, compute-performance-characteristics:mixed-precision]
+      notes: "AMG is a parallel algebraic multigrid solver for linear systems arising from problems on unstructured grids."
+    parthenon-vibe:
+      name: Parthenon-VIBE
+      tags: [mesh-representation:amr, mesh-representation:block-structured-grid, method-type:finite-volume, programming-model:kokkos, benchmark-scale:multi-node]
+      notes: "Solves the Vector Inviscid Burgers' Equation on a block-AMR mesh."
+    mlmd:
+      name: MLMD
+      tags: [application-domain:molecular-dynamics, programming-model:kokkos, math-libraries:pytorch]
+      notes: "Benchmark for HIPPYNN driven kokkos-Lammps Molecular Dynamics.  Includes model training and inference."
+    umt:
+      name: UMT
+      tags: [application-domain:physics, benchmark-scale:multi-node, memory-access-characteristics:irregular-memory-access, mesh-representation:unstructured-grid, method-type:deterministic, method-type:particles, method-type:transport, programming-language:fortran, programming-model:openmp-target]
+      notes: ""
+    miniem:
+      name: MiniEM
+      tags: [application-domain:electromagnetics, math-libraries:tpetra, mesh-representation:structured-grid]
+      notes: "Proxy for EMPIRE"
+    sparta:
+      name: SPARTA
+      tags: [application-domain:molecular-dynamics, application-domain:chemistry, benchmark-scale:multi-node, method-type:direct-solve, method-type:montecarlo]
+      notes: "Stochastic PArallel Rarefied-gas Time-accurate Analyzer."
+    lammps:
+      name: LAMMPS
+      tags: [application-domain:molecular-dynamics, benchmark-scale:large-scale, communication:mpi, programming-model:openmp, programming-model:cuda, programming-language:c++, compute-performance-characteristics:high-fp,  memory-access-characteristics:high-memory-bandwidth, communication-performance-characteristics:network-bandwidth-bound,communication-performance-characteristics:network-latency-bound]
+      notes: "Short and long range interactions."
 olcf-6:
   name: OLCF-2
   tags: [programming-model:openmp, programming-language:c++, programming-language:fortran, communication:mpi]
   license: none
-  url: https:https://www.olcf.ornl.gov/draft-olcf-6-technical-requirements/benchmarks
+  url: https://www.olcf.ornl.gov/draft-olcf-6-technical-requirements/benchmarks
   benchmarks:
     lammps:
       name: LAMMPS
@@ -522,3 +560,35 @@ olcf-6:
       name: Workflow
       tags: [method-type:ai, method-type:tpt, method-type:transformer, method-type:particles, method-type:ai-training]
       notes: "This benchmark aims to evaluate the efficiency of a HPC system in handling dynamic workloads from data streams."
+nersc10:
+  name: NERSC-10
+  tags: [programming-model:openmp, programming-language:c++, programming-language:fortran, communication:mpi]
+  license: none
+  url: https://www.nersc.gov/systems/nersc-10/benchmarks/
+  notes: "This suite represents scientific workflows: simulation of complex scientific problems at high degrees of parallelism, large-scale analysis of experimental or observational data, machine learning, and the data-flow and control-flow needed to couple these activities in productive and efficient workflows."
+  benchmarks:
+    optical:
+      name: Optical Properties of Materials workflow
+      tags: [application-domain:dft, programming-language:fortran, programming-language:c, programming-language:c++, programming-model:openmp, programming-model:openmp-target, programming-model:openacc]
+      url: https://berkeleygw.org
+      notes: "BerkeleyGW's Epsilon module computes the material's dielectric function; the Sigma module computes the electronic self energy."
+    materials:
+      name: Materials by Design Workflow
+      tags: [application-domain:molecular-dynamics]
+      notes: "EXAALT (ECP project), LAMMPS MD engine"
+    metagenome:
+      name: Metagenome Annotation Workflow
+      tags: [application-domain:biology]
+      notes: "Based on the computation workflow of the Joint Genome Institute's (JGI)'s Integrated Microbial Genomes project (IMG) (collection of DNA sequences in the laboratory, data transferred to NERSC, QA and Assembly, Structural Annotation, Functional Annotation, Binning)."
+    lattice-qcd:
+      name: Lattice QCD Workflow
+      tags: [application-domain:qcd]
+      notes: "MILC Collaboration"
+    deep-cam:
+      name: DeepCAM AI Workflow
+      tags: [application-domain:climate]
+      notes: "Trains a deep learning model to identify extreme weather phenomena (tropical cyclones, atmospheric rivers) in CAM5 climate simulation data."
+    toast3:
+      name: TOAST3 Cosmic Microwave Background Workflow
+      tags: [application-domain:cosmology]
+      notes: "Time Ordered Astrophysics Scalable Tools"
