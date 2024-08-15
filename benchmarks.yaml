@@ -4,7 +4,7 @@ rajaperf:
   license: BSD-3-Clause
   url: https://github.com/LLNL/RAJAPerf/
   ref: 10.1109/P3HPC49587.2019.00012
-  notes: The suite comes with re-implementations of well-known benchmarks/benchmark suites in a variety of programming models
+  notes: "The RAJA performance suite is designed to explore performance of loop-based computational kernels of the sort found in HPC applications. In particular, it is used to compare runtime performance of kernels implemented using RAJA, and the same kernels implemented using standard or vendor-supported parallel programming models directly (such as CUDA and ROCM)."
   benchmarks:
     stream:
       name: STREAM
@@ -437,7 +437,7 @@ coral2:
     dls:
       name: DLS
       tags: [method-type:ai]
-      notes: "The deep learning suite contains: Convolutional Neural Networks (CNNs) that comprises convolutional layers followed by fully connected layers; LSTM recurrent neural network (RNN) architecture that remembers values over arbitrary intervals to deal with temporal and time-series prediction; and, distributed training code for classification in ImageNet data set at scale. Finally, the CANDLE benchmark codes implement deep learning architectures that are relevant to problems in cancer. These architectures address problems at different biological scales, specifically problems at the molecular, cellular and population scales. We will use two diverse benchmark problems, namely, a) P1B1, a sparse autoencoder to compress the expression profile into a low-dimensional vector, and, b) P3B1 a multi-task deep neural net for data extraction from clinical reports."
+      notes: "The deep learning suite contains: Convolutional Neural Networks (CNNs), LSTM recurrent neural network (RNN) architecture, and CANDLE deep learning architectures relevant to problems in cancer."
     cmb:
       name: CMB
       tags: [application-domain:synthetic, benchmark-scale:large-scale, communication:mpi, programming-language:c, communication-performance-characteristics:network-latency-bound, communication-performance-characteristics:network-bandwith-bound, communication-performance-characteristics:network-bisection-bandwidth-bound, communication-performance-characteristics:network-collectives]
@@ -469,7 +469,7 @@ coral2:
     rajaperf:
       name: RAJAPerf
       tags: [application-domain:asc, benchmark-scale:single-node, programming-model:raja, programming-model:openmp, programming-model:cuda, programming-language:c++]
-      notes: "See dedicated entry. The RAJA performance suite is designed to explore performance of loop-based computational kernels of the sort found in HPC applications. In particular, it is used to assess, monitor, and compare runtime performance of kernels implemented using RAJA and variants implemented using standard or vendor-supported parallel programming models directly. Each kernel in the suite appears in multiple RAJA and non-RAJA variants using parallel programming models such as OpenMP and CUDA."
+      notes: "See dedicated entry."
     e3sm:
       name: E3SM
       tags: [application-domain:climate, benchmark-scale:large-scale, communication:mpi, programming-model:openmp, programming-model:cuda, programming-language:fortran, memory-access-characteristics:high-memory-bandwidth]
