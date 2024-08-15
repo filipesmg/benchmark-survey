@@ -337,6 +337,9 @@ spechpc:
 benchmarks:
   hpl:
     name: HPL
+    url: https://www.netlib.org/benchmark/hpl/
+    license: BSD-4-Clause
+    tags: [application-domain:synthetic, programming-language:c, communication:mpi, benchmark-scale:single-node, benchmark-scale:multi-node, benchmark-scale:large-scale]
   polybench:
     name: PolyBench
     url: https://web.cs.ucla.edu/~pouchet/software/polybench/
@@ -378,7 +381,7 @@ benchmarks:
     name: OSU Micro-Benchmarks
     license: BSD-3-Clause
     url: https://mvapich.cse.ohio-state.edu/benchmarks/
-    tags: [benchmark-scale:single-node, benchmark-scale:multi-node, benchmark-scale:large-scale, communication:mpi, communication:nccl, communication:rccl, communication:openshmem, communication:upc, communication:upc++, communication-performance-characteristics:network-bandwidth-bound, communication-performance-characteristics:network-bisection-bandwidth-bound, communication-performance-characteristics:network-collectives, communication-performance-characteristics:network-latency-bound, communication-performance-characteristics:network-multi-threaded, communication-performance-characteristics:network-nonblocking-collectives, communication-performance-characteristics:network-onesided, communication-performance-characteristics:network-point-to-point, compute-performance-characteristics:atomics, memory-access-characteristics:managed-memory, memory-access-characteristics:regular-memory-access, programming-language:c, programming-language:java, programming-language:python, programming-model:cuda, programming-model:openacc, programming-model:rocm]
+    tags: [benchmark-scale:single-node, benchmark-scale:multi-node, benchmark-scale:large-scale, communication:mpi, communication:nccl, communication:rccl, communication:openshmem, communication:upc, communication:upc++, communication-performance-characteristics:network-bandwidth-bound, communication-performance-characteristics:network-bisection-bandwidth-bound, communication-performance-characteristics:network-collectives, communication-performance-characteristics:network-latency-bound, communication-performance-characteristics:network-multi-threaded, communication-performance-characteristics:network-nonblocking-collectives, communication-performance-characteristics:network-onesided, communication-performance-characteristics:network-point-to-point, compute-performance-characteristics:atomics, memory-access-characteristics:managed-memory, memory-access-characteristics:regular-memory-access, programming-language:c, programming-language:java, programming-language:python, programming-model:cuda, programming-model:openacc, programming-model:rocm, application-domain:synthetic]
     notes: "A vast collection of network-related micro-benchmarks."
   specmpi:
     name: SPEC MPI 2007
@@ -592,3 +595,138 @@ nersc10:
       name: TOAST3 Cosmic Microwave Background Workflow
       tags: [application-domain:cosmology]
       notes: "Time Ordered Astrophysics Scalable Tools"
+jupiter:
+  name: JUPITER Benchmark Suite
+  license: MIT
+  url: https://github.com/FZJ-JSC/jubench
+  ref: SC24-in-press
+  # tags: [benchmark-scale:large-scale, benchmark-scale:multi-node, benchmark-scale:single-node, benchmark-scale:sub-node, benchmark-scale:weak-scaling]
+  notes: "The JUPITER Benchmark Suite is used for procurement of the JUPITER exascale system and consists of application and synthetic benchmarks. The vast majority of the benchmarks focus on GPU execution. The application benchmarks come in Base category (usually executing on 8 nodes, each 4 GPUs) and High-Scaling category (using between 500 and 650 nodes, each 4 GPUs). The suite is presented at SC24 and released alongside."
+  benchmarks:
+    amber:
+      name: Amber
+      tags: [application-domain:molecular-dynamics, programming-language:fortran, programming-model:cuda, benchmark-scale:single-node, communication:mpi, communication:nccl]
+      license: Proprietary
+      url: https://github.com/FZJ-JSC/jubench-amber/
+    arbor:
+      name: Arbor
+      tags: [application-domain:neuroscience, programming-language:c++, programming-model:cuda, programming-model:hip, benchmark-scale:multi-node, benchmark-scale:large-scale, benchmark-scale:weak-scaling, communication:mpi]
+      license: BSD-3-Clause
+      url: https://github.com/FZJ-JSC/jubench-arbor
+      note: "The High-Scaling variant of the benchmark targets 642 nodes and comes in four memory configurations"
+    chroma:
+      name: Chroma LQCD
+      tags: [application-domain:physics, application-domain:hep, programming-language:c++, programming-model:cuda, programming-model:hip, math-libraries:quda, benchmark-scale:multi-node, benchmark-scale:large-scale, benchmark-scale:weak-scaling, communication:mpi]
+      license: Proprietary
+      url: https://github.com/FZJ-JSC/jubench-chroma-qcd
+      note: "The High-Scaling variant of the benchmark targets 512 nodes and comes in three memory configurations; License: JLab License"
+    jptrgromacs:
+      name: GROMACS
+      license: LGPL-2.1
+      tags: [application-domain:molecular-dynamics, programming-language:c++, programming-model:cuda, programming-model:sycl, benchmark-scale:multi-node, benchmark-scale:large-scale, communication:mpi]
+      url: https://github.com/FZJ-JSC/jubench-gromacs
+    icon:
+      name: ICON
+      license: BSD-3-Clause
+      tags: [application-domain:climate, programming-language:fortran, programming-language:c, programming-model:openacc, programming-model:hip, programming-model:cuda, benchmark-scale:multi-node, benchmark-scale:large-scale, communication:mpi]
+      url: https://github.com/FZJ-JSC/jubench-icon
+    juqcs:
+      name: JUQCS
+      license: none
+      tags: [application-domain:quantum-computing, programming-language:fortran, programming-model:cuda, programming-model:openmp, benchmark-scale:multi-node, benchmark-scale:large-scale, benchmark-scale:weak-scaling, communication:mpi]
+      note: "The High-Scaling variant of the benchmark targets 512 nodes and comes in two memory configurations. In addition, a version is provided with runs at the same time on a CPU partition and a GPU partition (Modular Supercomputing Architecture)."
+      url: https://github.com/FZJ-JSC/jubench-juqcs
+    nekrs:
+      name: nekRS
+      license: BSD-3-Clause
+      tags: [application-domain:cfd, programming-language:c++, programming-language:c, programming-model:cuda, programming-model:hip, programming-model:sycl, programming-model:occa, benchmark-scale:multi-node, benchmark-scale:large-scale, benchmark-scale:weak-scaling, communication:mpi]
+      url: https://github.com/FZJ-JSC/jubench-nekrs
+      note: "The High-Scaling variant of the benchmark targets 642 nodes and comes in three memory configurations"
+    parflow:
+      name: ParFlow
+      license: LGPL-2
+      tags: [application-domain:climate, application-domain:hydrodynamics, programming-language:c, programming-model:cuda, programming-model:hip, math-libraries:hypre, benchmark-scale:multi-node, communication:mpi]
+      url: https://github.com/FZJ-JSC/jubench-parflow
+    picongpu:
+      name: PIConGPU
+      license: GPL-3
+      tags: [application-domain:physics, application-domain:plasma-physics, programming-language:c++, programming-model:alpaka, programming-model:cuda, programming-model:hip, benchmark-scale:multi-node, benchmark-scale:large-scale, benchmark-scale:weak-scaling, communication:mpi]
+      note: "The High-Scaling variant of the benchmark targets 640 nodes and comes in three memory configurations"
+      url: https://github.com/FZJ-JSC/jubench-picongpu
+    jptrqe:
+      name: Quantum ESPRESSO
+      license: GPL-3
+      tags: [application-domain:material-science, application-domain:physics, programming-language:fortran, math-libraries:elpa, programming-model:openacc, programming-model:cuf, benchmark-scale:multi-node, communication:mpi]
+      url: https://github.com/FZJ-JSC/jubench-qe
+    jptrsoma:
+      name: SOMA
+      license: LGPL-2
+      tags: [application-domain:polymers, application-domain:material-science, programming-language:c, programming-model:openacc, benchmark-scale:multi-node, communication:mpi, communication:nccl]
+      url: https://github.com/FZJ-JSC/jubench-soma
+    mmoclip:
+      name: MMoCLIP
+      url: https://github.com/FZJ-JSC/jubench-mmoclip
+      license: MIT
+      tags: [method-type:ai, application-domain:computer-vision, application-domain:llm, programming-language:python, math-libraries:pytorch, programming-model:cuda, programming-model:rocm, benchmark-scale:multi-node, communication:mpi, communication:nccl]
+    megatron:
+      name: Megatron-LM
+      license: BSD-3-Clause
+      url: https://github.com/FZJ-JSC/jubench-megatron-lm
+      tags: [method-type:ai, method-type:transformer, application-domain:llm, programming-language:python, math-libraries:pytorch, programming-model:cuda, programming-model:rocm, benchmark-scale:multi-node, benchmark-scale:large-scale, communication:mpi, communication:nccl]
+    resnet:
+      name: ResNet
+      tags: [method-type:ai, application-domain:computer-vision, programming-language:python, math-libraries:tensorflow, programming-model:cuda, programming-model:rocm, benchmark-scale:multi-node, communication:mpi]
+      url: https://github.com/FZJ-JSC/jubench-resnet
+      license: Apache-2
+    dynqcd:
+      name: DynQCD
+      license: None
+      tags: [application-domain:physics, application-domain:hep, programming-language:c,  programming-model:openmp, benchmark-scale:multi-node, communication:mpi]
+      url: https://github.com/FZJ-JSC/jubench-dynqcd
+    nastja:
+      name: NAStJA
+      license: MPL-2.0
+      tags: [application-domain:biology, programming-language:c++, communication:mpi, benchmark-scale:multi-node]
+      url: https://github.com/FZJ-JSC/jubench-nastja
+    jptrgraph500:
+      name: Graph500
+      url: https://github.com/FZJ-JSC/jubench-graph500
+      license: MIT
+      tags: [application-domain:synthetic, method-type:graph-traversal, programming-language:c, communication:mpi, benchmark-scale:multi-node, benchmark-scale:large-scale]
+    jptrhpcg:
+      name: HPCG
+      url: https://github.com/FZJ-JSC/jubench-hpcg
+      license: BSD-3-Clause
+      tags: [application-domain:synthetic, method-type:conjugate-gradient, programming-language:c++, programming-model:openmp, programming-model:cuda, programming-model:hip, communication:mpi, benchmark-scale:single-node,benchmark-scale:multi-node, benchmark-scale:large-scale]
+    jptrhpl:
+      name: HPL
+      url: https://github.com/FZJ-JSC/jubench-hpl
+      license: BSD-4-Clause
+      tags: [application-domain:synthetic, programming-language:c, programming-model:openmp, programming-model:cuda, programming-model:hip, communication:mpi, benchmark-scale:single-node, benchmark-scale:multi-node, benchmark-scale:large-scale]
+    jptrior:
+      name: IOR
+      url: https://github.com/FZJ-JSC/jubench-ior
+      license: GPL-2.0
+      tags: [application-domain:synthetic, compute-performance-characteristics:i-o, programming-language:c, communication:mpi, benchmark-scale:single-node, benchmark-scale:multi-node, benchmark-scale:large-scale]
+    linktest:
+      name: LinkTest
+      url: https://github.com/FZJ-JSC/jubench-linktest
+      license: BSD-4-Clause
+      tags: [application-domain:synthetic, communication-performance-characteristics:network-point-to-point, programming-language:c, communication:mpi, benchmark-scale:multi-node, benchmark-scale:large-scale]
+    jptrosu:
+      name: OSU Micro-Benchmarks
+      url: https://github.com/FZJ-JSC/jubench-osu
+      license: BSD-3-Clause
+      tags: [application-domain:synthetic, programming-language:c, communication:mpi, benchmark-scale:single-node, benchmark-scale:multi-node, programming-model:cuda, programming-model:openacc, programming-model:rocm]
+      notes: "Also see the dedicated entry."
+    jptrstream:
+      name: STREAM
+      url: https://github.com/FZJ-JSC/jubench-stream
+      license: Proprietary
+      tags: [application-domain:synthetic, programming-language:c, benchmark-scale:single-node, memory-access-characteristics:regular-memory-access]
+      notes: "Also see the dedicated entry."
+    jptrstreamgpu:
+      name: STREAM (GPU)
+      license: Free
+      url: https://github.com/FZJ-JSC/jubench-stream-gpu
+      tags: [application-domain:synthetic, programming-language:c++, benchmark-scale:single-node, memory-access-characteristics:regular-memory-access, programming-model:cuda]

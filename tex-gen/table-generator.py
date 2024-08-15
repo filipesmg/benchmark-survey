@@ -21,6 +21,7 @@ tags_cats_to_tex_commands = {
 }
 license_to_tex_commands = {
     'bsd': r'\licBsd',
+    'bsd-4-clause': r'\licBsdFour',
     'bsd-3-clause': r'\licBsdThree',
     'bsd-2-clause': r'\licBsdTwo',
     'mit': r'\licMit',
@@ -28,8 +29,11 @@ license_to_tex_commands = {
     'free': r'\licFree',
     'gpl': r'\licGpl',
     'gpl-3.0': r'\licGplThree',
+    'gpl-2.0': r'\licGplTwo',
+    'lgpl-2.1': r'\licLgplTwoone',
     'proprietary': r'\licProp',
     'apache-2.0': r'\licApacheTwo',
+    'mpl-2.0': r'\licMplTwo',
 }
 sort_order_tags = {cat: (i, cat) for i, cat in enumerate(["programming-language", "programming-model"])}
 def customSortTags(tags):
