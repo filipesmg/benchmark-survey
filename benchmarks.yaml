@@ -529,7 +529,6 @@ ats-5:
       name: LAMMPS
       tags: [application-domain:molecular-dynamics, benchmark-scale:large-scale, communication:mpi, programming-model:openmp, programming-model:cuda, programming-language:c++, compute-performance-characteristics:high-fp,  memory-access-characteristics:high-memory-bandwidth, communication-performance-characteristics:network-bandwidth-bound,communication-performance-characteristics:network-latency-bound]
       notes: "Short and long range interactions."
-
 olcf-6:
   name: OLCF-2
   tags: [programming-model:openmp, programming-language:c++, programming-language:fortran, communication:mpi]
@@ -561,3 +560,35 @@ olcf-6:
       name: Workflow
       tags: [method-type:ai, method-type:tpt, method-type:transformer, method-type:particles, method-type:ai-training]
       notes: "This benchmark aims to evaluate the efficiency of a HPC system in handling dynamic workloads from data streams."
+nersc10:
+  name: NERSC-10
+  tags: [programming-model:openmp, programming-language:c++, programming-language:fortran, communication:mpi]
+  license: none
+  url: https://www.nersc.gov/systems/nersc-10/benchmarks/
+  notes: "This suite represents scientific workflows: simulation of complex scientific problems at high degrees of parallelism, large-scale analysis of experimental or observational data, machine learning, and the data-flow and control-flow needed to couple these activities in productive and efficient workflows."
+  benchmarks:
+    optical:
+      name: Optical Properties of Materials workflow
+      tags: [application-domain:dft, programming-language:fortran, programming-language:c, programming-language:c++, programming-model:openmp, programming-model:openmp-target, programming-model:openacc]
+      url: https://berkeleygw.org
+      notes: "BerkeleyGW's Epsilon module computes the material's dielectric function; the Sigma module computes the electronic self energy."
+    materials:
+      name: Materials by Design Workflow
+      tags: [application-domain:molecular-dynamics]
+      notes: "EXAALT (ECP project), LAMMPS MD engine"
+    metagenome:
+      name: Metagenome Annotation Workflow
+      tags: [application-domain:biology]
+      notes: "Based on the computation workflow of the Joint Genome Institute's (JGI)'s Integrated Microbial Genomes project (IMG) (collection of DNA sequences in the laboratory, data transferred to NERSC, QA and Assembly, Structural Annotation, Functional Annotation, Binning)."
+    lattice-qcd:
+      name: Lattice QCD Workflow
+      tags: [application-domain:qcd]
+      notes: "MILC Collaboration"
+    deep-cam:
+      name: DeepCAM AI Workflow
+      tags: [application-domain:climate]
+      notes: "Trains a deep learning model to identify extreme weather phenomena (tropical cyclones, atmospheric rivers) in CAM5 climate simulation data."
+    toast3:
+      name: TOAST3 Cosmic Microwave Background Workflow
+      tags: [application-domain:cosmology]
+      notes: "Time Ordered Astrophysics Scalable Tools"
