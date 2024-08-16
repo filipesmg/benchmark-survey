@@ -547,7 +547,7 @@ coral2:
     vpic:
       name: VPIC
       tags: [method-type:particles, communication:mpi, programming-model:openmp, programming-language:c++]
-      notes: "VPIC (Vector Particle-In-Cell) is a general purpose particle-in-cell simulation code for modeling kinetic plasmas. It employs a second-order, explicit, leapfrog algorithm to update charged particle positions and velocities in order to solve the relativistic kinetic equation for each species in the plasma, along with a full Maxwell description for the electric and magnetic fields evolved via a second-order finite-difference-time-domain (FDTD) solve."
+      notes: "Vector Particle-In-Cell is a general purpose particle-in-cell simulation code for modeling kinetic plasmas."
     laghos:
       name: Laghos
       tags: [application-domain:asc, method-type:time-dependent, method-type:hydrodynamics, method-type:eulerian, method-type:lagrangian, method-type:high-order, method-type:finite-element, math-libraries:mfem, method-type:explicit-timestepping, method-type:conjugate-gradient, method-type:dense-linear-algebra, benchmark-scale:large-scale, communication:mpi, programming-model:cuda, programming-language:c++]
@@ -555,7 +555,7 @@ coral2:
     pis-ds:
       name: ParallelIntegerSort
       tags: [communication:mpi, programming-language:c, programming-language:fortran]
-      notes: "Sorts a large number of 64-bit integers (from 0 to T) in parallel. The total size of the data set can exceed the aggregated memory size of all nodes. The goal is to exercise and study a computer system’s memory hierarchy performance when it comes to big data management. The emphasis here is IO, all-to-all communication, and integer operations."
+      notes: "Sorts a large number of 64-bit integers (from 0 to T) in parallel. The emphasis here is IO, all-to-all communication, and integer operations."
     havoq:
       name: Havoq
       tags: [memory-access-characteristics:irregular-memory-access, memory-access-characteristics:large-memory-footprint]
@@ -676,7 +676,7 @@ nersc10:
     metagenome:
       name: Metagenome Annotation Workflow
       tags: [application-domain:biology]
-      notes: "Based on the computation workflow of the Joint Genome Institute's (JGI)'s Integrated Microbial Genomes project (IMG) (collection of DNA sequences in the laboratory, data transferred to NERSC, QA and Assembly, Structural Annotation, Functional Annotation, Binning)."
+      notes: "Based on the computation workflow of the Joint Genome Institute's Integrated Microbial Genomes project."
     lattice-qcd:
       name: Lattice QCD Workflow
       tags: [application-domain:qcd]
@@ -694,7 +694,7 @@ jupiter:
   license: MIT
   url: https://github.com/FZJ-JSC/jubench
   ref: SC24-in-press
-  notes: "The JUPITER Benchmark Suite is used for procurement of the JUPITER exascale system and consists of application and synthetic benchmarks. The vast majority of the benchmarks focus on GPU execution. The application benchmarks come in Base category (usually executing on 8 nodes, each 4 GPUs) and High-Scaling category (using between 500 and 650 nodes, each 4 GPUs). The suite is presented at SC24 and released alongside."
+  notes: "The JUPITER Benchmark Suite is used for procurement of the JUPITER exascale system and consists of application and synthetic benchmarks. The vast majority of the benchmarks focus on GPU execution. The application benchmarks come in Base category (usually executing on 8 nodes, each 4 GPUs) and High-Scaling category (using between 500 and 650 nodes, each 4 GPUs). "
   benchmarks:
     amber:
       name: Amber
@@ -893,7 +893,7 @@ ueabs:
         license: GPL-3
         url: https://repository.prace-ri.eu/git/UEABS/ueabs/-/blob/master/qcd/README.md
         tags: [application-domain:hep, programming-model:cuda, programming-model:openmp, programming-language:c++, programming-language:c, math-libraries:quda]
-        notes: "The QCD benchmark is, unlike the other benchmarks in the PRACE application benchmark suite, not a full application but a set of 3 parts which are representative of some of the most compute-intensive parts of QCD calculations. The license is a modified GPL 3.0."
+        notes: "The QCD benchmark is, unlike the other benchmarks in the PRACE application benchmark suite, not a full application but a set of 3 parts which are representative of some of the most compute-intensive parts of QCD calculations."
       praceqe:
         name: Quantum ESPRESSO
         license: GPL-3
@@ -912,4 +912,4 @@ ueabs:
         license: MIT
         url: https://github.com/maxwelltsai/DeepGalaxy
         tags: [application-domain:astrophysics, method-type:ai, programming-model:cuda, programming-model:openmp, programming-language:python, programming-language:c, programming-language:c++]
-        notes: "TensorFlow is a popular open-source library for symbolic math and linear algebra, with particular optimisation for neural-networks-based machine learning workflow. Maintained by Google, it is widely used for research and production in both the academia and the industry."
+        notes: "TensorFlow is a popular open-source library for symbolic math and linear algebra, with particular optimisation for neural-networks-based machine learning workflow."
