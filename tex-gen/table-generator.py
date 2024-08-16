@@ -70,15 +70,15 @@ def tex_escape(text):
     return regex.sub(lambda match: conv[match.group()], text)
 tpl_suite_tableheader = r"""% do not change this file manually! it's auto-generated
 \begin{longtblr}[
-    caption={Benchmark Overview. Benchmark suites are indicated by leftmost entries with individual subordinated benchmark entries, connected by a dotted line. Per benchmark, tags, license (\emph{Lic.}), URL, reference (\emph{Ref.}), and notes are given; if each component is common to all benchmarks in a suite, the components are listed for the suite itself.},
+    caption={Benchmark Overview. Benchmark suites are indicated by leftmost entries with individual subordinated benchmark entries, connected by a dotted line. Per benchmark, tags, license (\emph{Lic.}), URL, reference (\emph{Ref.}), and notes are given; if each component is common to all benchmarks in a suite, the components are listed for the suite itself.}{Benchmark Overview}, %https://tex.stackexchange.com/questions/634767/tabularray-how-to-have-different-continued-captions,
     entry = {Benchmark Overview Table},
     label = {table:benchmarks}
 ]{
     width   = \textwidth,
-    colspec = {X[0.01]|[dotted]X[0.8,l]X[1.4]ccX[3]},
+    colspec = {X[0.01]|[dotted]X[0.8,l]X[2.2]ccX[3]},
     cells   = {font=\footnotesize},
     row{1}  = {font=\footnotesize\bfseries}, rowhead = 1,
-    rowsep = 0.3pt
+    rowsep = 0.2pt
 }
 \SetCell[c=2]{l} \emph{(Suite-)}Name & & Tags & Lic. & URL, Ref. & Notes \\
 \midrule"""
