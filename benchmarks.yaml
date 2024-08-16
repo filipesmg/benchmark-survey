@@ -444,6 +444,12 @@ benchmarks:
     url: https://www.spec.org/omp2012/
     tags: [programming-model:openmp, programming-language:c, programming-language:c++, programming-language:fortran]
     notes: "OpenMP-focused benchmark, successor of SPEC OMP 2001 benchmark. Includes the following benchmarks: 350.md, 351.bwaves, 352.nab, 357.bt331, 358.botsalgn, 359.botsspar, 360.ilbdc, 362.fma3d, 363.swim, 367.imagick, 370.mgrid331, 371.applu331, 372.smithwa, 376.kdtree"
+  benchfft:
+    name: benchFFT
+    url: https://www.fftw.org/benchfft/
+    license: None
+    tags: [programming-language:c, application-domain:synthetic, benchmark-scale:single-node, method-type:fft]
+    notes: "FFTW's FFT benchmark"
 coral2:
   name: "CORAL-2"
   tags: [programming-model:openmp, programming-model:cuda, programming-language:c++, programming-language:c, programming-language:fortran, programming-language:python]
