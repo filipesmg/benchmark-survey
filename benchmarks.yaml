@@ -456,6 +456,12 @@ benchmarks:
     license: Apache-2
     tags: [programming-model:pytorch, programming-language:python, method-type:ai, programming-model:cuda, programming-model:rocm, benchmark-scale:multi-node, benchmark-scale:large-scale, application-domain:climate, application-domain:cosmology, application-domain:molecular-dynamics]
     notes: "MLPerf Training: HPC collects 4 HPC-related benchmarks: climate segmentation (DeepCAM), cosmology parameter prediction (CosmoFlow), quantum molecular modeling (DimeNet++), protein folding (AlphaFold2)."
+  io500:
+    name: IO500
+    url: https://io500.org/
+    license: MIT
+    tags: [programming-model:c, communication:mpi, benchmark-scale:multi-node, benchmark-scale:large-scale, compute-performance-characteristics:i-o]
+    notes: "The IO500 benchmark captures user-experienced I/O performance with a variety of workloads."
 coral2:
   name: "CORAL-2"
   tags: [programming-model:openmp, programming-model:cuda, programming-language:c++, programming-language:c, programming-language:fortran, programming-language:python]
