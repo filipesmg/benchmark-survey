@@ -462,6 +462,12 @@ benchmarks:
     license: MIT
     tags: [programming-model:c, communication:mpi, benchmark-scale:multi-node, benchmark-scale:large-scale, compute-performance-characteristics:i-o]
     notes: "The IO500 benchmark captures user-experienced I/O performance with a variety of workloads."
+  fiber:
+    name: Fiber Miniapp
+    url: https://fiber-miniapp.github.io/
+    license: BSD-2-Clause
+    tags: [programming-language:fortran, programming-language:c, communication:mpi, math-libraries:blas, math-libraries:lapack, programming-language:c++, application-domain:physics, application-domain:hep; application-domain:cfd, application-domain:climate, application-domain:molecular-dynamics, application-domain:chemistry]
+    note: "Suite of miniapps with: CCS QCD, FFVC, NICAM-DC, mVMC, NGS Analyzer, MODYLAS, NTChem, FFB. Different licenses."
 coral2:
   name: "CORAL-2"
   tags: [programming-model:openmp, programming-model:cuda, programming-language:c++, programming-language:c, programming-language:fortran, programming-language:python]
