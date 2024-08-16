@@ -9,6 +9,7 @@ rajaperf:
     stream:
       name: STREAM
       tags: [memory-access-characteristics:regular-memory-access, programming-model:kokkos]  # inline lists are a little more space-efficient
+      notes: "See the dedicated entry"
     polybench:
       name: PolyBench
     lcals:
@@ -675,7 +676,6 @@ jupiter:
   license: MIT
   url: https://github.com/FZJ-JSC/jubench
   ref: SC24-in-press
-  # tags: [benchmark-scale:large-scale, benchmark-scale:multi-node, benchmark-scale:single-node, benchmark-scale:sub-node, benchmark-scale:weak-scaling]
   notes: "The JUPITER Benchmark Suite is used for procurement of the JUPITER exascale system and consists of application and synthetic benchmarks. The vast majority of the benchmarks focus on GPU execution. The application benchmarks come in Base category (usually executing on 8 nodes, each 4 GPUs) and High-Scaling category (using between 500 and 650 nodes, each 4 GPUs). The suite is presented at SC24 and released alongside."
   benchmarks:
     amber:
@@ -731,7 +731,7 @@ jupiter:
     jptrqe:
       name: Quantum ESPRESSO
       license: GPL-3
-      tags: [application-domain:material-science, application-domain:physics, programming-language:fortran, math-libraries:elpa, programming-model:openacc, programming-model:cuf, benchmark-scale:multi-node, communication:mpi]
+      tags: [application-domain:material-science, application-domain:physics, programming-language:fortran, math-libraries:elpa, programming-model:openacc, programming-model:cuf, benchmark-scale:multi-node, application-domain:df, communication:mpi]
       url: https://github.com/FZJ-JSC/jubench-qe
     jptrsoma:
       name: SOMA
@@ -805,3 +805,93 @@ jupiter:
       license: Free
       url: https://github.com/FZJ-JSC/jubench-stream-gpu
       tags: [application-domain:synthetic, programming-language:c++, benchmark-scale:single-node, memory-access-characteristics:regular-memory-access, programming-model:cuda]
+ueabs:
+  name: Unified European Applications Benchmark Suite
+  license: CC-BY-4.0
+  url: https://repository.prace-ri.eu/git/UEABS/ueabs
+  tags: [communication:mpi]
+  notes: "The Unified European Application Benchmark Suite is a set of 13 application codes maintained by PRACE. The last release was in 2022, and it is probably not maintained anymore."
+  benchmarks:
+    alya:
+      name: Alya
+      url: https://www.bsc.es/research-development/research-areas/engineering-simulations/alya-high-performance-computational
+      license: Proprietary
+      tags: [programming-model:openmp, programming-language:fortran, programming-model:openacc, programming-model:cuda, application-domain:cfd, application-domain:dft]
+      notes: "The Alya System is a Computational Mechanics code capable of solving different physics, each one with its own modelization characteristics, in a coupled way. ALYA is written in Fortran 90/95 and parallelized using MPI and OpenMP."
+    codesaturne:
+      name: Code_Saturne
+      url: https://github.com/code-saturne/code_saturne
+      license: GPL-2
+      tags: [application-domain:cfd, application-domain:hydrodynamics, method-type:finite-volume, math-libraries:amgx, math-libraries:petsc, programming-model:sycl, programming-model:cuda, programming-model:openmp, programming-language:fortran, programming-language:c, programming-language:c++, programming-language:python]
+      notes: "The code solves the Navier-Stokes equations for incompressible/compressible flows using a predictor-corrector technique and multi-grid algorithms."
+    cp2k:
+      name: CP2K
+      license: GPL
+      url: https://www.cp2k.org/
+      tags: [application-domain:dft, application-domain:quantum-chemistry, programming-model:cuda, programming-model:openmp, programming-language:fortran, application-domain:molecular-dynamics]
+      notes: "CP2K is a freely available quantum chemistry and solid-state physics software package for performing atomistic simulations."
+    gadget:
+      name: GADGET
+      license: GPL-3
+      url: https://wwwmpa.mpa-garching.mpg.de/gadget4/
+      ref: 10.1093/mnras/stab1855
+      tags: [programming-model:openmp, programming-language:c, programming-language:c++, application-domain:astrophysics]
+      notes: "GADGET-4 is a freely available code for cosmological N-body/SPH simulations on massively parallel computers with distributed memory."
+      gpaw:
+        name: GPAW
+        license: GPL-3
+        url: https://wiki.fysik.dtu.dk/gpaw/
+        tags: [application-domain:dft, math-libraries:blas, math-libraries:lapack, math-libraries:scalapack, method-type:fft, method-type:dense-linear-algebra, programming-model:python, programming-model:c]
+        notes: "GPAW is a density-functional theory (DFT) program for ab initio electronic structure calculations using the projector  augmented wave method."
+      pracegromacs:
+        name: GROMACS
+        license: LGPL-2
+        url: https://www.gromacs.org/
+        ref: 10.1016/0010-4655(95)00042-E
+        tags: [programming-language:c++, programming-language:c, programming-model:cuda,  programming-model:openmp, programming-model:sycl, application-domain:molecular-dynamics]
+        notes: "GROMACS is a versatile package to perform molecular dynamics, i.e. simulate the Newtonian equations of motion for systems with hundreds to millions of particles."
+      pracenamd:
+        name: NAMD
+        license: Proprietary
+        url: http://www.ks.uiuc.edu/Research/namd/
+        ref: 10.1063/5.0014475
+        tags: [programming-language:c++, programming-model:cuda, programming-model:openmp, application-domain:molecular-dynamics, programming-model:hip, programming-model:sycl, programming-model:charm++]
+        notes: "NAMD is a widely used molecular dynamics application designed to simulate bio-molecular systems on a wide variety of compute platforms."
+      nemo:
+        name: NEMO
+        license: Proprietary
+        url: https://www.nemo-ocean.eu/
+        ref: 10.5281/zenodo.8167700
+        tags: [application-domain:climate, programming-language:c++, programming-model:cuda]
+        notes: "NEMO is a mathematical modelling framework for prediction in ocean and climate sciences. Free software."
+      pfarm:
+        name: PFARM
+        license: None
+        url: https://repository.prace-ri.eu/git/UEABS/ueabs/-/tree/r2.2-dev/pfarm
+        tags: [application-domain:astrophysics, application-domain:fusion, programming-model:openmp, programming-language:fortran, method-type:dense-linear-algebra, math-libraries:magma, programming-model:cuda, programming-model:hip]
+        notes: "PFARM uses an R-matrix ab-initio approach to calculate electron-atom and electron-molecule collisions data for a wide range of applications including astrophysics and nuclear fusion. "
+      praceqcd:
+        name: QCD
+        license: GPL-3
+        url: https://repository.prace-ri.eu/git/UEABS/ueabs/-/blob/master/qcd/README.md
+        tags: [application-domain:hep, programming-model:cuda, programming-model:openmp, programming-language:c++, programming-language:c, math-libraries:quda]
+        notes: "The QCD benchmark is, unlike the other benchmarks in the PRACE application benchmark suite, not a full application but a set of 3 parts which are representative of some of the most compute-intensive parts of QCD calculations. The license is a modified GPL 3.0."
+      praceqe:
+        name: Quantum ESPRESSO
+        license: GPL-3
+        url: https://www.quantum-espresso.org/
+        tags: [application-domain:material-science, application-domain:physics, programming-language:fortran, application-domain:dft, math-libraries:elpa, programming-model:openacc, programming-model:cuf, benchmark-scale:multi-node, communication:mpi]
+        notes: "Quantum Espresso is an integrated suite of Open-Source computer codes for electronic-structure calculations and materials modeling at the nanoscale."
+      specfem3d:
+        name: SPECFEM3D
+        license: GPL-3
+        url: https://github.com/SPECFEM/specfem3d
+        ref: 10.1046/j.1365-246X.2002.01653.x
+        tags: [programming-model:openmp, programming-model:cuda, programming-language:python, programming-language:c, programming-language:c++, application-domain:seismic, method-type:sem]
+        notes: "SPECFEM3D simulates three-dimensional global and regional seismic wave propagation based upon the spectral-element method (SEM)."
+      pracetensorflow:
+        name: TensorFlow
+        license: MIT
+        url: https://github.com/maxwelltsai/DeepGalaxy
+        tags: [application-domain:astrophysics, method-type:ai, programming-model:cuda, programming-model:openmp, programming-language:python, programming-language:c, programming-language:c++]
+        notes: "TensorFlow is a popular open-source library for symbolic math and linear algebra, with particular optimisation for neural-networks-based machine learning workflow. Maintained by Google, it is widely used for research and production in both the academia and the industry."

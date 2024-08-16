@@ -34,6 +34,7 @@ license_to_tex_commands = {
     'proprietary': r'\licProp',
     'apache-2.0': r'\licApacheTwo',
     'mpl-2.0': r'\licMplTwo',
+    'cc-by-4.0': r'\licCcByFour',
 }
 sort_order_tags = {cat: (i, cat) for i, cat in enumerate(["programming-language", "programming-model"])}
 def customSortTags(tags):
