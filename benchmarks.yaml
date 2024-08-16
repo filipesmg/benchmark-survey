@@ -339,7 +339,21 @@ benchmarks:
     name: HPL
     url: https://www.netlib.org/benchmark/hpl/
     license: BSD-4-Clause
-    tags: [application-domain:synthetic, programming-language:c, communication:mpi, benchmark-scale:single-node, benchmark-scale:multi-node, benchmark-scale:large-scale]
+    ref: 10.1145/141868.141871
+    tags: [application-domain:synthetic, programming-language:c, communication:mpi, benchmark-scale:large-scale, math-libraries:blas, method-type:dense-linear-algebra, compute-performance-characteristics:vectorization, compute-performance-characteristics:high-fp]
+    note: "High Performance Linpack"
+  dgemm:
+    name: DGEMM
+    ref: 10.1145/1356052.1356053
+    tags: [application-domain:synthetic, programming-language:c, communication:mpi, benchmark-scale:large-scale, math-libraries:blas, method-type:dense-linear-algebra, compute-performance-characteristics:vectorization, compute-performance-characteristics:high-fp]
+    note: "Double General Matrix Multiply"
+  hpcg:
+    name: HPCG
+    url: https://www.hpcg-benchmark.org
+    license: BSD-3-Clause
+    ref: 10.1177/1094342015593158
+    tags: [benchmark-scale:large-scale, programming-language:c++, programming-model:openmp, communication:mpi, method-type:conjugate-gradient, method-type:sparse-linear-algebra, method-type:solver]
+    notes: "High Performance Conjugate Gradients is a complement to Linpack (HPL)"
   polybench:
     name: PolyBench
     url: https://web.cs.ucla.edu/~pouchet/software/polybench/
@@ -356,9 +370,36 @@ benchmarks:
     ref: 10.1504/IJCSE.2018.095847
     tags: [programming-language:c++, benchmark-scale:single-node, memory-access-characteristics:regular-memory-access, programming-model:opencl, programming-model:cuda, programming-model:hip, programming-model:openacc, programming-model:openmp, programming-model:pstl, programming-model:kokkos, programming-model:raja, programming-model:sycl, programming-model:tbb, programming-model:thrust, programming-model:futhark]
     notes: "STREAM in many models for many devices; also available: Julia, Rust, Scala, Java"
+  ptrans:
+    name: PTRANS
+    url: https://www.netlib.org/parkbench/html/matrix-kernels.html
+    tags: [application-domain:synthetic, programming-language:c, communication:mpi, benchmark-scale:large-scale, math-libraries:blas, method-type:dense-linear-algebra, communication-performance-characteristics:network-bisection-bandwidth-bound]
+    note: "Matrix Transpose"
+  randomaccess:
+    name: RandomAccess
+    ref: 10.1109/CLUSTR.2006.311859
+    note: "GUPS (Giga Updates Per Second)"
+    url: https://hpcchallenge.org/projectsfiles/hpcc/RandomAccess.html
+    tags: [programming-language:c, benchmark-scale:single-node, memory-access-characteristics:random-memory-access, programming-model:openmp, memory-access-characteristics:irregular-memory-access]
+  fft:
+    name: FFT
+    url: http://www.ffte.jp
+    tags: [application-domain:dft, programming-language:fortran, benchmark-scale:large-scale, memory-access-characteristics:random-memory-access, programming-model:openmp, programming-model:cuda]
+    note: "1d Discrete Fourier Transforms"
+  beff:
+    name: b\_eff
+    url: https://fs.hlrs.de/projects/par/mpi/b_eff
+    tags: [communication:mpi, benchmark-scale:large-scale, communication-performance-characteristics:network-latency-bound, communication-performance-characteristics:network-bandwidth-bound]
   lcals:
     name: LCALS
     url: https://codesign.llnl.gov/LCALS.php
+    ref: llnl_loops88
+    tags: [benchmark-scale:single-node, programming-language:c++]
+  graph500:
+    name: Graph500
+    url: https://graph500.org
+    tags: [method-type:graph-traversal, benchmark-scale:large-scale, programming-language:c++, programming-model:openmp, communication:mpi]
+    note: "Linpack for graph problems.  Breadth First Search (BFS)."
   rodiniajl:
     name: Rodinia (Julia)
     license: free
@@ -389,6 +430,13 @@ benchmarks:
     url: https://www.spec.org/mpi2007/
     tags: [programming-language:c, programming-language:fortran, benchmark-scale:single-node, benchmark-scale:multi-node, benchmark-scale:large-scale, communication:mpi]
     notes: "MPI-targeted benchmark suite. Last update: 2009 (v2.0). It features the following benchmarks: 104.milc, 107.leslie3d, 113.GemsFDTD, 115.fds4, 121.pop2, 122.tachyon, 125.RAxML, 126.lammps, 127.wrf2, 128.GAPgeofem, 129.tera_tf, 130.socorro, 132.zeusmp2, 137.lu, 142.dmilc, 143.dleslie, 145.lGemsFDTD, 147.l2wrf2"
+  gpcnet:
+    name: GPCNet
+    tags: [benchmark-scale:large-scale, programming-language:c, communication:mpi, communication-performance-characteristics:network-bandwidth-bound, communication-performance-characteristics:network-bisection-bandwidth-bound, communication-performance-characteristics:network-collectives, communication-performance-characteristics:network-latency-bound]
+    license: Apache-2
+    url: https://github.com/netbench/GPCNET
+    ref: 10.1145/3295500.3356215, 10.1145/3295500.3356166
+    notes: "Global Performance and Congestion Network Tests."
   specomp:
     name: SPEC OMP 2012
     license: Proprietary
@@ -494,6 +542,34 @@ coral2:
       tags: [memory-access-characteristics:irregular-memory-access, memory-access-characteristics:large-memory-footprint]
       notes: "Massively parallel graph analysis algorithms for computing triangles, edges, vertices. Emphasizes load imbalance and irregular random memory accesses."
       tags: [application-domain:molecular-dynamics, benchmark-scale:large-scale, communication:mpi, programming-model:openmp, programming-model:cuda, programming-language:c++, compute-performance-characteristics:high-fp,  memory-access-characteristics:high-memory-bandwidth, communication-performance-characteristics:network-bandwidth-bound,communication-performance-characteristics:network-latency-bound]
+hpcc:
+  name: HPC Challenge
+  url: https://hpcchallenge.org/hpcc
+  ref: 10.1177/1094342015593158
+  tags: [application-domain:synthetic, memory-access-characteristics:high-memory-bandwidth, memory-access-characteristics:irregular-memory-access, memory-access-characteristics:large-memory-footprint, memory-access-characteristics:regular-memory-access]
+  notes: "A benchmark suite of 7 benchmarks that measures a range of memory access patterns."
+  benchmarks:
+    hpl:
+      name: HPL
+      notes: "See dedicated entry"
+    dgemm:
+      name: DGEMM
+      notes: "See dedicated entry"
+    stream:
+      name: Stream
+      notes: "See dedicated entry"
+    ptrans:
+      name: PTRANS
+      notes: "See dedicated entry"
+    randomaccess:
+      name: RandomAccess
+      notes: "See dedicated entry"
+    fft:
+      name: FFT
+      notes: "See dedicated entry"
+    beff:
+      name: b\_eff
+      notes: "See dedicated entry"
 ats-5:
   name: ATS-5
   tags: [programming-model:openmp, programming-language:c++, programming-language:fortran, communication:mpi]
