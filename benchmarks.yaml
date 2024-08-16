@@ -394,7 +394,7 @@ benchmarks:
   lcals:
     name: LCALS
     url: https://codesign.llnl.gov/LCALS.php
-    ref: llnl_loops88
+    # ref: llnl_loops88
     tags: [benchmark-scale:single-node, programming-language:c++]
   graph500:
     name: Graph500
@@ -450,6 +450,12 @@ benchmarks:
     license: None
     tags: [programming-language:c, application-domain:synthetic, benchmark-scale:single-node, method-type:fft]
     notes: "FFTW's FFT benchmark"
+  mlperfhpc:
+    name: MLPerf HPC
+    url: https://mlcommons.org/benchmarks/training-hpc/
+    license: Apache-2
+    tags: [programming-model:pytorch, programming-language:python, method-type:ai, programming-model:cuda, programming-model:rocm, benchmark-scale:multi-node, benchmark-scale:large-scale, application-domain:climate, application-domain:cosmology, application-domain:molecular-dynamics]
+    notes: "MLPerf Training: HPC collects 4 HPC-related benchmarks: climate segmentation (DeepCAM), cosmology parameter prediction (CosmoFlow), quantum molecular modeling (DimeNet++), protein folding (AlphaFold2)."
 coral2:
   name: "CORAL-2"
   tags: [programming-model:openmp, programming-model:cuda, programming-language:c++, programming-language:c, programming-language:fortran, programming-language:python]
@@ -812,7 +818,7 @@ jupiter:
       url: https://github.com/FZJ-JSC/jubench-stream-gpu
       tags: [application-domain:synthetic, programming-language:c++, benchmark-scale:single-node, memory-access-characteristics:regular-memory-access, programming-model:cuda]
 ueabs:
-  name: Unified European Applications Benchmark Suite
+  name: UEABS
   license: CC-BY-4.0
   url: https://repository.prace-ri.eu/git/UEABS/ueabs
   tags: [communication:mpi]
