@@ -4,7 +4,7 @@ rajaperf:
   license: BSD-3-Clause
   url: https://github.com/LLNL/RAJAPerf/
   ref: 10.1109/P3HPC49587.2019.00012
-  notes: "The RAJA performance suite is designed to explore performance of loop-based computational kernels of the sort found in HPC applications. In particular, it is used to compare runtime performance of kernels implemented using RAJA, and the same kernels implemented using standard or vendor-supported parallel programming models directly (such as CUDA and ROCM)."
+  notes: "The RAJA performance suite is designed to explore performance of loop-based computational kernels of the sort found in HPC applications. In particular, it is used to compare runtime performance of kernels implemented using RAJA, and the same kernels implemented using standard or vendor-supported parallel programming models directly (such as CUDA and ROCm)."
   benchmarks:
     stream:
       name: STREAM
@@ -32,7 +32,7 @@ hecbench:
   url: https://github.com/zjin-lcf/HeCBench
   ref: 10.1109/ISPASS57527.2023.00041
   license: BSD-3-Clause
-  notes: A collection of heterogeneous computing benchmarks, aligned in categories
+  notes: "A collection of simple heterogeneous computing benchmarks, aligned in categories"
   benchmarks:
     automotive:
       name: Automotive benchmarks
@@ -541,7 +541,6 @@ coral2:
       name: Havoq
       tags: [memory-access-characteristics:irregular-memory-access, memory-access-characteristics:large-memory-footprint]
       notes: "Massively parallel graph analysis algorithms for computing triangles, edges, vertices. Emphasizes load imbalance and irregular random memory accesses."
-      tags: [application-domain:molecular-dynamics, benchmark-scale:large-scale, communication:mpi, programming-model:openmp, programming-model:cuda, programming-language:c++, compute-performance-characteristics:high-fp,  memory-access-characteristics:high-memory-bandwidth, communication-performance-characteristics:network-bandwidth-bound,communication-performance-characteristics:network-latency-bound]
 hpcc:
   name: HPC Challenge
   url: https://hpcchallenge.org/hpcc

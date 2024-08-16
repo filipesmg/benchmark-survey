@@ -40,7 +40,7 @@ def customSortTags(tags):
     return sorted(tags, key=lambda cat: sort_order_tags.get(cat[0], (len(sort_order_tags), cat[0]))) #https://stackoverflow.com/a/64593268
 def parseTags(rawTags):
     _tags = []
-    for tag in rawTags:
+    for tag in sorted(rawTags):
         rawcat, name = tag.split(':')
         cat = tags_cats_to_tex_commands[rawcat] if rawcat in tags_cats_to_tex_commands else 'NA'
         _tags.append((cat, name))
