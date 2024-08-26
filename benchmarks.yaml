@@ -343,11 +343,11 @@ benchmarks:
     ref: 10.1145/141868.141871
     tags: [application-domain:synthetic, programming-language:c, communication:mpi, benchmark-scale:large-scale, math-libraries:blas, method-type:dense-linear-algebra, compute-performance-characteristics:vectorization, compute-performance-characteristics:high-fp]
     note: "High Performance Linpack"
-  dgemm:
-    name: DGEMM
-    ref: 10.1145/1356052.1356053
-    tags: [application-domain:synthetic, programming-language:c, communication:mpi, benchmark-scale:large-scale, math-libraries:blas, method-type:dense-linear-algebra, compute-performance-characteristics:vectorization, compute-performance-characteristics:high-fp]
-    note: "Double General Matrix Multiply"
+  # dgemm:
+  #   name: DGEMM
+  #   ref: 10.1145/1356052.1356053
+  #   tags: [application-domain:synthetic, programming-language:c, communication:mpi, benchmark-scale:large-scale, math-libraries:blas, method-type:dense-linear-algebra, compute-performance-characteristics:vectorization, compute-performance-characteristics:high-fp]
+  #   note: "Double General Matrix Multiply"
   hpcg:
     name: HPCG
     url: https://www.hpcg-benchmark.org
@@ -388,13 +388,13 @@ benchmarks:
     tags: [application-domain:dft, programming-language:fortran, benchmark-scale:large-scale, memory-access-characteristics:random-memory-access, programming-model:openmp, programming-model:cuda]
     note: "1d Discrete Fourier Transforms"
   beff:
-    name: b\_eff
+    name: b_eff
     url: https://fs.hlrs.de/projects/par/mpi/b_eff
     tags: [communication:mpi, benchmark-scale:large-scale, communication-performance-characteristics:network-latency-bound, communication-performance-characteristics:network-bandwidth-bound]
   lcals:
     name: LCALS
     url: https://codesign.llnl.gov/LCALS.php
-    # ref: llnl_loops88
+    ref: llnl_loops88
     tags: [benchmark-scale:single-node, programming-language:c++]
   graph500:
     name: Graph500
@@ -434,7 +434,7 @@ benchmarks:
   gpcnet:
     name: GPCNet
     tags: [benchmark-scale:large-scale, programming-language:c, communication:mpi, communication-performance-characteristics:network-bandwidth-bound, communication-performance-characteristics:network-bisection-bandwidth-bound, communication-performance-characteristics:network-collectives, communication-performance-characteristics:network-latency-bound]
-    license: Apache-2
+    license: Apache-2.0
     url: https://github.com/netbench/GPCNET
     ref: 10.1145/3295500.3356215, 10.1145/3295500.3356166
     notes: "Global Performance and Congestion Network Tests."
@@ -453,7 +453,7 @@ benchmarks:
   mlperfhpc:
     name: MLPerf HPC
     url: https://mlcommons.org/benchmarks/training-hpc/
-    license: Apache-2
+    license: Apache-2.0
     tags: [programming-model:pytorch, programming-language:python, method-type:ai, programming-model:cuda, programming-model:rocm, benchmark-scale:multi-node, benchmark-scale:large-scale, application-domain:climate, application-domain:cosmology, application-domain:molecular-dynamics]
     notes: "MLPerf Training: HPC collects 4 HPC-related benchmarks: climate segmentation (DeepCAM), cosmology parameter prediction (CosmoFlow), quantum molecular modeling (DimeNet++), protein folding (AlphaFold2)."
   io500:
@@ -467,7 +467,7 @@ benchmarks:
     url: https://fiber-miniapp.github.io/
     license: BSD-2-Clause
     tags: [programming-language:fortran, programming-language:c, communication:mpi, math-libraries:blas, math-libraries:lapack, programming-language:c++, application-domain:physics, application-domain:hep, application-domain:cfd, application-domain:climate, application-domain:molecular-dynamics, application-domain:chemistry]
-    note: "Suite of miniapps with: CCS QCD, FFVC, NICAM-DC, mVMC, NGS Analyzer, MODYLAS, NTChem, FFB. Different licenses."
+    note: "Suite of miniapps with: CCS QCD, FFVC, NICAM-DC, mVMC, NGS Analyzer, MODYLAS, NTChem, FFB. Different licenses. Last update: 2015."
 coral2:
   name: "CORAL-2"
   tags: [programming-model:openmp, programming-model:cuda, programming-language:c++, programming-language:c, programming-language:fortran, programming-language:python]
@@ -516,7 +516,7 @@ coral2:
       notes: "The deep learning suite contains: Convolutional Neural Networks (CNNs), LSTM recurrent neural network (RNN) architecture, and CANDLE deep learning architectures relevant to problems in cancer."
     cmb:
       name: CMB
-      tags: [application-domain:synthetic, benchmark-scale:large-scale, communication:mpi, programming-language:c, communication-performance-characteristics:network-latency-bound, communication-performance-characteristics:network-bandwith-bound, communication-performance-characteristics:network-bisection-bandwidth-bound, communication-performance-characteristics:network-collectives]
+      tags: [application-domain:synthetic, benchmark-scale:large-scale, communication:mpi, programming-language:c, communication-performance-characteristics:network-latency-bound, communication-performance-characteristics:network-bandwidth-bound, communication-performance-characteristics:network-bisection-bandwidth-bound, communication-performance-characteristics:network-collectives]
       notes: "Subsystem functionality and performance tests. Collection of independent MPI benchmarks to measure various aspects of MPI performance including interconnect messaging rate, latency, aggregate bandwidth, and collective latencies."
     stream:
       name: STREAM
@@ -569,7 +569,7 @@ coral2:
 hpcc:
   name: HPC Challenge
   url: https://hpcchallenge.org/hpcc
-  ref: 10.1177/1094342015593158
+  ref: luszczek2006hpc
   tags: [application-domain:synthetic, memory-access-characteristics:high-memory-bandwidth, memory-access-characteristics:irregular-memory-access, memory-access-characteristics:large-memory-footprint, memory-access-characteristics:regular-memory-access]
   notes: "A benchmark suite of 7 benchmarks that measures a range of memory access patterns."
   benchmarks:
@@ -592,7 +592,7 @@ hpcc:
       name: FFT
       notes: "See dedicated entry"
     beff:
-      name: b\_eff
+      name: b_eff
       notes: "See dedicated entry"
 ats-5:
   name: ATS-5
@@ -743,23 +743,23 @@ jupiter:
       note: "The High-Scaling variant of the benchmark targets 642 nodes and comes in three memory configurations"
     parflow:
       name: ParFlow
-      license: LGPL-2
+      license: LGPL-2.1
       tags: [application-domain:climate, application-domain:hydrodynamics, programming-language:c, programming-model:cuda, programming-model:hip, math-libraries:hypre, benchmark-scale:multi-node, communication:mpi]
       url: https://github.com/FZJ-JSC/jubench-parflow
     picongpu:
       name: PIConGPU
-      license: GPL-3
+      license: GPL-3.0
       tags: [application-domain:physics, application-domain:plasma-physics, programming-language:c++, programming-model:alpaka, programming-model:cuda, programming-model:hip, benchmark-scale:multi-node, benchmark-scale:large-scale, benchmark-scale:weak-scaling, communication:mpi]
       note: "The High-Scaling variant of the benchmark targets 640 nodes and comes in three memory configurations"
       url: https://github.com/FZJ-JSC/jubench-picongpu
     jptrqe:
       name: Quantum ESPRESSO
-      license: GPL-3
-      tags: [application-domain:material-science, application-domain:physics, programming-language:fortran, math-libraries:elpa, programming-model:openacc, programming-model:cuf, benchmark-scale:multi-node, application-domain:df, communication:mpi]
+      license: GPL-3.0
+      tags: [application-domain:material-science, application-domain:physics, programming-language:fortran, math-libraries:elpa, programming-model:openacc, programming-model:cuf, benchmark-scale:multi-node, application-domain:dft, communication:mpi]
       url: https://github.com/FZJ-JSC/jubench-qe
     jptrsoma:
       name: SOMA
-      license: LGPL-2
+      license: GPL-3.0
       tags: [application-domain:polymers, application-domain:material-science, programming-language:c, programming-model:openacc, benchmark-scale:multi-node, communication:mpi, communication:nccl]
       url: https://github.com/FZJ-JSC/jubench-soma
     mmoclip:
@@ -776,7 +776,7 @@ jupiter:
       name: ResNet
       tags: [method-type:ai, application-domain:computer-vision, programming-language:python, math-libraries:tensorflow, programming-model:cuda, programming-model:rocm, benchmark-scale:multi-node, communication:mpi]
       url: https://github.com/FZJ-JSC/jubench-resnet
-      license: Apache-2
+      license: Apache-2.0
     dynqcd:
       name: DynQCD
       license: None
@@ -845,7 +845,7 @@ ueabs:
     codesaturne:
       name: Code_Saturne
       url: https://github.com/code-saturne/code_saturne
-      license: GPL-2
+      license: GPL-2.0
       tags: [application-domain:cfd, application-domain:hydrodynamics, method-type:finite-volume, math-libraries:amgx, math-libraries:petsc, programming-model:sycl, programming-model:cuda, programming-model:openmp, programming-language:fortran, programming-language:c, programming-language:c++, programming-language:python]
       notes: "The code solves the Navier-Stokes equations for incompressible/compressible flows using a predictor-corrector technique and multi-grid algorithms."
     cp2k:
@@ -856,66 +856,66 @@ ueabs:
       notes: "CP2K is a freely available quantum chemistry and solid-state physics software package for performing atomistic simulations."
     gadget:
       name: GADGET
-      license: GPL-3
+      license: GPL-3.0
       url: https://wwwmpa.mpa-garching.mpg.de/gadget4/
       ref: 10.1093/mnras/stab1855
       tags: [programming-model:openmp, programming-language:c, programming-language:c++, application-domain:astrophysics]
       notes: "GADGET-4 is a freely available code for cosmological N-body/SPH simulations on massively parallel computers with distributed memory."
-      gpaw:
-        name: GPAW
-        license: GPL-3
-        url: https://wiki.fysik.dtu.dk/gpaw/
-        tags: [application-domain:dft, math-libraries:blas, math-libraries:lapack, math-libraries:scalapack, method-type:fft, method-type:dense-linear-algebra, programming-model:python, programming-model:c]
-        notes: "GPAW is a density-functional theory (DFT) program for ab initio electronic structure calculations using the projector  augmented wave method."
-      pracegromacs:
-        name: GROMACS
-        license: LGPL-2
-        url: https://www.gromacs.org/
-        ref: 10.1016/0010-4655(95)00042-E
-        tags: [programming-language:c++, programming-language:c, programming-model:cuda,  programming-model:openmp, programming-model:sycl, application-domain:molecular-dynamics]
-        notes: "GROMACS is a versatile package to perform molecular dynamics, i.e. simulate the Newtonian equations of motion for systems with hundreds to millions of particles."
-      pracenamd:
-        name: NAMD
-        license: Proprietary
-        url: http://www.ks.uiuc.edu/Research/namd/
-        ref: 10.1063/5.0014475
-        tags: [programming-language:c++, programming-model:cuda, programming-model:openmp, application-domain:molecular-dynamics, programming-model:hip, programming-model:sycl, programming-model:charm++]
-        notes: "NAMD is a widely used molecular dynamics application designed to simulate bio-molecular systems on a wide variety of compute platforms."
-      nemo:
-        name: NEMO
-        license: Proprietary
-        url: https://www.nemo-ocean.eu/
-        ref: 10.5281/zenodo.8167700
-        tags: [application-domain:climate, programming-language:c++, programming-model:cuda]
-        notes: "NEMO is a mathematical modelling framework for prediction in ocean and climate sciences. Free software."
-      pfarm:
-        name: PFARM
-        license: None
-        url: https://repository.prace-ri.eu/git/UEABS/ueabs/-/tree/r2.2-dev/pfarm
-        tags: [application-domain:astrophysics, application-domain:fusion, programming-model:openmp, programming-language:fortran, method-type:dense-linear-algebra, math-libraries:magma, programming-model:cuda, programming-model:hip]
-        notes: "PFARM uses an R-matrix ab-initio approach to calculate electron-atom and electron-molecule collisions data for a wide range of applications including astrophysics and nuclear fusion. "
-      praceqcd:
-        name: QCD
-        license: GPL-3
-        url: https://repository.prace-ri.eu/git/UEABS/ueabs/-/blob/master/qcd/README.md
-        tags: [application-domain:hep, programming-model:cuda, programming-model:openmp, programming-language:c++, programming-language:c, math-libraries:quda]
-        notes: "The QCD benchmark is, unlike the other benchmarks in the PRACE application benchmark suite, not a full application but a set of 3 parts which are representative of some of the most compute-intensive parts of QCD calculations."
-      praceqe:
-        name: Quantum ESPRESSO
-        license: GPL-3
-        url: https://www.quantum-espresso.org/
-        tags: [application-domain:material-science, application-domain:physics, programming-language:fortran, application-domain:dft, math-libraries:elpa, programming-model:openacc, programming-model:cuf, benchmark-scale:multi-node, communication:mpi]
-        notes: "Quantum Espresso is an integrated suite of Open-Source computer codes for electronic-structure calculations and materials modeling at the nanoscale."
-      specfem3d:
-        name: SPECFEM3D
-        license: GPL-3
-        url: https://github.com/SPECFEM/specfem3d
-        ref: 10.1046/j.1365-246X.2002.01653.x
-        tags: [programming-model:openmp, programming-model:cuda, programming-language:python, programming-language:c, programming-language:c++, application-domain:seismic, method-type:sem]
-        notes: "SPECFEM3D simulates three-dimensional global and regional seismic wave propagation based upon the spectral-element method (SEM)."
-      pracetensorflow:
-        name: TensorFlow
-        license: MIT
-        url: https://github.com/maxwelltsai/DeepGalaxy
-        tags: [application-domain:astrophysics, method-type:ai, programming-model:cuda, programming-model:openmp, programming-language:python, programming-language:c, programming-language:c++]
-        notes: "TensorFlow is a popular open-source library for symbolic math and linear algebra, with particular optimisation for neural-networks-based machine learning workflow."
+    gpaw:
+      name: GPAW
+      license: GPL-3.0
+      url: https://wiki.fysik.dtu.dk/gpaw/
+      tags: [application-domain:dft, math-libraries:blas, math-libraries:lapack, math-libraries:scalapack, method-type:fft, method-type:dense-linear-algebra, programming-language:python, programming-model:c]
+      notes: "GPAW is a density-functional theory (DFT) program for ab initio electronic structure calculations using the projector  augmented wave method."
+    pracegromacs:
+      name: GROMACS
+      license: LGPL-2.1
+      url: https://www.gromacs.org/
+      ref: 10.1016/0010-4655(95)00042-E
+      tags: [programming-language:c++, programming-language:c, programming-model:cuda,  programming-model:openmp, programming-model:sycl, application-domain:molecular-dynamics]
+      notes: "GROMACS is a versatile package to perform molecular dynamics, i.e. simulate the Newtonian equations of motion for systems with hundreds to millions of particles."
+    pracenamd:
+      name: NAMD
+      license: Proprietary
+      url: http://www.ks.uiuc.edu/Research/namd/
+      ref: 10.1063/5.0014475
+      tags: [programming-language:c++, programming-model:cuda, programming-model:openmp, application-domain:molecular-dynamics, programming-model:hip, programming-model:sycl, programming-model:charm++]
+      notes: "NAMD is a widely used molecular dynamics application designed to simulate bio-molecular systems on a wide variety of compute platforms."
+    nemo:
+      name: NEMO
+      license: Proprietary
+      url: https://www.nemo-ocean.eu/
+      ref: 10.5281/zenodo.8167700
+      tags: [application-domain:climate, programming-language:c++, programming-model:cuda]
+      notes: "NEMO is a mathematical modelling framework for prediction in ocean and climate sciences. Free software."
+    pfarm:
+      name: PFARM
+      license: None
+      url: https://repository.prace-ri.eu/git/UEABS/ueabs/-/tree/r2.2-dev/pfarm
+      tags: [application-domain:astrophysics, application-domain:fusion, programming-model:openmp, programming-language:fortran, method-type:dense-linear-algebra, math-libraries:magma, programming-model:cuda, programming-model:hip]
+      notes: "PFARM uses an R-matrix ab-initio approach to calculate electron-atom and electron-molecule collisions data for a wide range of applications including astrophysics and nuclear fusion. "
+    praceqcd:
+      name: QCD
+      license: GPL-3
+      url: https://repository.prace-ri.eu/git/UEABS/ueabs/-/blob/master/qcd/README.md
+      tags: [application-domain:hep, programming-model:cuda, programming-model:openmp, programming-language:c++, programming-language:c, math-libraries:quda]
+      notes: "The QCD benchmark is, unlike the other benchmarks in the PRACE application benchmark suite, not a full application but a set of 3 parts which are representative of some of the most compute-intensive parts of QCD calculations."
+    praceqe:
+      name: Quantum ESPRESSO
+      license: GPL-3
+      url: https://www.quantum-espresso.org/
+      tags: [application-domain:material-science, application-domain:physics, programming-language:fortran, application-domain:dft, math-libraries:elpa, programming-model:openacc, programming-model:cuf, benchmark-scale:multi-node, communication:mpi]
+      notes: "Quantum Espresso is an integrated suite of Open-Source computer codes for electronic-structure calculations and materials modeling at the nanoscale."
+    specfem3d:
+      name: SPECFEM3D
+      license: GPL-3
+      url: https://github.com/SPECFEM/specfem3d
+      ref: 10.1046/j.1365-246X.2002.01653.x
+      tags: [programming-model:openmp, programming-model:cuda, programming-language:python, programming-language:c, programming-language:c++, application-domain:seismic, method-type:sem]
+      notes: "SPECFEM3D simulates three-dimensional global and regional seismic wave propagation based upon the spectral-element method (SEM)."
+    pracetensorflow:
+      name: TensorFlow
+      license: MIT
+      url: https://github.com/maxwelltsai/DeepGalaxy
+      tags: [application-domain:astrophysics, method-type:ai, programming-model:cuda, programming-model:openmp, programming-language:python, programming-language:c, programming-language:c++]
+      notes: "TensorFlow is a popular open-source library for symbolic math and linear algebra, with particular optimisation for neural-networks-based machine learning workflow."
