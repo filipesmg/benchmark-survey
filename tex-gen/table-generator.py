@@ -70,7 +70,7 @@ def tex_escape(text):
     return regex.sub(lambda match: conv[match.group()], text)
 tpl_suite_tableheader = r"""% do not change this file manually! it's auto-generated
 \begin{longtblr}[
-    caption={Benchmark Overview. Benchmark suites are indicated by leftmost entries with individual subordinated benchmark entries, connected by a dotted line. Per benchmark, tags, license (\emph{Lic.}), URL, reference (\emph{Ref.}), and notes are given; if each component is common to all benchmarks in a suite, the components are listed for the suite itself.}{Benchmark Overview}, %https://tex.stackexchange.com/questions/634767/tabularray-how-to-have-different-continued-captions,
+    caption={Benchmark Overview. Benchmark suites are listed first and indicated by leftmost entries with individual subordinated benchmark entries, connected by a dotted line. Per benchmark, tags, license (\emph{Lic.}), URL, reference (\emph{Ref.}), and notes are given; if each component is common to all benchmarks in a suite, the components are listed for the suite itself.}{Benchmark Overview}, %https://tex.stackexchange.com/questions/634767/tabularray-how-to-have-different-continued-captions,
     entry = {Benchmark Overview Table},
     label = {table:benchmarks}
 ]{
