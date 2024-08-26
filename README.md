@@ -1,8 +1,8 @@
 # HPC Benchmark Survey
 
-[WIP] A survey of existing HPC benchmarks and benchmark suites. See also [benchmark taxonomy](https://github.com/LLNL/benchmark-taxonomy).
+A survey of existing HPC benchmarks and benchmark suites. See also [benchmark taxonomy](https://github.com/LLNL/benchmark-taxonomy).
 
-The list of benchmarks collected here in a machine-readable manner is transformed _downstream_ into tables, like a TeX table for a paper.
+The list of benchmarks collected here in a machine-readable manner is transformed into tables, like a TeX table for a paper.
 
 ## Benchmark YAML Scheme
 
@@ -12,13 +12,11 @@ Rules:
 2. A benchmark is identify with a unique key, and sibling keys `name`, `tags`, `license`, `url`, `ref`; with the according values
 3. If the top-level key is a suite, the sibling keys are the same as _benchmark keys_ (`name`, `tags`, `license`, `url`, `ref`) plus a key `benchmark`, which contains keys for each benchmark like in 2.
 
-This is WIP and might need to be extended.
-
 Notes:
 
 * Mandatory: `name` and (`url` or `ref `)
 * `license`: use SPDX identifiers; be conscious of the distinction between a suite license and license for the individual benchmarks, they can be different
-* `ref`: DOI or URL (?)
+* `ref`: DOI or URL
 
 
 ```yaml
@@ -42,3 +40,7 @@ benchmarks:
   hpl:
     name: HPL
 ```
+
+## Conversion
+
+Currently, only a script for conversion to TeX is available; see `./tex-gen/`.
