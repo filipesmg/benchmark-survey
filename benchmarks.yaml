@@ -313,13 +313,13 @@ spechpc:
       tags: [programming-language:c, application-domain:physics, application-domain:nuclear]
       url: https://www.spec.org/hpc2021/docs/benchmarks/521.miniswp_t.html
       license: GPL-3.0
-      note: "License in linked repository is BSD-2-Clause."
+      notes: "License in linked repository is BSD-2-Clause."
     pot3d:
       name: POT3D
       tags: [programming-language:fortran, application-domain:physics, application-domain:solarphysics]
       url: https://www.spec.org/hpc2021/docs/benchmarks/528.pot3d_t.html
       license: Apache-2.0
-      note: "Custom Apache license"
+      notes: "Custom Apache license"
     sphexa:
       name: SPH-EXA
       tags: [programming-language:c++, application-domain:physics, application-domain:astrophysics, application-domain:cosmology]
@@ -329,7 +329,7 @@ spechpc:
       name: HPGMG-FV
       tags: [programming-language:c, application-domain:physics, application-domain:cosmology, application-domain:astrophysics, application-domain:combustion]
       url: https://www.spec.org/hpc2021/docs/benchmarks/534.hpgmgfv_t.html
-      note: "While the SPEC site lists only copyright, the HPMG repository contains a BSD-2-Clause license."
+      notes: "While the SPEC site lists only copyright, the HPMG repository contains a BSD-2-Clause license."
     weather:
       name: miniWeather
       tags: [programming-language:fortran, application-domain:climate]
@@ -342,12 +342,12 @@ benchmarks:
     license: BSD-4-Clause
     ref: 10.1145/141868.141871
     tags: [application-domain:synthetic, programming-language:c, communication:mpi, benchmark-scale:large-scale, math-libraries:blas, method-type:dense-linear-algebra, compute-performance-characteristics:vectorization, compute-performance-characteristics:high-fp]
-    note: "High Performance Linpack"
+    notes: "High Performance Linpack"
   # dgemm:
   #   name: DGEMM
   #   ref: 10.1145/1356052.1356053
   #   tags: [application-domain:synthetic, programming-language:c, communication:mpi, benchmark-scale:large-scale, math-libraries:blas, method-type:dense-linear-algebra, compute-performance-characteristics:vectorization, compute-performance-characteristics:high-fp]
-  #   note: "Double General Matrix Multiply"
+  #   notes: "Double General Matrix Multiply"
   hpcg:
     name: HPCG
     url: https://www.hpcg-benchmark.org
@@ -375,18 +375,18 @@ benchmarks:
     name: PTRANS
     url: https://www.netlib.org/parkbench/html/matrix-kernels.html
     tags: [application-domain:synthetic, programming-language:c, communication:mpi, benchmark-scale:large-scale, math-libraries:blas, method-type:dense-linear-algebra, communication-performance-characteristics:network-bisection-bandwidth-bound]
-    note: "Matrix Transpose"
+    notes: "Matrix Transpose"
   randomaccess:
     name: RandomAccess
     ref: 10.1109/CLUSTR.2006.311859
-    note: "GUPS (Giga Updates Per Second)"
+    notes: "GUPS (Giga Updates Per Second)"
     url: https://hpcchallenge.org/projectsfiles/hpcc/RandomAccess.html
     tags: [programming-language:c, benchmark-scale:single-node, memory-access-characteristics:random-memory-access, programming-model:openmp, memory-access-characteristics:irregular-memory-access]
   fft:
     name: FFT
     url: http://www.ffte.jp
     tags: [application-domain:dft, programming-language:fortran, benchmark-scale:large-scale, memory-access-characteristics:random-memory-access, programming-model:openmp, programming-model:cuda]
-    note: "1d Discrete Fourier Transforms"
+    notes: "1d Discrete Fourier Transforms"
   beff:
     name: b_eff
     url: https://fs.hlrs.de/projects/par/mpi/b_eff
@@ -400,7 +400,7 @@ benchmarks:
     name: Graph500
     url: https://graph500.org
     tags: [method-type:graph-traversal, benchmark-scale:large-scale, programming-language:c++, programming-model:openmp, communication:mpi]
-    note: "Linpack for graph problems.  Breadth First Search (BFS)."
+    notes: "Linpack for graph problems.  Breadth First Search (BFS)."
   rodiniajl:
     name: Rodinia (Julia)
     license: free
@@ -467,7 +467,7 @@ benchmarks:
     url: https://fiber-miniapp.github.io/
     license: BSD-2-Clause
     tags: [programming-language:fortran, programming-language:c, communication:mpi, math-libraries:blas, math-libraries:lapack, programming-language:c++, application-domain:physics, application-domain:hep, application-domain:cfd, application-domain:climate, application-domain:molecular-dynamics, application-domain:chemistry]
-    note: "Suite of miniapps with: CCS QCD, FFVC, NICAM-DC, mVMC, NGS Analyzer, MODYLAS, NTChem, FFB. Different licenses. Last update: 2015."
+    notes: "Suite of miniapps with: CCS QCD, FFVC, NICAM-DC, mVMC, NGS Analyzer, MODYLAS, NTChem, FFB. Different licenses. Last update: 2015."
 coral2:
   name: "CORAL-2"
   tags: [programming-model:openmp, programming-model:cuda, programming-language:c++, programming-language:c, programming-language:fortran, programming-language:python]
@@ -712,13 +712,13 @@ jupiter:
       tags: [application-domain:neuroscience, programming-language:c++, programming-model:cuda, programming-model:hip, benchmark-scale:multi-node, benchmark-scale:large-scale, benchmark-scale:weak-scaling, communication:mpi]
       license: BSD-3-Clause
       url: https://github.com/FZJ-JSC/jubench-arbor
-      note: "The High-Scaling variant of the benchmark targets 642 nodes and comes in four memory configurations"
+      notes: "The High-Scaling variant of the benchmark targets 642 nodes and comes in four memory configurations"
     chroma:
       name: Chroma LQCD
       tags: [application-domain:physics, application-domain:hep, programming-language:c++, programming-model:cuda, programming-model:hip, math-libraries:quda, benchmark-scale:multi-node, benchmark-scale:large-scale, benchmark-scale:weak-scaling, communication:mpi]
       license: Proprietary
       url: https://github.com/FZJ-JSC/jubench-chroma-qcd
-      note: "The High-Scaling variant of the benchmark targets 512 nodes and comes in three memory configurations; License: JLab License"
+      notes: "The High-Scaling variant of the benchmark targets 512 nodes and comes in three memory configurations; License: JLab License"
     jptrgromacs:
       name: GROMACS
       license: LGPL-2.1
@@ -733,14 +733,14 @@ jupiter:
       name: JUQCS
       license: none
       tags: [application-domain:quantum-computing, programming-language:fortran, programming-model:cuda, programming-model:openmp, benchmark-scale:multi-node, benchmark-scale:large-scale, benchmark-scale:weak-scaling, communication:mpi]
-      note: "The High-Scaling variant of the benchmark targets 512 nodes and comes in two memory configurations. In addition, a version is provided with runs at the same time on a CPU partition and a GPU partition (Modular Supercomputing Architecture)."
+      notes: "The High-Scaling variant of the benchmark targets 512 nodes and comes in two memory configurations. In addition, a version is provided with runs at the same time on a CPU partition and a GPU partition (Modular Supercomputing Architecture)."
       url: https://github.com/FZJ-JSC/jubench-juqcs
     nekrs:
       name: nekRS
       license: BSD-3-Clause
       tags: [application-domain:cfd, programming-language:c++, programming-language:c, programming-model:cuda, programming-model:hip, programming-model:sycl, programming-model:occa, benchmark-scale:multi-node, benchmark-scale:large-scale, benchmark-scale:weak-scaling, communication:mpi]
       url: https://github.com/FZJ-JSC/jubench-nekrs
-      note: "The High-Scaling variant of the benchmark targets 642 nodes and comes in three memory configurations"
+      notes: "The High-Scaling variant of the benchmark targets 642 nodes and comes in three memory configurations"
     parflow:
       name: ParFlow
       license: LGPL-2.1
@@ -750,7 +750,7 @@ jupiter:
       name: PIConGPU
       license: GPL-3.0
       tags: [application-domain:physics, application-domain:plasma-physics, programming-language:c++, programming-model:alpaka, programming-model:cuda, programming-model:hip, benchmark-scale:multi-node, benchmark-scale:large-scale, benchmark-scale:weak-scaling, communication:mpi]
-      note: "The High-Scaling variant of the benchmark targets 640 nodes and comes in three memory configurations"
+      notes: "The High-Scaling variant of the benchmark targets 640 nodes and comes in three memory configurations"
       url: https://github.com/FZJ-JSC/jubench-picongpu
     jptrqe:
       name: Quantum ESPRESSO
