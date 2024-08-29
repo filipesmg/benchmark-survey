@@ -14,7 +14,7 @@ rajaperf:
       name: PolyBench
     lcals:
       name: LCALS
-      longname: Livermore Compiler Analysis Loop Suite
+      # longname: Livermore Compiler Analysis Loop Suite
       tags: [programming-model:kokkos, memory-access-characteristics:regular-memory-access]
     comm:
       name: Halo Communication
