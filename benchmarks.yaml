@@ -394,7 +394,6 @@ benchmarks:
   lcals:
     name: LCALS
     url: https://codesign.llnl.gov/LCALS.php
-    ref: llnl_loops88
     tags: [benchmark-scale:single-node, programming-language:c++]
   graph500:
     name: Graph500
@@ -569,7 +568,7 @@ coral2:
 hpcc:
   name: HPC Challenge
   url: https://hpcchallenge.org/hpcc
-  ref: luszczek2006hpc
+  ref: 10.1145/1188455.118867
   tags: [application-domain:synthetic, memory-access-characteristics:high-memory-bandwidth, memory-access-characteristics:irregular-memory-access, memory-access-characteristics:large-memory-footprint, memory-access-characteristics:regular-memory-access]
   notes: "A benchmark suite of 7 benchmarks that measures a range of memory access patterns."
   benchmarks:
@@ -699,7 +698,7 @@ jupiter:
   name: JUPITER Benchmark Suite
   license: MIT
   url: https://github.com/FZJ-JSC/jubench
-  ref: SC24-in-press
+  ref: 10.1109/SC41406.2024.00038
   notes: "The JUPITER Benchmark Suite is used for procurement of the JUPITER exascale system and consists of application and synthetic benchmarks. The vast majority of the benchmarks focus on GPU execution. The application benchmarks come in Base category (usually executing on 8 nodes, each 4 GPUs) and High-Scaling category (using between 500 and 650 nodes, each 4 GPUs). "
   benchmarks:
     amber:
