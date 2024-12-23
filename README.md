@@ -16,7 +16,7 @@ Notes:
 
 * Mandatory: `name` and (`url` or `ref `)
 * `license`: use SPDX identifiers; be conscious of the distinction between a suite license and license for the individual benchmarks, they can be different
-* `ref`: DOI or URL
+* `ref`: DOI
 
 
 ```yaml
@@ -39,6 +39,12 @@ rajaperf:
 benchmarks:
   hpl:
     name: HPL
+```
+
+A schema file exists to validate entries against this scheme. Validate with
+
+```bash
+pajv validate -s schema.json -d benchmark.yaml
 ```
 
 ## Conversion

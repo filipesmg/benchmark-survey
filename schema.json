@@ -1,0 +1,152 @@
+{  
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Benchmark Survey Schema",
+  "type": "object",
+  "anyOf": [
+    {"required": ["benchmarks"]},
+    {"required": ["^[a-zA-Z0-9_-]+$"]}
+  ],
+  "patternProperties": {
+    "benchmarks": {
+      "type": "object",
+      "patternProperties": {
+        "^[a-zA-Z0-9_-]+$": {
+          "type": "object",
+          "description": "A benchmark",
+          "allOf": [
+            {
+              "required": ["name"],
+              "anyOf": [
+                {"required": ["url"]},
+                {"required": ["ref"]}
+              ]
+            }
+          ],
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "The name of the individual benchmark."
+            },
+            "url": {
+              "type": "string",
+              "format": "uri",
+              "description": "The URL where the individual benchmark can be found."
+            },
+            "license": {
+              "type": "string",
+              "description": "The license under which the individual benchmark is released."
+            },
+            "ref": {
+              "type": "string",
+              "description": "A reference identifier, typically a DOI."
+            },
+            "tags": {
+              "type": "array",
+              "description": "A list of tags categorizing the individual benchmark.",
+              "items": {
+                "type": "string",
+                "pattern": "^[^:]+:[^:]+$",
+                "description": "Each tag should follow the 'key:value' format."
+              }
+            },
+            "notes": {
+              "type": "string",
+              "description": "Additional notes about the individual benchmark."
+            }
+          },
+          "additionalProperties": false
+        }
+      }
+    },
+    "^(?!benchmarks$)[a-zA-Z0-9_-]+$": {
+      "type": "object",
+      "description": "A benchmark suite.",
+      "allOf": [
+        {
+          "required": ["name"],
+          "anyOf": [
+            {"required": ["url"]},
+            {"required": ["ref"]}
+          ]
+        }
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the suite."
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "description": "The URL where the suite can be found."
+        },
+        "license": {
+          "type": "string",
+          "description": "The license under which the suite is released."
+        },
+        "ref": {
+          "type": "string",
+          "description": "A reference identifier, typically a DOI."
+        },
+        "tags": {
+          "type": "array",
+          "description": "A list of tags categorizing the entire suite.",
+          "items": {
+            "type": "string",
+            "pattern": "^[^:]+:[^:]+$",
+            "description": "Each tag should follow the 'key:value' format."
+          }
+        },
+        "notes": {
+          "type": "string",
+          "description": "Additional notes about the suite."
+        },
+        "benchmarks": {
+          "type": "object",
+          "patternProperties": {
+            "^[a-zA-Z0-9_-]+$": {
+              "type": "object",
+              "description": "A benchmark",
+              "required": ["name"],
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "The name of the individual benchmark."
+                },
+                "url": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The URL where the individual benchmark can be found."
+                },
+                "license": {
+                  "type": "string",
+                  "description": "The license under which the individual benchmark is released."
+                },
+                "ref": {
+                  "type": "string",
+                  "description": "A reference identifier, typically a DOI."
+                },
+                "tags": {
+                  "type": "array",
+                  "description": "A list of tags categorizing the individual benchmark.",
+                  "items": {
+                    "type": "string",
+                    "pattern": "^[^:]+:[^:]+$",
+                    "description": "Each tag should follow the 'key:value' format."
+                  }
+                },
+                "notes": {
+                  "type": "string",
+                  "description": "Additional notes about the individual benchmark."
+                }
+              },
+              "additionalProperties": true
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

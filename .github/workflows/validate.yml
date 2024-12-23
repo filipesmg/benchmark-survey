@@ -1,0 +1,23 @@
+name: Schema CI
+
+on:
+  push:
+    paths:
+      - 'benchmarks.yaml'
+      - 'schema.json'
+      - '.github/workflows/validate.yml'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - run: ln -s .github/workflows/npm-shrinkwrap.json
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: '22.x'
+        cache: 'npm'
+    - run: npm -g install pajv
+    - run: pajv validate -s schema.json -d benchmarks.yaml
