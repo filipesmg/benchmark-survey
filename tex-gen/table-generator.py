@@ -80,7 +80,7 @@ tpl_suite_tableheader = r"""% do not change this file manually! it's auto-genera
     row{1}  = {font=\footnotesize\bfseries}, rowhead = 1,
     rowsep = 0.2pt
 }
-\SetCell[c=2]{l} \emph{(Suite-)}Name & & Tags & Lic. & URL, Ref. & Notes \\
+\SetCell[c=2]{l} \emph{(Suite-)}Name & & Tags & Lic. & URL & Notes, Ref. \\
 \midrule"""
 tpl_suite_tablefooter = r"""
 \end{longtblr}
@@ -92,13 +92,14 @@ tpl_suite_table = r"""
     ((*- endif *))
     ((* for tag in tags *)) \((( tag[0] ))){((( tag[1] )))} ((*- endfor *)) &
     ((* if license -*)) ((( license ))) ((* endif -*)) &
-    ((* if url['key'] -*))\href{((( url['long'] )))}{\scalebox{0.8}{\faIcon{link}}}~\cite{((( url['key'] )))}((* endif -*)) ((* if url and citekey -*)), ((* endif -*)) ((* if citekey -*)) \cite{((( citekey )))} ((* endif -*)) &
-    ((* if notes -*)) ((( notes ))) ((* endif -*))\\
+    ((* if url['key'] -*))\href{((( url['long'] )))}{\scalebox{0.8}{\faIcon{link}}}((* endif -*)) &
+    ((* if notes -*)) ((( notes ))) ((* endif -*))((* if citekey -*)) Ref.: \cite{((( citekey )))} ((* endif -*))\\
 """
 tpl_bib_link = r"""
 @electronic{((( key ))),
  title     = {{((( name )))}},
- url       = {((( url )))}
+ url       = {((( url )))},
+ key    = {((( key | replace("link", "") )))}
 }
 """
 def main(args):
@@ -164,14 +165,14 @@ def genTableRow(benchkey, benchdata, suitekey, last_suite_bench, multicol, jinja
     url = {
         'long': benchdata['url'] if 'url' in benchdata else '',
         'short': benchdata['url'].replace('https://', '').replace('http://', '') if 'url' in benchdata else '',
-        'key': f'{benchkey}_link' if 'url' in benchdata else ''
+        'key': f'{benchkey}link' if 'url' in benchdata else ''
     }
     return jinjaenv.from_string(textwrap.dedent(tpl_suite_table)).render(key=benchkey, name=name, license=license, notes=notes, citekey=ref, tags=tags, url=url, multicol=multicol, suitekey=suitekey, last_suite_bench=last_suite_bench)
 def genBibUrl(benchkey, benchdata, jinjaenv):
     if 'url' in benchdata:
         name = tex_escape(benchdata['name'])
         url = benchdata['url'] 
-        key = f'{benchkey}_link'
+        key = f'{benchkey}link'
         return jinjaenv.from_string(textwrap.dedent(tpl_bib_link)).render(key=key, name=name, url=url)
     else:
         return ""
