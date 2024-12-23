@@ -140,7 +140,7 @@
                   "description": "Additional notes about the individual benchmark."
                 }
               },
-              "additionalProperties": false
+              "additionalProperties": true
             }
           }
         }
