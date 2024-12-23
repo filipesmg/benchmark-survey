@@ -435,7 +435,7 @@ benchmarks:
     tags: [benchmark-scale:large-scale, programming-language:c, communication:mpi, communication-performance-characteristics:network-bandwidth-bound, communication-performance-characteristics:network-bisection-bandwidth-bound, communication-performance-characteristics:network-collectives, communication-performance-characteristics:network-latency-bound]
     license: Apache-2.0
     url: https://github.com/netbench/GPCNET
-    ref: 10.1145/3295500.3356215, 10.1145/3295500.3356166
+    ref: 10.1145/3295500.3356215
     notes: "Global Performance and Congestion Network Tests."
   specomp:
     name: SPEC OMP 2012
@@ -632,7 +632,7 @@ ats-5:
       tags: [application-domain:molecular-dynamics, benchmark-scale:large-scale, communication:mpi, programming-model:openmp, programming-model:cuda, programming-language:c++, compute-performance-characteristics:high-fp,  memory-access-characteristics:high-memory-bandwidth, communication-performance-characteristics:network-bandwidth-bound,communication-performance-characteristics:network-latency-bound]
       notes: "Short and long range interactions."
 olcf-6:
-  name: OLCF-2
+  name: OLCF-6
   tags: [programming-model:openmp, programming-language:c++, programming-language:fortran, communication:mpi]
   license: none
   url: https://www.olcf.ornl.gov/draft-olcf-6-technical-requirements/benchmarks
