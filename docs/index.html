@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="shortcut icon" href="#">
+    <link rel="stylesheet" as="style" href="/css/fontawesome.min.css" onload="this.rel='stylesheet'">
+    <link rel="stylesheet" as="style" href="/css/solid.min.css" onload="this.rel='stylesheet'">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+  </head>
+  <style>
+  body {
+    max-width: 95%;
+    margin: 0 auto;
+    font-family: "Lato", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  header {
+    width: 70%;
+    max-width: 1000px;
+  }
+  header h1 {
+    /* display: inline-block; */
+    float: left;
+    margin: 2rem;
+    margin-left: 0;
+    margin-top: 0;
+  }
+  main header {
+    display: flex;
+    flex-direction: row;
+  }
+  a {
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  a > i:hover {
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    text-decoration-thickness: 0.1rem
+  }
+  img.license {
+    height: 26px;
+  }
+  .hide {
+    display: none !important;
+  }
+  .text-left {
+    text-align: left !important;
+  }
+
+  .text-right {
+    text-align: right !important;
+  }
+  .text-center {
+    text-align: center !important;
+  }
+  i {
+    padding-right: 5px;
+  }
+  .benchmark {
+    padding-left: 15px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    border-left: dashed black 1px;
+  }
+  .suite {
+    &::before {
+      font-family: 'Font Awesome 5 Free';
+      content: "\f0d7";
+      margin-right: 2px;
+      font-size: medium;
+    }
+    &.closed::before {
+      font-family: 'Font Awesome 5 Free';
+      content: "\f0da";
+      margin-right: 2px;
+      font-size: medium;
+    }
+  }
+  .tag {
+    color: white;
+    margin-right: 5px;
+    font-weight: bold;
+    padding: 2px;
+    white-space: pre-wrap !important;
+    span& {
+      display: inline-block;
+      white-space: nowrap !important;
+      line-height: 15px;
+      margin: 1px;
+    }
+    & i {
+      margin-right: 2px;
+    }
+    &.programming-language {
+      background-color: #EEDD82;
+    }
+    &.programming-model {
+      background-color: #FFA07A;
+    }
+    &.benchmark-scale {
+      background-color: #87CC90;
+    }
+    &.communication {
+      background-color: #F08080;
+    }
+    &.memory-access-characteristics {
+      background-color: #B39BE6;
+    }
+    &.application-domain {
+      background-color: #87CEFA;
+    }
+    &.communication-performance-characteristics {
+      background-color: #BD8086;
+    }
+    &.method-type {
+      background-color: #21B2AA;
+    }
+    &.math-libraries {
+      background-color: #9890C4;
+    }
+    &.compute-performance-characteristics {
+      background-color: #8FBC8F;
+    }
+    &.mesh-representation {
+      background-color: #9890C4;
+    }
+  }
+  .ag-center-cols-viewport {
+    min-height: unset !important;
+  }
+  .notes {
+    padding: 5px 0;
+    line-height: 1.3 !important;
+  }
+  </style>
+  <body>
+    <header>
+      <h1>HPC Benchmark Survey</h1>
+
+      <p>Benchmarking is core to High-Performance Computing, assessing hardware performance and software capabilities. Here we present a list of over 100 HPC benchmarks and benchmark suites, introduced in the accompanying paper.</p>
+      <p>Each benchmark/benchmark suite is tagged with relevant meta-information, augmented with its license, a URL to learn more about the benchmark, potentially a peer-reviewed reference, and some notes from us. Benchmark suites, who collect multiple benchmarks usually in a well-defined manner, are displayed first, with common tags to all contained benchmarks promoted to suite level. Afterwards, individual benchmarks follow alphabetically.</p>
+      <p>The table can be filtered to limit display to certain keywords. Filtering utilizes benchmark (suite) names and meta-data tags.</p>
+      <p><strong>Contribute</strong>, if a benchmark is missing or something is incomplete/wrong! <a href="https://github.com/FZJ-JSC/benchmark-survey">Help us on GitHub</a> to improve this table!</p>
+    </header>
+    <main>
+      <header>
+        <div id="filter"></div>
+        <button id="expandAll" class="button" onclick="expandAll()">Expand All</button>
+        <button id="collapseAll" class="button" onclick="collapseAll()">Collapse All</button>
+      </header>
+      <div id="content" style="height: 100%;">
+        <div id="myGrid" class="ag-theme-balham grid"></div>
+      </div>
+    </main>
+    <footer>
+      <p>This website uses Google Fonts (served remotely), JQuery, AG-Grid, JS-YAML, bibtexParseJs and FontAwesome5 (all served locally).</p>
+      <p>HPC Benchmark Survey by A. Herten, O. Pearce, F. Guimaraes; 2025.</p>
+    </footer>
+  </body>
+  <script src="js/jquery-3.6.0.min.js"></script>
+  <script src="js/ag-grid-community-31.3.1.min.js"></script>
+  <script src="js/js-yaml.min.js"></script>
+  <script src="js/bibtexParse.js"></script>
+  <script>
+
+  const icons = {
+    'programming-language': 'fa-code',
+    'programming-model': 'fa-list-alt',
+    'benchmark-scale': 'fa-chart-line',
+    'application-domain': 'fa-flask',
+    'communication-performance-characteristics': 'fa-comments',
+    'compute-performance-characteristics': 'fa-calculator',
+    'memory-access-characteristics': 'fa-memory',
+    'communication': 'fa-sitemap',
+    'method-type': 'fa-cog',
+    'math-libraries': 'fa-university',
+    'mesh-representation': 'fa-th',
+  }
+  const licenses = {
+    'bsd-4-clause': 'bsd4',
+    'bsd-3-clause': 'bsd3',
+    'bsd-2-clause': 'bsd2',
+    'bsd': 'bsd',
+    'free': 'free',
+    'proprietary': 'prop',
+    'gpl-3': 'gpl3',
+    'gpl-3.0': 'gpl3',
+    'gpl-2': 'gpl2',
+    'gpl-2.0': 'gpl2',
+    'gpl': 'gpl',
+    'apache-2.0': 'apch2',
+    'none': 'none',
+    'lgpl-2.1': 'lgpl2',
+    'mpl-2.0': 'mpl2',
+    'mit': 'mit',
+    'cc-by-4.0': 'cc-by4',
+  }
+  let rows = [];
+  let gridApi;
+  let externalFilter = new Set();
+  let allSuites = new Set();
+
+  function onFilterTextBoxChanged(event) {
+    let filter_text = document.getElementById("filter-text-box").value;
+    gridApi.setGridOption(
+                              "quickFilterText",
+                              filter_text,
+                            );
+  }
+
+  /* Function to parse Array of tags into the cell */
+  function createTagsCell(params) {
+    if (!params.value) {return "";}
+    let tags = "";
+    params.value.forEach((tag) => {
+      [ myclass , mytag ] = tag.split(":")
+      icon = '';
+      if (icons[myclass].length) {
+        icon = `<i class="fa ${icons[myclass]}" aria-hidden="true"></i>`
+      }
+      tags += `<span class="tag ${myclass}">${icon}${mytag}</span>`
+    })
+    return tags
+  }
+  /* Function to add License icons into the cell */
+  function createLicenseCell(params) {
+    return (typeof params.value == 'string'&&params.value.length)?`<img class="license" src="icons/${licenses[params.value.toLowerCase()]}.svg" />`:"";
+  }
+  /* Function to create the titles of the suites */
+  function createSuiteCell (params) {
+    if (!params.value) {return "";}
+    let name = params.value.replace(/\s/g,"_")
+    return (typeof params.data.benchmark == 'string')?`<span ${params.data.benchmark=='independent'?"":"class='benchmark'"}>${params.value}</span>`:`<span class='suite' id="span_${name}" onclick="openCloseBenchmarks('${name}')">${params.value}</span>`;
+  }
+  /* Get the name of an id and hide that grid, while changing the carret to closed */
+  function openCloseBenchmarks(name) {
+    if(externalFilter.has(name)) {
+      externalFilter.delete(name)
+    } else {
+      externalFilter.add(name);
+    }
+    gridApi.onFilterChanged();
+    $(`#span_${name}`).toggleClass('closed');
+  }
+
+  /* Expand all suites */
+  function expandAll() {
+    externalFilter.clear()
+    gridApi.onFilterChanged();
+    $('span[id^="span_"]').removeClass('closed');
+  }
+  /* Collapse all suites */
+  function collapseAll() {
+    externalFilter = new Set([...externalFilter, ...allSuites])
+    gridApi.onFilterChanged();
+    $('span[id^="span_"]').addClass('closed');
+  }
+
+  /* Function to create links for URLs */
+  function createLinks(params) {
+    return params.value?`<a href=${params.value}><i class="fa fa-link" aria-hidden="true"></i></a>`:"";
+  }
+
+  /* Function to create links for URLs */
+  function createReferences(params) {
+    if (!params.value) {return "";}
+    refs = Array.isArray(params.value)?params.value:[params.value];
+    let element = "";
+    refs.forEach((ref) => {
+      if (ref.startsWith('10.')) {
+        element += `<a href="https://doi.org/${ref}" title="${ref}"><i class="fa fa-book" aria-hidden="true"></i></a>`
+      } else {
+        element += `<i class="fa fa-book" aria-hidden="true"></i>`
+      }
+    })
+    return element;
+  }
+
+  const toolTipValueGetter = (params) => {
+    if (!params.value) {return "";}
+
+    const ref_lookp = {
+      'mcalpin1996': 'John D. McCalpin, Memory Bandwidth and Machine Balance in Current High Performance Computers, 1995'
+    }
+    refs = Array.isArray(params.value)?params.value:[params.value];
+    let tooltip = "";
+    refs.forEach((ref) => {
+      if (ref.startsWith('10.')) {
+        tooltip += `${ref} `
+      } else {
+        tooltip += `${ref_lookp[ref]} `
+      }
+    })
+
+    return tooltip.slice(0, -1)
+  }
+
+
+  function createBenchmarksGrid(data, refs) {
+    // Looping over all Suites
+    Object.entries(data).forEach(([key, value], index) => {
+      // First looping over suites, that contain "benchmarks" inside
+      if(!value.benchmarks) { return; }
+
+      // Manipulating the data
+      // Should return an array of objects
+      let benchmarks = [];
+      let unique_words = new Set();
+
+      // Loop over benchmarks inside a suite and storing their name and tags in an array
+      for (let [name, bench] of Object.entries(value.benchmarks)) {
+        unique_words = new Set([...unique_words,bench.tags])
+        unique_words.add(bench.name.split(' '))
+        unique_words.add(bench.license??'')
+        if (typeof bench.notes == 'string') {
+          unique_words.add(bench.notes.split(' '))
+        }
+        benchmarks.push({
+          'name': bench.name, 
+          'tags': bench.tags,
+          'license':bench.license,
+          'url': bench.url,
+          'ref': bench.ref,
+          'ref_metadata': refs[name.toLowerCase()+'_ref']?`${refs[name.toLowerCase()+'_ref'].author.replace(/\s{3,}/g,' ')}, "${refs[name.toLowerCase()+'_ref'].title}" (${refs[name.toLowerCase()+'_ref'].year}), ${refs[name.toLowerCase()+'_ref'].DOI??""}`:null,
+          'notes': bench.notes,
+          'hidden': value.name+' '+((typeof value.tags == 'object')?value.tags.join(' '):""),
+          'benchmark': value.name.replace(/\s/g,"_"), // Benchmark from this Suite (used for collapse/expand)
+        })
+      }
+      // Storing all Suite names (for collapse/expand)
+      allSuites.add(value.name.replace(/\s/g,"_"));
+      // Adding Suite to the rows, with all names and tags as hidden field
+      rows.push({
+        'name': value.name, 
+        'tags': value.tags,
+        'license': value.license,
+        'url': value.url,
+        'ref': value.ref,
+        'ref_metadata': refs[key.toLowerCase()+'_ref']?`${refs[key.toLowerCase()+'_ref'].author.replace(/\s{3,}/g,' ')}, "${refs[key.toLowerCase()+'_ref'].title}" (${refs[key.toLowerCase()+'_ref'].year}), ${refs[key.toLowerCase()+'_ref'].DOI??""}`:null,
+        'notes': value.notes,
+        'hidden': Array.from(unique_words).join(' '),
+        'benchmark': null,
+      })
+      rows.push(...benchmarks)
+    })
+    // Looping over independent benchmarks
+    Object.entries(data).forEach(([key, value], index) => {
+      // First looping over suites, that contain "benchmarks" inside
+      if(value.benchmarks) { return; }
+      // Loop over benchmarks inside a suite and storing their name and tags in an array
+      for (let [name, bench] of Object.entries(value)) {
+        rows.push({
+          'name': bench.name, 
+          'tags': bench.tags,
+          'license':bench.license??'',
+          'url': bench.url,
+          'ref': bench.ref,
+          'ref_metadata': refs[key.toLowerCase()+'_ref']?`${refs[key.toLowerCase()+'_ref'].author.replace(/\s{3,}/g,' ')}, "${refs[key.toLowerCase()+'_ref'].title}" (${refs[key.toLowerCase()+'_ref'].year}), ${refs[key.toLowerCase()+'_ref'].DOI??""}`:null,
+          'notes': bench.notes,
+          'hidden': null,
+          'benchmark': 'independent',
+        })
+      }
+    })
+
+    // Options for main grid (containing main Suites)
+    const gridOptions = { 
+      rowData: rows,
+      // Column Definitions: Defines the columns to be displayed.
+      columnDefs: [
+        { 
+          field: "name",
+          cellRenderer: createSuiteCell,
+          // cellRenderer: addOpenClose,
+        },
+        { 
+          field: "tags", 
+          valueFormatter: (params) => {return params.value?params.value.join(" "):""},
+          cellRenderer: createTagsCell,
+          wrapText: true,
+          autoHeight: true,
+        },
+        { 
+          field: "license",
+          cellRenderer: createLicenseCell,
+          maxWidth: 90,
+          cellClass: "text-center",
+          tooltipField: "license",
+        },
+        { 
+          field: "url",
+          headerName: "URL",
+          cellRenderer: createLinks,
+          tooltipField: "url",
+          maxWidth: 65,
+          cellClass: "text-center",
+        },
+        { 
+          field: "ref",
+          headerName: "Ref.",
+          cellRenderer: createReferences,
+          // tooltipValueGetter: toolTipValueGetter,
+          tooltipField: 'ref_metadata',
+          maxWidth: 65,
+          cellClass: "text-center",
+        },
+        { 
+          field: "notes",
+          wrapText: true,
+          autoHeight: true,
+          cellClass: 'notes',
+        },
+        {
+          field: "hidden",
+          wrapText: true,
+          autoHeight: true,
+          hide: true,
+        },
+      ],
+      domLayout: 'autoHeight', // Adjust height of this grid automatically
+      tooltipShowDelay: 0,
+      // tooltipHideDelay: 2000,
+      // perform a regular expression search
+      quickFilterMatcher: (quickFilterParts, rowQuickFilterAggregateText) => {
+        return quickFilterParts.every(part => rowQuickFilterAggregateText.match(part));
+      },
+      isExternalFilterPresent: function() { 
+        return externalFilter.size == 0?false:true; 
+      },
+      // return true if flag=true
+      doesExternalFilterPass: function(rowNode) { 
+        return !externalFilter.has(rowNode.data.benchmark); 
+      },
+      includeHiddenColumnsInQuickFilter: true,
+      defaultColDef: {          // Default definitions for the columns
+        sortable: false,                     // Allow sorting
+        filter: 'agTextColumnFilter',       // Default filter by text
+        resizable: true,                    // Allow resize of this column
+        floatingFilter: false,               // Activate the floating filter
+        suppressFloatingFilterButton: true, // Hide the filter button beside the floating filter
+        suppressHeaderMenuButton:false,     // Show (false) or hide (true) the filter menu from the header
+        flex: 1,                            // Set flex cells that will fill the space
+      },
+    }
+    // Getting the Grid element and emptying it before creating a new one
+    const gridDiv = $(`#myGrid`);
+
+    // Creating the grid
+    gridApi = agGrid.createGrid(gridDiv[0], gridOptions);
+    
+    // Adding filter field, when it is not there
+    if (!$('#filter > input').length) {
+      let filter = $('<input>').attr('type',"text")
+                              .attr('id',"filter-text-box") 
+                              .attr('placeholder',"Filter")
+                              .on('input',() => {onFilterTextBoxChanged(); return;})
+      $('#filter').css('width',"170px")
+                  .append(filter)
+    } 
+  }
+
+  let deferrer = [] // To store promises
+  let files = {}    // To store read data
+  // let benchmarkfile = './benchmarks.json'
+  let benchmarkfile = './benchmarks.yaml'
+  let referencefile = './benchmarkrefs.bib'
+  // Getting data from YAML or JSON
+  if (benchmarkfile.endsWith('yaml')) {
+    deferrer.push($.get( benchmarkfile, function( data ) {
+      files.data = jsyaml.load( data );
+      return;
+    }));
+
+  } else if (benchmarkfile.endsWith('json')) {
+    deferrer.push($.getJSON(benchmarkfile, function (data) {
+      files.data = data;
+      return;
+    }));
+  }
+  // Getting references from bib
+  deferrer.push($.get( referencefile, function( data ) {
+    parsed_data = bibtexParse.toJSON(data);
+    files.ref = {}
+    const MAX_AUTHORS=3
+    parsed_data.forEach((ref) => {
+      if (ref.entryTags.author) {
+        authors = ref.entryTags.author.split(" and ")
+        if (authors.length <= MAX_AUTHORS) {
+          authors_short = `${authors.slice(0, authors.length-1).join(', ')}${authors.length>1?" and ":""}${authors[authors.length-1]}`
+        } else {
+          authors_short = `${authors.slice(0, MAX_AUTHORS).join(', ')} et al.`
+        }
+        ref.entryTags.author = authors_short
+      }
+      files.ref[ref.citationKey] = ref.entryTags
+    })
+    return;
+  }));
+
+  $.when.apply($, deferrer).done(function () {
+    createBenchmarksGrid(files.data,files.ref)
+  })
+
+
+</script>
+
+</html>
+
+

@@ -1,0 +1,920 @@
+rajaperf:
+  name: RAJAPerf
+  tags: [programming-model:raja, programming-language:c++, programming-model:cuda, programming-model:hip, programming-model:openmp, programming-model:openmp-target, programming-model:sycl, benchmark-scale:single-node]
+  license: BSD-3-Clause
+  url: https://github.com/LLNL/RAJAPerf/
+  ref: 10.1109/P3HPC49587.2019.00012
+  notes: "The RAJA performance suite is designed to explore performance of loop-based computational kernels of the sort found in HPC applications. In particular, it is used to compare runtime performance of kernels implemented using RAJA, and the same kernels implemented using standard or vendor-supported parallel programming models directly (such as CUDA and ROCm)."
+  benchmarks:
+    stream:
+      name: STREAM
+      tags: [memory-access-characteristics:regular-memory-access, programming-model:kokkos]  # inline lists are a little more space-efficient
+      notes: "See the dedicated entry"
+    polybench:
+      name: PolyBench
+    lcals:
+      name: LCALS
+      # longname: Livermore Compiler Analysis Loop Suite
+      tags: [programming-model:kokkos, memory-access-characteristics:regular-memory-access]
+    comm:
+      name: Halo Communication
+    basic:
+      name: Basic Patterns
+      tags: [programming-model:kokkos]
+    apps:
+      name: Application Kernels
+      notes: Variety of kernels extracted from real-world applications
+    algorithm:
+      name: Algorithms
+      notes: Algorithm primites (Atomic, Memcopy, Memset, Reduce, Scan, Sort, Sort-Pairs)
+hecbench:
+  name: HeCBench
+  tags: [programming-model:cuda, programming-model:hip, programming-model:sycl, programming-model:openmp-target, benchmark-scale:single-node, programming-language:c++]
+  url: https://github.com/zjin-lcf/HeCBench
+  ref: 10.1109/ISPASS57527.2023.00041
+  license: BSD-3-Clause
+  notes: "A collection of simple heterogeneous computing benchmarks, aligned in categories"
+  benchmarks:
+    automotive:
+      name: Automotive benchmarks
+      tags: [application-domain:automotive]
+      notes: "Benchmark: daphne"
+    bandwidth:
+      name: Bandwidth benchmarks
+      tags: [memory-access-characteristics:high-memory-bandwidth, memory-access-characteristics:regular-memory-access] #tbd
+      notes: "Benchmarks: cmembench, babelstream, memcpy, memtest, randomAccess, shmembench, triad"
+    bioinformatics:
+      name: Bioinformatics benchmarks
+      tags: [application-domain:biology]
+      notes: "Benchmarks: all-pairs-distance, bsw, ccs, cm, deredundancy, diamond, epistasis, extend2, frna, fsm, ga, logan, minibude, minimap2, nbnxm, nw, pcc, prna, sa, snake"
+    computer-vision:
+      name: Computer vision and image processing
+      tags: [application-domain:computer-vision]
+      notes: "A set of 49 benchmarks"
+    cryptography:
+      name: Cryptography
+      tags: [application-domain:cryptography]
+      notes: "Benchmarks: aes, bitcracker, chacha20, columnarSolver, ecdh, keccaktreehash, merkle, present"
+    data-compression:
+      name: Data compression and reduction
+      tags: [method-type:compression] #tbd
+      notes: "A set of 25 benchmarks"
+    data-encoding:
+      name: Data encoding, decoding, or verification
+      notes: "Benchmarks: ans, crc64, crs, entropy, jenkins-hash, ldpc, md5hash, murmurhash3"
+    finance:
+      name: Finance
+      tags: [application-domain:finance]
+      notes: "Benchmarks: aop, black-scholes, binomial, bonds, libor"
+    geoscience:
+      name: Geoscience
+      tags: [application-domain:geoscience]
+      notes: "Benchmarks: aidw, coordinates, geodesic, hausdorff, haversine, stsg"
+    graph:
+      name: Graph and tree
+      tags: [method-type:graph]
+      notes: "Benchmarks: cc, floydwarshall, floydwarshall2, gc, hbc, hungarian, mis, sssp, rsmt"
+    language-features:
+      name: Language and kernel features
+      tags: [programming-language:c++]
+      notes: "A set of 40 benchmarks"
+    machine-learning:
+      name: Machine learning
+      tags: [method-type:ai]
+      notes: "A set of 69 benchmarks"
+    math:
+      name: Math
+      tags: [method-type:math]
+      notes: "A set of 64 benchmarks"
+    rng:
+      name: Random number generation
+      tags: [method-type:rng]
+      notes: "Benchmarks: mt, permutate, qrg, rng-wallace, sobol, urng"
+    search:
+      name: Search
+      notes: "Benchmarks: bfs, bsearch, b+tree, grep, keogh, s8n, ss, sss, tsp"
+    signals:
+      name: Signal processing
+      tags: [method-type:fft, method-type:signal-processing]
+      notes: "Benchmarks: extrema, fft, lombscargle, sosfil, zmddft"
+    simulation:
+      name: Simulation
+      notes: "A set of 97 benchmarks"
+    sorting:
+      name: Sorting
+      tags: [method-type:sorting]
+      notes: "Benchmarks: bitonic-sort, hybridsort, is, merge, quicksort, radixsort, segsort, sort, sortKV, split, warpsort"
+    robotics:
+      name: Robotics
+      tags: [application-domain:robotics]
+      notes: "Benchmarks: inversek2j, rodrigues"
+rodinia:
+  name: Rodinia
+  tags: [programming-model:cuda, programming-model:opencl, programming-model:openmp, benchmark-scale:single-node, programming-language:c]
+  url: https://www.cs.virginia.edu/rodinia/doku.php?id=start
+  ref: 10.1109/IISWC.2009.5306797
+  license: free
+  notes: "No updates since a long time; customized BSD-3-Clause license"
+  benchmarks:
+    leukocyte:
+      name: Leukocyte
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=leukocyte
+      tags: [mesh-representation:structured-grid, application-domain:medical]
+    heart:
+      name: Heart Wall
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=heart_wall
+      tags: [mesh-representation:structured-grid, application-domain:medical]
+    mummergpu:
+      name: MUMmerGPU
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=mummergpu
+      tags: [method-type:graph-traversal, application-domain:bioinformatics]
+    cfdsolver:
+      name: CFD Solver
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=cfd_solver
+      tags: [application-domain:cfd, method-type:finite-volume, mesh-representation:unstructured-grid]
+    ludecomp:
+      name: LU Decomposition
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=lu_decomposition
+      tags: [method-type:dense-linear-algebra]
+    hotspot:
+      name: HotSpot
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=hotspot
+      tags: [method-type:ode, mesh-representation:structured-grid, application-domain:physics]
+    backpropagation:
+      name: Back Propagation
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=back_propagation
+      tags: [method-type:ai, mesh-representation:unstructured-grid]
+    needleman:
+      name: Needleman-Wunsch
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=needleman-wunsch
+      tags: [application-domain:bioinformatics]
+    kmeans:
+      name: Kmeans
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=kmeans
+      tags: [application-domain:data-mining, method-type:clustering, method-type:dense-linear-algebra]
+    bfs:
+      name: Breadth-First Search
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=graph_traversal
+      tags: [method-type:graph-traversal]
+    srad:
+      name: SRAD
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=srad
+      tags: [application-domain:computer-vision, method-type:pde, mesh-representation:structured-grid]
+    streamcluster:
+      name: Streamcluster
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=streamcluster
+      tags: [application-domain:data-mining, method-type:clustering, method-type:dense-linear-algebra]
+    particlefilter:
+      name: Particle Filter
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=particle_filter
+      tags: [application-domain:medical, mesh-representation:structured-grid]
+    pathfinder:
+      name: PathFinder
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=pathfinder
+      tags: [mesh-representation:structured-grid]
+    gaussian:
+      name: Gaussian Elimination
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=gaussian_elimination
+      tags: [method-type:dense-linear-algebra]
+    knn:
+      name: k-Nearest Neighbors
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=k-nearest_neighbors
+      tags: [method-type:dense-linear-algebra]
+    lavamd2:
+      name: LavaMD2
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=lavamd2
+      tags: [application-domain:molecular-dynamics, method-type:paricles]
+    myocyte:
+      name: Myocyte
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=myocyte
+      tags: [application-domain:biology, mesh-representation:structured-grid, method-type:ode, method-type:solver]
+    btree:
+      name: "B+ Tree"
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=b_tree
+      tags: [method-type:graph-traversal]
+    gpudwt:
+      name: GPUDWT
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=gpudwt
+      tags: [method-type:spectral]
+    hybridsort:
+      name: Hybrid Sort
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=hybrid_sort
+      tags: [method-type:sorting, compute-performance-characteristics:atomics]
+    htospot3d:
+      name: Hotspot3D
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=hotspot3d
+      tags: [application-domain:physics, mesh-representation:structured-grid,]
+    huffman:
+      name: Huffman
+      url: https://www.cs.virginia.edu/rodinia/doku.php?id=huffman
+      tags: [method-type:state-machine]
+specaccel2023:
+  name: SPECaccel 2023
+  url: https://www.spec.org/accel2023/
+  license: Proprietary
+  tags: [programming-model:openmp, programming-model:openmp-target, programming-model:openacc, benchmark-scale:single-node, benchmark-scale:sub-node]
+  notes: "Commercial suite with distinct execution instructions, focusing on accelerators. Update of the preceding SPEC ACCEL suite, extending selected benchmarks."
+  benchmarks:
+    stencil:
+      name: 403.stencil
+      tags: [programming-language:c, method-type:pde, application-domain:thermodynamics, mesh-representation:structured-grid, method-type:solver]
+      url: https://www.spec.org/accel2023/Docs/benchmarks/403.stencil.html
+    lbm:
+      name: 404.lbm
+      tags: [programming-language:c, application-domain:cfd, application-domain:material-science, method-type:lbm]
+      url: https://www.spec.org/accel2023/Docs/benchmarks/404.lbm.html
+    md:
+      name: 450.md
+      tags: [programming-language:fortran, application-domain:molecular-dynamics]
+      url: https://www.spec.org/accel2023/Docs/benchmarks/450.md.html
+    ep:
+      name: 452.ep
+      tags: [programming-language:c]
+      url: https://www.spec.org/accel2023/Docs/benchmarks/452.ep.html
+    clvrleaf:
+      name: 453.clvrleaf
+      tags: [programming-language:c, programming-language:fortran, application-domain:hydrodynamics, method-type:eulerian, method-type:finite-volume, mesh-representation:structured-grid, application-domain:climate]
+      url: https://www.spec.org/accel2023/Docs/benchmarks/453.clvrleaf.html
+    seismic:
+      name: 455.seismic
+      tags: [programming-language:fortran, method-type:finite-difference, application-domain:seismic]
+      url: https://www.spec.org/accel2023/Docs/benchmarks/455.seismic.html
+    spF:
+      name: 456.spF
+      tags: [programming-language:fortran, application-domain:cfd, method-type:solver]
+      url: https://www.spec.org/accel2023/Docs/benchmarks/456.spF.html
+    spC:
+      name: 457.spC
+      tags: [programming-language:c, application-domain:cfd, method-type:solver]
+      url: https://www.spec.org/accel2023/Docs/benchmarks/457.spC.html
+    miniGhost:
+      name: 459.miniGhost
+      tags: [programming-language:c, programming-language:fortran, method-type:finite-difference]
+      url: https://www.spec.org/accel2023/Docs/benchmarks/459.miniGhost.html
+    ilbdc:
+      name: 460.ilbdc
+      tags: [programming-language:fortran, method-type:lbm, method-type:eulerian, method-type:finite-difference, application-domain:cfd]
+      url: https://www.spec.org/accel2023/Docs/benchmarks/460.ilbdc.html
+    swim:
+      name: 463.swim
+      tags: [programming-language:fortran, application-domain:climate, method-type:finite-difference, memory-access-characteristics:high-memory-bandwidth]
+      url: https://www.spec.org/accel2023/Docs/benchmarks/463.swim.html
+    bt:
+      name: 470.bt
+      tags: [programming-language:c, method-type:pde]
+      url: https://www.spec.org/accel2023/Docs/benchmarks/470.bt.html
+specaccel:
+  name: SPEC ACCEL
+  url: https://www.spec.org/accel/
+  license: Proprietary
+  tags: [programming-model:openmp-target, programming-model:openacc, programming-model:opencl, benchmark-scale:single-node, benchmark-scale:sub-node, programming-language:fortran, programming-language:c, programming-language:c++]
+  notes: "Commercial suite with distinct execution instructions, focusing on accelerators. Current version: v1.3. Individual benchmarks are combined here per category for brevity."
+  benchmarks:
+    specocl:
+      name: SPEC ACCEL_OCL
+      tags: [programming-language:c++, programming-language:c, programming-model:opencl]
+      notes: "19 OpenCL-enabled benchmarks: 101.tpacf, 103.stencil, 104.lbm, 110.fft, 112.spmv, 114.mriq, 116.histo, 117.bfs, 118.cutcp, 120.kmeans, 121.lavamd, 122.cfd, 123.nw, 124.hotspot, 125.lud, 126.ge, 127.srad, 128.heartwall, 140.bplustree"
+    specoacc:
+      name: SPEC ACCEL_OACC
+      tags: [programming-language:fortran, programming-language:c, programming-model:openacc]
+      notes: "15 OpenACC-enabled benchmarks: 303.ostencil, 304.olbm, 314.omriq, 350.md, 351.palm, 352.ep, 353.clvrleaf, 354.cg, 355.seismic, 356.sp, 357.csp, 359.miniGhost, 360.ilbdc, 363.swim, 370.bt"
+    specomp:
+      name: SPEC ACCEL_OMP
+      tags: [programming-language:fortran, programming-language:c, programming-model:openmp, programming-model:openmp-target]
+      notes: "15 OpenMP-enabled benchmarks: 503.postencil, 504.polbm, 514.pomriq, 550.pmd, 551.ppalm, 552.pep, 553.pclvrleaf, 554.pcg, 555.pseismic, 556.psp, 557.pcsp, 559.pmniGhost, 560.pilbdc, 563.pswim, 570.pbt"
+spechpc:
+  name: SPEChpc
+  url: https://www.spec.org/hpc2021/
+  tags: [programming-model:openmp, programming-model:openmp-target, programming-model:openacc, communication:mpi, benchmark-scale:single-node, benchmark-scale:multi-node,benchmark-scale:large-scale]
+  notes: "SPEChpc collects its benchmarks into suites of different workload sizes: tiny, small, medium, large. Each size targets different number of tasks and higher memory usage."
+  benchmarks:
+    lbmd2q37:
+      name: LBM D2Q37
+      tags: [programming-language:c, application-domain:cfd]
+      url: https://www.spec.org/hpc2021/docs/benchmarks/505.lbm_t.html
+      license: BSD-3-Clause
+    soma:
+      name: SOMA
+      tags: [programming-language:c, application-domain:physics, application-domain:polymers]
+      url: https://www.spec.org/hpc2021/docs/benchmarks/513.soma_t.html
+      license: GPL-3.0
+    tealeaf:
+      name: Tealeaf
+      tags: [programming-language:c, application-domain:physics, application-domain:hep]
+      url: https://www.spec.org/hpc2021/docs/benchmarks/518.tealeaf_t.html
+      license: GPL-3.0
+    clvleaf:
+      name: Cloverleaf
+      tags: [programming-language:fortran, application-domain:physics, application-domain:hep]
+      url: https://www.spec.org/hpc2021/docs/benchmarks/519.clvleaf_t.html
+      license: GPL-3.0
+    miniswp:
+      name: Minisweep
+      tags: [programming-language:c, application-domain:physics, application-domain:nuclear]
+      url: https://www.spec.org/hpc2021/docs/benchmarks/521.miniswp_t.html
+      license: GPL-3.0
+      notes: "License in linked repository is BSD-2-Clause."
+    pot3d:
+      name: POT3D
+      tags: [programming-language:fortran, application-domain:physics, application-domain:solarphysics]
+      url: https://www.spec.org/hpc2021/docs/benchmarks/528.pot3d_t.html
+      license: Apache-2.0
+      notes: "Custom Apache license"
+    sphexa:
+      name: SPH-EXA
+      tags: [programming-language:c++, application-domain:physics, application-domain:astrophysics, application-domain:cosmology]
+      url: https://www.spec.org/hpc2021/docs/benchmarks/532.sph_exa_t.html
+      license: MIT
+    hpgmgfv:
+      name: HPGMG-FV
+      tags: [programming-language:c, application-domain:physics, application-domain:cosmology, application-domain:astrophysics, application-domain:combustion]
+      url: https://www.spec.org/hpc2021/docs/benchmarks/534.hpgmgfv_t.html
+      notes: "While the SPEC site lists only copyright, the HPMG repository contains a BSD-2-Clause license."
+    weather:
+      name: miniWeather
+      tags: [programming-language:fortran, application-domain:climate]
+      url: https://www.spec.org/hpc2021/docs/benchmarks/535.weather_t.html
+      license: BSD-2-Clause
+benchmarks:
+  hpl:
+    name: HPL
+    url: https://www.netlib.org/benchmark/hpl/
+    license: BSD-4-Clause
+    ref: 10.1145/141868.141871
+    tags: [application-domain:synthetic, programming-language:c, communication:mpi, benchmark-scale:large-scale, math-libraries:blas, method-type:dense-linear-algebra, compute-performance-characteristics:vectorization, compute-performance-characteristics:high-fp]
+    notes: "High Performance Linpack"
+  # dgemm:
+  #   name: DGEMM
+  #   ref: 10.1145/1356052.1356053
+  #   tags: [application-domain:synthetic, programming-language:c, communication:mpi, benchmark-scale:large-scale, math-libraries:blas, method-type:dense-linear-algebra, compute-performance-characteristics:vectorization, compute-performance-characteristics:high-fp]
+  #   notes: "Double General Matrix Multiply"
+  hpcg:
+    name: HPCG
+    url: https://www.hpcg-benchmark.org
+    license: BSD-3-Clause
+    ref: 10.1177/1094342015593158
+    tags: [benchmark-scale:large-scale, programming-language:c++, programming-model:openmp, communication:mpi, method-type:conjugate-gradient, method-type:sparse-linear-algebra, method-type:solver]
+    notes: "High Performance Conjugate Gradients is a complement to Linpack (HPL)"
+  polybench:
+    name: PolyBench
+    url: https://web.cs.ucla.edu/~pouchet/software/polybench/
+  stream:
+    name: STREAM
+    license: free #https://www.cs.virginia.edu/stream/FTP/Code/LICENSE.txt
+    url: https://www.cs.virginia.edu/stream/
+    ref: mcalpin1996 #https://www.cs.virginia.edu/stream/ref.html#citing: Memory Bandwidth and Machine Balance in Current High Performance  Computers
+    tags: [programming-language:c, programming-language:fortran, benchmark-scale:single-node, memory-access-characteristics:regular-memory-access]
+  babelstream:
+    name: BabelStream
+    license: free # based on STREAM's license: https://github.com/UoB-HPC/BabelStream?tab=License-1-ov-file#readme
+    url: https://github.com/UoB-HPC/BabelStream
+    ref: 10.1504/IJCSE.2018.095847
+    tags: [programming-language:c++, benchmark-scale:single-node, memory-access-characteristics:regular-memory-access, programming-model:opencl, programming-model:cuda, programming-model:hip, programming-model:openacc, programming-model:openmp, programming-model:pstl, programming-model:kokkos, programming-model:raja, programming-model:sycl, programming-model:tbb, programming-model:thrust, programming-model:futhark]
+    notes: "STREAM in many models for many devices; also available: Julia, Rust, Scala, Java"
+  ptrans:
+    name: PTRANS
+    url: https://www.netlib.org/parkbench/html/matrix-kernels.html
+    tags: [application-domain:synthetic, programming-language:c, communication:mpi, benchmark-scale:large-scale, math-libraries:blas, method-type:dense-linear-algebra, communication-performance-characteristics:network-bisection-bandwidth-bound]
+    notes: "Matrix Transpose"
+  randomaccess:
+    name: RandomAccess
+    ref: 10.1109/CLUSTR.2006.311859
+    notes: "GUPS (Giga Updates Per Second)"
+    url: https://hpcchallenge.org/projectsfiles/hpcc/RandomAccess.html
+    tags: [programming-language:c, benchmark-scale:single-node, memory-access-characteristics:random-memory-access, programming-model:openmp, memory-access-characteristics:irregular-memory-access]
+  fft:
+    name: FFT
+    url: http://www.ffte.jp
+    tags: [application-domain:dft, programming-language:fortran, benchmark-scale:large-scale, memory-access-characteristics:random-memory-access, programming-model:openmp, programming-model:cuda]
+    notes: "1d Discrete Fourier Transforms"
+  beff:
+    name: b_eff
+    url: https://fs.hlrs.de/projects/par/mpi/b_eff
+    tags: [communication:mpi, benchmark-scale:large-scale, communication-performance-characteristics:network-latency-bound, communication-performance-characteristics:network-bandwidth-bound]
+  lcals:
+    name: LCALS
+    url: https://codesign.llnl.gov/LCALS.php
+    tags: [benchmark-scale:single-node, programming-language:c++]
+  graph500:
+    name: Graph500
+    url: https://graph500.org
+    tags: [method-type:graph-traversal, benchmark-scale:large-scale, programming-language:c++, programming-model:openmp, communication:mpi]
+    notes: "Linpack for graph problems.  Breadth First Search (BFS)."
+  rodiniajl:
+    name: Rodinia (Julia)
+    license: free
+    url: https://github.com/JuliaParallel/rodinia/
+    tags: [programming-model:cuda, programming-model:opencl, programming-model:openmp, benchmark-scale:single-node, programming-language:julia]
+    notes: "Julia-port of the Rodinia benchmarks, with single and multi-threaded implementations and Julia+CUDA; has the Rodinia license (customized BSD-3-Clause)"
+  rodiniadpcpp:
+    name: Rodinia (DPC++)
+    license: MIT
+    url: https://github.com/artecs-group/rodinia-dpct-dpcpp/
+    tags: [programming-model:dpc++, programming-model:sycl, programming-language:c++]
+    notes: "DPC++-translation of Rodinia benchmarks (SYCL tag added for visibility)"
+  rodiniasycl:
+    name: Rodinia (SYCL)
+    license: BSD-3-Clause
+    url: https://github.com/zjin-lcf/Rodinia_SYCL
+    tags: [programming-model:sycl, programming-language:c++]
+    notes: "SYCL implementations of Rodinia benchmarks, currently deprecated (integrated into/maintained through HeCBench)"
+  osu:
+    name: OSU Micro-Benchmarks
+    license: BSD-3-Clause
+    url: https://mvapich.cse.ohio-state.edu/benchmarks/
+    tags: [benchmark-scale:single-node, benchmark-scale:multi-node, benchmark-scale:large-scale, communication:mpi, communication:nccl, communication:rccl, communication:openshmem, communication:upc, communication:upc++, communication-performance-characteristics:network-bandwidth-bound, communication-performance-characteristics:network-bisection-bandwidth-bound, communication-performance-characteristics:network-collectives, communication-performance-characteristics:network-latency-bound, communication-performance-characteristics:network-multi-threaded, communication-performance-characteristics:network-nonblocking-collectives, communication-performance-characteristics:network-onesided, communication-performance-characteristics:network-point-to-point, compute-performance-characteristics:atomics, memory-access-characteristics:managed-memory, memory-access-characteristics:regular-memory-access, programming-language:c, programming-language:java, programming-language:python, programming-model:cuda, programming-model:openacc, programming-model:rocm, application-domain:synthetic]
+    notes: "A vast collection of network-related micro-benchmarks."
+  specmpi:
+    name: SPEC MPI 2007
+    license: Proprietary
+    url: https://www.spec.org/mpi2007/
+    tags: [programming-language:c, programming-language:fortran, benchmark-scale:single-node, benchmark-scale:multi-node, benchmark-scale:large-scale, communication:mpi]
+    notes: "MPI-targeted benchmark suite. Last update: 2009 (v2.0). It features the following benchmarks: 104.milc, 107.leslie3d, 113.GemsFDTD, 115.fds4, 121.pop2, 122.tachyon, 125.RAxML, 126.lammps, 127.wrf2, 128.GAPgeofem, 129.tera_tf, 130.socorro, 132.zeusmp2, 137.lu, 142.dmilc, 143.dleslie, 145.lGemsFDTD, 147.l2wrf2"
+  gpcnet:
+    name: GPCNet
+    tags: [benchmark-scale:large-scale, programming-language:c, communication:mpi, communication-performance-characteristics:network-bandwidth-bound, communication-performance-characteristics:network-bisection-bandwidth-bound, communication-performance-characteristics:network-collectives, communication-performance-characteristics:network-latency-bound]
+    license: Apache-2.0
+    url: https://github.com/netbench/GPCNET
+    ref: [10.1145/3295500.3356215, 10.1145/3295500.3356166]
+    notes: "Global Performance and Congestion Network Tests."
+  specomp:
+    name: SPEC OMP 2012
+    license: Proprietary
+    url: https://www.spec.org/omp2012/
+    tags: [programming-model:openmp, programming-language:c, programming-language:c++, programming-language:fortran]
+    notes: "OpenMP-focused benchmark, successor of SPEC OMP 2001 benchmark. Includes the following benchmarks: 350.md, 351.bwaves, 352.nab, 357.bt331, 358.botsalgn, 359.botsspar, 360.ilbdc, 362.fma3d, 363.swim, 367.imagick, 370.mgrid331, 371.applu331, 372.smithwa, 376.kdtree"
+  benchfft:
+    name: benchFFT
+    url: https://www.fftw.org/benchfft/
+    license: None
+    tags: [programming-language:c, application-domain:synthetic, benchmark-scale:single-node, method-type:fft]
+    notes: "FFTW's FFT benchmark"
+  mlperfhpc:
+    name: MLPerf HPC
+    url: https://mlcommons.org/benchmarks/training-hpc/
+    license: Apache-2.0
+    tags: [programming-model:pytorch, programming-language:python, method-type:ai, programming-model:cuda, programming-model:rocm, benchmark-scale:multi-node, benchmark-scale:large-scale, application-domain:climate, application-domain:cosmology, application-domain:molecular-dynamics]
+    notes: "MLPerf Training: HPC collects 4 HPC-related benchmarks: climate segmentation (DeepCAM), cosmology parameter prediction (CosmoFlow), quantum molecular modeling (DimeNet++), protein folding (AlphaFold2)."
+  io500:
+    name: IO500
+    url: https://io500.org/
+    license: MIT
+    tags: [programming-model:c, communication:mpi, benchmark-scale:multi-node, benchmark-scale:large-scale, compute-performance-characteristics:i-o]
+    notes: "The IO500 benchmark captures user-experienced I/O performance with a variety of workloads."
+  fiber:
+    name: Fiber Miniapp
+    url: https://fiber-miniapp.github.io/
+    license: BSD-2-Clause
+    tags: [programming-language:fortran, programming-language:c, communication:mpi, math-libraries:blas, math-libraries:lapack, programming-language:c++, application-domain:physics, application-domain:hep, application-domain:cfd, application-domain:climate, application-domain:molecular-dynamics, application-domain:chemistry]
+    notes: "Suite of miniapps with: CCS QCD, FFVC, NICAM-DC, mVMC, NGS Analyzer, MODYLAS, NTChem, FFB. Different licenses. Last update: 2015."
+coral2:
+  name: "CORAL-2"
+  tags: [programming-model:openmp, programming-model:cuda, programming-language:c++, programming-language:c, programming-language:fortran, programming-language:python]
+  license: none
+  url: https://asc.llnl.gov/coral-2-benchmarks
+  notes: The suite comes with re-implementations of well-known benchmarks/benchmark suites in a variety of programming models
+  benchmarks:
+    hacc:
+      name: HACC
+      tags: [application-domain:astrophysics, method-type:nbody, method-type:fft, benchmark-scale:large-scale, communication:mpi, programming-model:openmp, programming-model:cuda, programming-language:c++, compute-performance-characteristics:high-fp]
+    nekbone:
+      name: NEKBONE
+      tags: [application-domain:cfd, method-type:conjugate-gradient, benchmark-scale:large-scale, communication:mpi, programming-model:cuda, programming-language:fortran, programming-language:c, compute-performance-characteristics:high-fp, communication-performance-characteristics:network-collectives]
+      notes: "Nekbone is a mini-app derived from the Nek5000 CFD code which is a high order, incompressible Navier-Stokes CFD solver based on the spectral element method."
+    qmcpack:
+      name: QMCPACK
+      tags: [application-domain:molecular-dynamics, method-type:montecarlo, benchmark-scale:large-scale, communication:mpi, programming-model:openmp, programming-model:cuda, programming-language:c, programming-language:c++, memory-access-characteristics:high-memory-bandwidth]
+      notes: "QMCPACK is a many-body ab initio quantum Monte Carlo code for computing the electronic structure of atoms, molecules, and solids."
+    lammps:
+      name: LAMMPS
+      tags: [application-domain:molecular-dynamics, benchmark-scale:large-scale, communication:mpi, programming-model:openmp, programming-model:cuda, programming-language:c++, compute-performance-characteristics:high-fp,  memory-access-characteristics:high-memory-bandwidth, communication-performance-characteristics:network-bandwidth-bound, communication-performance-characteristics:network-latency-bound]
+      notes: "LAMMPS is a classical molecular dynamics code."
+    amg:
+      name: AMG
+      tags: [application-domain:asc, method-type:solver, method-type:sparse-linear-algebra, benchmark-scale:large-scale, communication:mpi, programming-model:openmp, programming-model:cuda, programming-language:c, memory-access-characteristics:irregular-memory-access, memory-access-characteristics:high-memory-bandwidth, memory-access-characteristics:high-memory-latency, memory-access-characteristics:large-memory-footprint, communication-performance-characteristics:network-collectives, communication-performance-characteristics:network-latency-bound, mesh-representation:block-structured-grid, compute-performance-characteristics:high-branching, compute-performance-characteristics:mixed-precision]
+      notes: "AMG is a parallel algebraic multigrid solver for linear systems arising from problems on unstructured grids."
+    kripke:
+      name: Kripke
+      tags: [application-domain:asc, method-type:deterministic, method-type:transport, method-type:sparse-linear-algebra, benchmark-scale:large-scale, communication:mpi, programming-model:raja, programming-model:openmp, programming-model:cuda, programming-language:c++, memory-access-characteristics:regular-memory-access, memory-access-characteristics:high-memory-bandwidth, memory-access-characteristics:high-memory-latency, memory-access-characteristics:large-memory-footprint, communication-performance-characteristics:network-latency-bound, mesh-representation:structured-grid, compute-performance-characteristics:atomics, compute-performance-characteristics:high-fp, compute-performance-characteristics:register-pressure, compute-performance-characteristics:simd, compute-performance-characteristics:vectorization, compute-performance-characteristics:mixed-precision]
+      notes: "Kripke is a structured deterministic (Sn) transport using RAJA. It contains wavefront algorithms."
+    quicksilver:
+      name: Quicksilver
+      tags: [application-domain:asc, method-type:montecarlo, method-type:transport, benchmark-scale:large-scale, communication:mpi, programming-model:openmp, programming-model:cuda, programming-language:c++, memory-access-characteristics:irregular-memory-access, memory-access-characteristics:high-memory-latency, memory-access-characteristics:large-memory-footprint, communication-performance-characteristics:network-latency-bound, compute-performance-characteristics:high-branching, compute-performance-characteristics:register-pressure]
+      notes: "Monte Carlo transport benchmark with multi-group cross section lookups. One large kernel that is 1000’s of lines big."
+    pennant:
+      name: PENNANT
+      tags: [application-domain:asc, method-type:hydrodynamics, benchmark-scale:large-scale, communication:mpi, programming-model:openmp, programming-model:cuda, programming-language:c++, memory-access-characteristics:irregular-memory-access, memory-access-characteristics:high-memory-bandwidth, communication-performance-characteristics:network-latency-bound, mesh-representation:unstructured-grid]
+      notes: "PENNANT is hydrodynamics mini-app for unstructured meshes in 2D (arbitrary polygons). It makes heavy use of indirect addressing and irregular memory access patterns."
+    bdas:
+      name: BDAS
+      tags: [method-type:ai]
+      notes: "The big data analytic suite contains the K-Means observation label, PCA, and SVM benchmarks."
+    dls:
+      name: DLS
+      tags: [method-type:ai]
+      notes: "The deep learning suite contains: Convolutional Neural Networks (CNNs), LSTM recurrent neural network (RNN) architecture, and CANDLE deep learning architectures relevant to problems in cancer."
+    cmb:
+      name: CMB
+      tags: [application-domain:synthetic, benchmark-scale:large-scale, communication:mpi, programming-language:c, communication-performance-characteristics:network-latency-bound, communication-performance-characteristics:network-bandwidth-bound, communication-performance-characteristics:network-bisection-bandwidth-bound, communication-performance-characteristics:network-collectives]
+      notes: "Subsystem functionality and performance tests. Collection of independent MPI benchmarks to measure various aspects of MPI performance including interconnect messaging rate, latency, aggregate bandwidth, and collective latencies."
+    stream:
+      name: STREAM
+      tags: [application-domain:synthetic, benchmark-scale:single-node, programming-model:openmp, programming-language:c, memory-access-characteristics:high-memory-bandwidth, memory-access-characteristics:regular-memory-access]
+      notes: "See dedicated entry. Memory subsystem functionality and performance tests."
+    stride:
+      name: Stride
+      tags: [application-domain:synthetic, benchmark-scale:single-node, programming-model:openmp, programming-language:c, memory-access-characteristics:high-memory-bandwidth, memory-access-characteristics:regular-memory-access]
+      notes: "Memory subsystem functionality and performance tests."
+    mldl:
+      name: MLDL
+      tags: [method-type:ai, method-type:dense-linear-algebra, method-type:sparse-linear-algebra, method-type:fft, compute-performance-characteristics:mixed-precision]
+      notes: "Sparse and dense convolutions, FFT, double, single and half precision GEMM and other machine/deep learning math algorithms not included in other CORAL benchmark suites."
+    io-suite:
+      name: IOR-MDTest-Simul-FTree
+      tags: [application-domain:synthetic]
+      notes: "File system metadata benchmark. Interleaved or Random I/O benchmark. Used for testing the performance of parallel filesystems and burst buffers using various interfaces and access patterns."
+    clomp:
+      name: CLOMP
+      tags: [application-domain:synthetic, benchmark-scale:single-node, programming-model:openmp, programming-language:c]
+      notes: "Threading benchmark focused on performance of thread overheads evaluation."
+    pynamic:
+      name: Pynamic
+      tags: [application-domain:asc, benchmark-scale:large-scale, communication:mpi, programming-model:raja, programming-model:openmp, programming-model:cuda, programming-language:python, programming-language:c]
+      notes: "Subsystem functionality and performance test. Dummy application that closely models the footprint of an important Python-based multi-physics ASC code."
+    rajaperf:
+      name: RAJAPerf
+      tags: [application-domain:asc, benchmark-scale:single-node, programming-model:raja, programming-model:openmp, programming-model:cuda, programming-language:c++]
+      notes: "See dedicated entry."
+    e3sm:
+      name: E3SM
+      tags: [application-domain:climate, benchmark-scale:large-scale, communication:mpi, programming-model:openmp, programming-model:cuda, programming-language:fortran, memory-access-characteristics:high-memory-bandwidth]
+      notes: "E3SM is a high-resolution climate simulation code for the entire Earth system, containing five major components for the atmosphere, ocean, land surface, sea ice, and land ice along with a coupler."
+    vpic:
+      name: VPIC
+      tags: [method-type:particles, communication:mpi, programming-model:openmp, programming-language:c++]
+      notes: "Vector Particle-In-Cell is a general purpose particle-in-cell simulation code for modeling kinetic plasmas."
+    laghos:
+      name: Laghos
+      tags: [application-domain:asc, method-type:time-dependent, method-type:hydrodynamics, method-type:eulerian, method-type:lagrangian, method-type:high-order, method-type:finite-element, math-libraries:mfem, method-type:explicit-timestepping, method-type:conjugate-gradient, method-type:dense-linear-algebra, benchmark-scale:large-scale, communication:mpi, programming-model:cuda, programming-language:c++]
+      notes: "Laghos supports full assembly and partial assembly modes."
+    pis-ds:
+      name: ParallelIntegerSort
+      tags: [communication:mpi, programming-language:c, programming-language:fortran]
+      notes: "Sorts a large number of 64-bit integers (from 0 to T) in parallel. The emphasis here is IO, all-to-all communication, and integer operations."
+    havoq:
+      name: Havoq
+      tags: [memory-access-characteristics:irregular-memory-access, memory-access-characteristics:large-memory-footprint]
+      notes: "Massively parallel graph analysis algorithms for computing triangles, edges, vertices. Emphasizes load imbalance and irregular random memory accesses."
+hpcc:
+  name: HPC Challenge
+  url: https://hpcchallenge.org/hpcc
+  ref: 10.1145/1188455.118867
+  tags: [application-domain:synthetic, memory-access-characteristics:high-memory-bandwidth, memory-access-characteristics:irregular-memory-access, memory-access-characteristics:large-memory-footprint, memory-access-characteristics:regular-memory-access]
+  notes: "A benchmark suite of 7 benchmarks that measures a range of memory access patterns."
+  benchmarks:
+    hpl:
+      name: HPL
+      notes: "See dedicated entry"
+    dgemm:
+      name: DGEMM
+      notes: "See dedicated entry"
+    stream:
+      name: Stream
+      notes: "See dedicated entry"
+    ptrans:
+      name: PTRANS
+      notes: "See dedicated entry"
+    randomaccess:
+      name: RandomAccess
+      notes: "See dedicated entry"
+    fft:
+      name: FFT
+      notes: "See dedicated entry"
+    beff:
+      name: b_eff
+      notes: "See dedicated entry"
+ats-5:
+  name: ATS-5
+  tags: [programming-model:openmp, programming-language:c++, programming-language:fortran, communication:mpi]
+  license: none
+  url: https://lanl.github.io/benchmarks/
+  benchmarks:
+    branson:
+      name: Branson
+      tags: [application-domain:physics, benchmark-scale:multi-node, method-type:montecarlo, method-type:particles, method-type:transport, programming-model:cuda]
+      notes: ""
+    amg2023:
+      name: AMG2023
+      tags: [application-domain:asc, method-type:solver, method-type:sparse-linear-algebra, benchmark-scale:large-scale, communication:mpi, programming-model:openmp, programming-model:cuda, programming-language:c, memory-access-characteristics:irregular-memory-access, memory-access-characteristics:high-memory-bandwidth, memory-access-characteristics:high-memory-latency, memory-access-characteristics:large-memory-footprint, communication-performance-characteristics:network-collectives, communication-performance-characteristics:network-latency-bound, mesh-representation:block-structured-grid, compute-performance-characteristics:high-branching, compute-performance-characteristics:mixed-precision]
+      notes: "AMG is a parallel algebraic multigrid solver for linear systems arising from problems on unstructured grids."
+    parthenon-vibe:
+      name: Parthenon-VIBE
+      tags: [mesh-representation:amr, mesh-representation:block-structured-grid, method-type:finite-volume, programming-model:kokkos, benchmark-scale:multi-node]
+      notes: "Solves the Vector Inviscid Burgers' Equation on a block-AMR mesh."
+    mlmd:
+      name: MLMD
+      tags: [application-domain:molecular-dynamics, programming-model:kokkos, math-libraries:pytorch]
+      notes: "Benchmark for HIPPYNN driven kokkos-Lammps Molecular Dynamics.  Includes model training and inference."
+    umt:
+      name: UMT
+      tags: [application-domain:physics, benchmark-scale:multi-node, memory-access-characteristics:irregular-memory-access, mesh-representation:unstructured-grid, method-type:deterministic, method-type:particles, method-type:transport, programming-language:fortran, programming-model:openmp-target]
+      notes: ""
+    miniem:
+      name: MiniEM
+      tags: [application-domain:electromagnetics, math-libraries:tpetra, mesh-representation:structured-grid]
+      notes: "Proxy for EMPIRE"
+    sparta:
+      name: SPARTA
+      tags: [application-domain:molecular-dynamics, application-domain:chemistry, benchmark-scale:multi-node, method-type:direct-solve, method-type:montecarlo]
+      notes: "Stochastic PArallel Rarefied-gas Time-accurate Analyzer."
+    lammps:
+      name: LAMMPS
+      tags: [application-domain:molecular-dynamics, benchmark-scale:large-scale, communication:mpi, programming-model:openmp, programming-model:cuda, programming-language:c++, compute-performance-characteristics:high-fp,  memory-access-characteristics:high-memory-bandwidth, communication-performance-characteristics:network-bandwidth-bound,communication-performance-characteristics:network-latency-bound]
+      notes: "Short and long range interactions."
+olcf-6:
+  name: OLCF-2
+  tags: [programming-model:openmp, programming-language:c++, programming-language:fortran, communication:mpi]
+  license: none
+  url: https://www.olcf.ornl.gov/draft-olcf-6-technical-requirements/benchmarks
+  benchmarks:
+    lammps:
+      name: LAMMPS
+      tags: [application-domain:molecular-dynamics, benchmark-scale:large-scale, communication:mpi, programming-model:openmp, programming-model:cuda, programming-language:c++, compute-performance-characteristics:high-fp,  memory-access-characteristics:high-memory-bandwidth, communication-performance-characteristics:network-bandwidth-bound,communication-performance-characteristics:network-latency-bound]
+      notes: "Short and long range interactions."
+    m-psdns:
+      name: M-PSDNS
+      tags: [application-domain:cfd, method-type:direct-solve, method-type:fft, communication-performance-characteristics:network-latency-bound, communication-performance-characteristics:network-bisection-bandwidth-bound, communication-performance-characteristics:network-bandwidth-bound, communication-performance-characteristics:network-point-to-point, benchmark-scale:large-scale, programming-model:hip]
+      notes: "Minimalist version of PSDNS."
+    milk:
+      name: MILC
+      tags: [application-domain:qcd, benchmark-scale:large-scale, benchmark-scale:strong-scaling, communication-performance-characteristics:network-bandwidth-bound, communication-performance-characteristics:network-latency-bound, math-libraries:quda]
+      notes: "Generation on su3-rhmd-hisq problem from the MIMD Lattice Collaboration (MILC) code."
+    qmcpack:
+      name: QMCPACK
+      tags: [application-domain:molecular-dynamics, method-type:montecarlo, benchmark-scale:large-scale, communication:mpi, programming-model:openmp, programming-model:cuda, programming-language:c, programming-language:c++, memory-access-characteristics:high-memory-bandwidth]
+      notes: "QMCPACK is a many-body ab initio quantum Monte Carlo code for computing the electronic structure of atoms, molecules, and solids."
+      url: https://www.qmcpack.org
+    forge:
+      name: FORGE
+      tags: [method-type:ai, method-type:gpt, method-type:transformer, method-type:llm, method-type:ai-training, compute-performance-characteristics:tensor, compute-performance-characteristics:pipeline-parallelism, compute-performance-characteristics:low-precision]
+      notes: "For scientific downstream tasks, such as domain-subject classification."
+    workflow:
+      name: Workflow
+      tags: [method-type:ai, method-type:tpt, method-type:transformer, method-type:particles, method-type:ai-training]
+      notes: "This benchmark aims to evaluate the efficiency of a HPC system in handling dynamic workloads from data streams."
+nersc10:
+  name: NERSC-10
+  tags: [programming-model:openmp, programming-language:c++, programming-language:fortran, communication:mpi]
+  license: none
+  url: https://www.nersc.gov/systems/nersc-10/benchmarks/
+  notes: "This suite represents scientific workflows: simulation of complex scientific problems at high degrees of parallelism, large-scale analysis of experimental or observational data, machine learning, and the data-flow and control-flow needed to couple these activities in productive and efficient workflows."
+  benchmarks:
+    optical:
+      name: Optical Properties of Materials workflow
+      tags: [application-domain:dft, programming-language:fortran, programming-language:c, programming-language:c++, programming-model:openmp, programming-model:openmp-target, programming-model:openacc]
+      url: https://berkeleygw.org
+      notes: "BerkeleyGW's Epsilon module computes the material's dielectric function; the Sigma module computes the electronic self energy."
+    materials:
+      name: Materials by Design Workflow
+      tags: [application-domain:molecular-dynamics]
+      notes: "EXAALT (ECP project), LAMMPS MD engine"
+    metagenome:
+      name: Metagenome Annotation Workflow
+      tags: [application-domain:biology]
+      notes: "Based on the computation workflow of the Joint Genome Institute's Integrated Microbial Genomes project."
+    lattice-qcd:
+      name: Lattice QCD Workflow
+      tags: [application-domain:qcd]
+      notes: "MILC Collaboration"
+    deep-cam:
+      name: DeepCAM AI Workflow
+      tags: [application-domain:climate]
+      notes: "Trains a deep learning model to identify extreme weather phenomena (tropical cyclones, atmospheric rivers) in CAM5 climate simulation data."
+    toast3:
+      name: TOAST3 Cosmic Microwave Background Workflow
+      tags: [application-domain:cosmology]
+      notes: "Time Ordered Astrophysics Scalable Tools"
+jupiter:
+  name: JUPITER Benchmark Suite
+  license: MIT
+  url: https://github.com/FZJ-JSC/jubench
+  ref: 10.1109/SC41406.2024.00038
+  notes: "The JUPITER Benchmark Suite is used for procurement of the JUPITER exascale system and consists of application and synthetic benchmarks. The vast majority of the benchmarks focus on GPU execution. The application benchmarks come in Base category (usually executing on 8 nodes, each 4 GPUs) and High-Scaling category (using between 500 and 650 nodes, each 4 GPUs). "
+  benchmarks:
+    amber:
+      name: Amber
+      tags: [application-domain:molecular-dynamics, programming-language:fortran, programming-model:cuda, benchmark-scale:single-node, communication:mpi, communication:nccl]
+      license: Proprietary
+      url: https://github.com/FZJ-JSC/jubench-amber/
+    arbor:
+      name: Arbor
+      tags: [application-domain:neuroscience, programming-language:c++, programming-model:cuda, programming-model:hip, benchmark-scale:multi-node, benchmark-scale:large-scale, benchmark-scale:weak-scaling, communication:mpi]
+      license: BSD-3-Clause
+      url: https://github.com/FZJ-JSC/jubench-arbor
+      notes: "The High-Scaling variant of the benchmark targets 642 nodes and comes in four memory configurations"
+    chroma:
+      name: Chroma LQCD
+      tags: [application-domain:physics, application-domain:hep, programming-language:c++, programming-model:cuda, programming-model:hip, math-libraries:quda, benchmark-scale:multi-node, benchmark-scale:large-scale, benchmark-scale:weak-scaling, communication:mpi]
+      license: Proprietary
+      url: https://github.com/FZJ-JSC/jubench-chroma-qcd
+      notes: "The High-Scaling variant of the benchmark targets 512 nodes and comes in three memory configurations; License: JLab License"
+    jptrgromacs:
+      name: GROMACS
+      license: LGPL-2.1
+      tags: [application-domain:molecular-dynamics, programming-language:c++, programming-model:cuda, programming-model:sycl, benchmark-scale:multi-node, benchmark-scale:large-scale, communication:mpi]
+      url: https://github.com/FZJ-JSC/jubench-gromacs
+    icon:
+      name: ICON
+      license: BSD-3-Clause
+      tags: [application-domain:climate, programming-language:fortran, programming-language:c, programming-model:openacc, programming-model:hip, programming-model:cuda, benchmark-scale:multi-node, benchmark-scale:large-scale, communication:mpi]
+      url: https://github.com/FZJ-JSC/jubench-icon
+    juqcs:
+      name: JUQCS
+      license: none
+      tags: [application-domain:quantum-computing, programming-language:fortran, programming-model:cuda, programming-model:openmp, benchmark-scale:multi-node, benchmark-scale:large-scale, benchmark-scale:weak-scaling, communication:mpi]
+      notes: "The High-Scaling variant of the benchmark targets 512 nodes and comes in two memory configurations. In addition, a version is provided with runs at the same time on a CPU partition and a GPU partition (Modular Supercomputing Architecture)."
+      url: https://github.com/FZJ-JSC/jubench-juqcs
+    nekrs:
+      name: nekRS
+      license: BSD-3-Clause
+      tags: [application-domain:cfd, programming-language:c++, programming-language:c, programming-model:cuda, programming-model:hip, programming-model:sycl, programming-model:occa, benchmark-scale:multi-node, benchmark-scale:large-scale, benchmark-scale:weak-scaling, communication:mpi]
+      url: https://github.com/FZJ-JSC/jubench-nekrs
+      notes: "The High-Scaling variant of the benchmark targets 642 nodes and comes in three memory configurations"
+    parflow:
+      name: ParFlow
+      license: LGPL-2.1
+      tags: [application-domain:climate, application-domain:hydrodynamics, programming-language:c, programming-model:cuda, programming-model:hip, math-libraries:hypre, benchmark-scale:multi-node, communication:mpi]
+      url: https://github.com/FZJ-JSC/jubench-parflow
+    picongpu:
+      name: PIConGPU
+      license: GPL-3.0
+      tags: [application-domain:physics, application-domain:plasma-physics, programming-language:c++, programming-model:alpaka, programming-model:cuda, programming-model:hip, benchmark-scale:multi-node, benchmark-scale:large-scale, benchmark-scale:weak-scaling, communication:mpi]
+      notes: "The High-Scaling variant of the benchmark targets 640 nodes and comes in three memory configurations"
+      url: https://github.com/FZJ-JSC/jubench-picongpu
+    jptrqe:
+      name: Quantum ESPRESSO
+      license: GPL-3.0
+      tags: [application-domain:material-science, application-domain:physics, programming-language:fortran, math-libraries:elpa, programming-model:openacc, programming-model:cuf, benchmark-scale:multi-node, application-domain:dft, communication:mpi]
+      url: https://github.com/FZJ-JSC/jubench-qe
+    jptrsoma:
+      name: SOMA
+      license: GPL-3.0
+      tags: [application-domain:polymers, application-domain:material-science, programming-language:c, programming-model:openacc, benchmark-scale:multi-node, communication:mpi, communication:nccl]
+      url: https://github.com/FZJ-JSC/jubench-soma
+    mmoclip:
+      name: MMoCLIP
+      url: https://github.com/FZJ-JSC/jubench-mmoclip
+      license: MIT
+      tags: [method-type:ai, application-domain:computer-vision, application-domain:llm, programming-language:python, math-libraries:pytorch, programming-model:cuda, programming-model:rocm, benchmark-scale:multi-node, communication:mpi, communication:nccl]
+    megatron:
+      name: Megatron-LM
+      license: BSD-3-Clause
+      url: https://github.com/FZJ-JSC/jubench-megatron-lm
+      tags: [method-type:ai, method-type:transformer, application-domain:llm, programming-language:python, math-libraries:pytorch, programming-model:cuda, programming-model:rocm, benchmark-scale:multi-node, benchmark-scale:large-scale, communication:mpi, communication:nccl]
+    resnet:
+      name: ResNet
+      tags: [method-type:ai, application-domain:computer-vision, programming-language:python, math-libraries:tensorflow, programming-model:cuda, programming-model:rocm, benchmark-scale:multi-node, communication:mpi]
+      url: https://github.com/FZJ-JSC/jubench-resnet
+      license: Apache-2.0
+    dynqcd:
+      name: DynQCD
+      license: None
+      tags: [application-domain:physics, application-domain:hep, programming-language:c,  programming-model:openmp, benchmark-scale:multi-node, communication:mpi]
+      url: https://github.com/FZJ-JSC/jubench-dynqcd
+    nastja:
+      name: NAStJA
+      license: MPL-2.0
+      tags: [application-domain:biology, programming-language:c++, communication:mpi, benchmark-scale:multi-node]
+      url: https://github.com/FZJ-JSC/jubench-nastja
+    jptrgraph500:
+      name: Graph500
+      url: https://github.com/FZJ-JSC/jubench-graph500
+      license: MIT
+      tags: [application-domain:synthetic, method-type:graph-traversal, programming-language:c, communication:mpi, benchmark-scale:multi-node, benchmark-scale:large-scale]
+    jptrhpcg:
+      name: HPCG
+      url: https://github.com/FZJ-JSC/jubench-hpcg
+      license: BSD-3-Clause
+      tags: [application-domain:synthetic, method-type:conjugate-gradient, programming-language:c++, programming-model:openmp, programming-model:cuda, programming-model:hip, communication:mpi, benchmark-scale:single-node,benchmark-scale:multi-node, benchmark-scale:large-scale]
+    jptrhpl:
+      name: HPL
+      url: https://github.com/FZJ-JSC/jubench-hpl
+      license: BSD-4-Clause
+      tags: [application-domain:synthetic, programming-language:c, programming-model:openmp, programming-model:cuda, programming-model:hip, communication:mpi, benchmark-scale:single-node, benchmark-scale:multi-node, benchmark-scale:large-scale]
+    jptrior:
+      name: IOR
+      url: https://github.com/FZJ-JSC/jubench-ior
+      license: GPL-2.0
+      tags: [application-domain:synthetic, compute-performance-characteristics:i-o, programming-language:c, communication:mpi, benchmark-scale:single-node, benchmark-scale:multi-node, benchmark-scale:large-scale]
+    linktest:
+      name: LinkTest
+      url: https://github.com/FZJ-JSC/jubench-linktest
+      license: BSD-4-Clause
+      tags: [application-domain:synthetic, communication-performance-characteristics:network-point-to-point, programming-language:c, communication:mpi, benchmark-scale:multi-node, benchmark-scale:large-scale]
+    jptrosu:
+      name: OSU Micro-Benchmarks
+      url: https://github.com/FZJ-JSC/jubench-osu
+      license: BSD-3-Clause
+      tags: [application-domain:synthetic, programming-language:c, communication:mpi, benchmark-scale:single-node, benchmark-scale:multi-node, programming-model:cuda, programming-model:openacc, programming-model:rocm]
+      notes: "Also see the dedicated entry."
+    jptrstream:
+      name: STREAM
+      url: https://github.com/FZJ-JSC/jubench-stream
+      license: Proprietary
+      tags: [application-domain:synthetic, programming-language:c, benchmark-scale:single-node, memory-access-characteristics:regular-memory-access]
+      notes: "Also see the dedicated entry."
+    jptrstreamgpu:
+      name: STREAM (GPU)
+      license: Free
+      url: https://github.com/FZJ-JSC/jubench-stream-gpu
+      tags: [application-domain:synthetic, programming-language:c++, benchmark-scale:single-node, memory-access-characteristics:regular-memory-access, programming-model:cuda]
+ueabs:
+  name: UEABS
+  license: CC-BY-4.0
+  url: https://repository.prace-ri.eu/git/UEABS/ueabs
+  tags: [communication:mpi]
+  notes: "The Unified European Application Benchmark Suite is a set of 13 application codes maintained by PRACE. The last release was in 2022, and it is probably not maintained anymore."
+  benchmarks:
+    alya:
+      name: Alya
+      url: https://www.bsc.es/research-development/research-areas/engineering-simulations/alya-high-performance-computational
+      license: Proprietary
+      tags: [programming-model:openmp, programming-language:fortran, programming-model:openacc, programming-model:cuda, application-domain:cfd, application-domain:dft]
+      notes: "The Alya System is a Computational Mechanics code capable of solving different physics, each one with its own modelization characteristics, in a coupled way. ALYA is written in Fortran 90/95 and parallelized using MPI and OpenMP."
+    codesaturne:
+      name: Code_Saturne
+      url: https://github.com/code-saturne/code_saturne
+      license: GPL-2.0
+      tags: [application-domain:cfd, application-domain:hydrodynamics, method-type:finite-volume, math-libraries:amgx, math-libraries:petsc, programming-model:sycl, programming-model:cuda, programming-model:openmp, programming-language:fortran, programming-language:c, programming-language:c++, programming-language:python]
+      notes: "The code solves the Navier-Stokes equations for incompressible/compressible flows using a predictor-corrector technique and multi-grid algorithms."
+    cp2k:
+      name: CP2K
+      license: GPL
+      url: https://www.cp2k.org/
+      tags: [application-domain:dft, application-domain:quantum-chemistry, programming-model:cuda, programming-model:openmp, programming-language:fortran, application-domain:molecular-dynamics]
+      notes: "CP2K is a freely available quantum chemistry and solid-state physics software package for performing atomistic simulations."
+    gadget:
+      name: GADGET
+      license: GPL-3.0
+      url: https://wwwmpa.mpa-garching.mpg.de/gadget4/
+      ref: 10.1093/mnras/stab1855
+      tags: [programming-model:openmp, programming-language:c, programming-language:c++, application-domain:astrophysics]
+      notes: "GADGET-4 is a freely available code for cosmological N-body/SPH simulations on massively parallel computers with distributed memory."
+    gpaw:
+      name: GPAW
+      license: GPL-3.0
+      url: https://wiki.fysik.dtu.dk/gpaw/
+      tags: [application-domain:dft, math-libraries:blas, math-libraries:lapack, math-libraries:scalapack, method-type:fft, method-type:dense-linear-algebra, programming-language:python, programming-model:c]
+      notes: "GPAW is a density-functional theory (DFT) program for ab initio electronic structure calculations using the projector  augmented wave method."
+    pracegromacs:
+      name: GROMACS
+      license: LGPL-2.1
+      url: https://www.gromacs.org/
+      ref: 10.1016/0010-4655(95)00042-E
+      tags: [programming-language:c++, programming-language:c, programming-model:cuda,  programming-model:openmp, programming-model:sycl, application-domain:molecular-dynamics]
+      notes: "GROMACS is a versatile package to perform molecular dynamics, i.e. simulate the Newtonian equations of motion for systems with hundreds to millions of particles."
+    pracenamd:
+      name: NAMD
+      license: Proprietary
+      url: http://www.ks.uiuc.edu/Research/namd/
+      ref: 10.1063/5.0014475
+      tags: [programming-language:c++, programming-model:cuda, programming-model:openmp, application-domain:molecular-dynamics, programming-model:hip, programming-model:sycl, programming-model:charm++]
+      notes: "NAMD is a widely used molecular dynamics application designed to simulate bio-molecular systems on a wide variety of compute platforms."
+    nemo:
+      name: NEMO
+      license: Proprietary
+      url: https://www.nemo-ocean.eu/
+      ref: 10.5281/zenodo.8167700
+      tags: [application-domain:climate, programming-language:c++, programming-model:cuda]
+      notes: "NEMO is a mathematical modelling framework for prediction in ocean and climate sciences. Free software."
+    pfarm:
+      name: PFARM
+      license: None
+      url: https://repository.prace-ri.eu/git/UEABS/ueabs/-/tree/r2.2-dev/pfarm
+      tags: [application-domain:astrophysics, application-domain:fusion, programming-model:openmp, programming-language:fortran, method-type:dense-linear-algebra, math-libraries:magma, programming-model:cuda, programming-model:hip]
+      notes: "PFARM uses an R-matrix ab-initio approach to calculate electron-atom and electron-molecule collisions data for a wide range of applications including astrophysics and nuclear fusion. "
+    praceqcd:
+      name: QCD
+      license: GPL-3
+      url: https://repository.prace-ri.eu/git/UEABS/ueabs/-/blob/master/qcd/README.md
+      tags: [application-domain:hep, programming-model:cuda, programming-model:openmp, programming-language:c++, programming-language:c, math-libraries:quda]
+      notes: "The QCD benchmark is, unlike the other benchmarks in the PRACE application benchmark suite, not a full application but a set of 3 parts which are representative of some of the most compute-intensive parts of QCD calculations."
+    praceqe:
+      name: Quantum ESPRESSO
+      license: GPL-3
+      url: https://www.quantum-espresso.org/
+      tags: [application-domain:material-science, application-domain:physics, programming-language:fortran, application-domain:dft, math-libraries:elpa, programming-model:openacc, programming-model:cuf, benchmark-scale:multi-node, communication:mpi]
+      notes: "Quantum Espresso is an integrated suite of Open-Source computer codes for electronic-structure calculations and materials modeling at the nanoscale."
+    specfem3d:
+      name: SPECFEM3D
+      license: GPL-3
+      url: https://github.com/SPECFEM/specfem3d
+      ref: 10.1046/j.1365-246X.2002.01653.x
+      tags: [programming-model:openmp, programming-model:cuda, programming-language:python, programming-language:c, programming-language:c++, application-domain:seismic, method-type:sem]
+      notes: "SPECFEM3D simulates three-dimensional global and regional seismic wave propagation based upon the spectral-element method (SEM)."
+    pracetensorflow:
+      name: TensorFlow
+      license: MIT
+      url: https://github.com/maxwelltsai/DeepGalaxy
+      tags: [application-domain:astrophysics, method-type:ai, programming-model:cuda, programming-model:openmp, programming-language:python, programming-language:c, programming-language:c++]
+      notes: "TensorFlow is a popular open-source library for symbolic math and linear algebra, with particular optimisation for neural-networks-based machine learning workflow."
