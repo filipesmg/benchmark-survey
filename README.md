@@ -1,8 +1,10 @@
 # HPC Benchmark Survey
 
+**[https://fzj-jsc.github.io/benchmark-survey/](https://fzj-jsc.github.io/benchmark-survey/)**
+
 A survey of existing HPC benchmarks and benchmark suites. See also [benchmark taxonomy](https://github.com/LLNL/benchmark-taxonomy).
 
-The list of benchmarks collected here in a machine-readable manner is transformed into tables, like a TeX table for a paper.
+The list of benchmarks collected here in a machine-readable manner is transformed into tables, like a TeX table for a paper or an interactive table hosted within the repository. Access the website at [https://fzj-jsc.github.io/benchmark-survey/](https://fzj-jsc.github.io/benchmark-survey/).
 
 ## Benchmark YAML Scheme
 
@@ -41,12 +43,18 @@ benchmarks:
     name: HPL
 ```
 
-A schema file exists to validate entries against this scheme. Validate with
+The schema file `schema.json` can be used for validation of entries. Validate with
 
 ```bash
-pajv validate -s schema.json -d benchmark.yaml
+pajv validate -s schema.json -d benchmarks.yaml
 ```
 
-## Conversion
+A GitHub action is setup to for validation, triggered on pushed on `benchmarks.yaml`.
 
-Currently, only a script for conversion to TeX is available; see `./tex-gen/`.
+## Website
+
+[The website](https://fzj-jsc.github.io/benchmark-survey/) is served through GitHub pages and utilizes open-source JavaScript libraries for dynamic view with filtering capabilities. Because of the interactivity, the website is the preferred way to view and use the benchmark table.
+
+## PDF
+
+The table can be converted into TeX syntax which we use in a paper. The script for conversionis available in `./tex-gen/`.
