@@ -28,10 +28,91 @@
     margin-left: 0;
     margin-top: 0;
   }
-  main header {
+  /* Container for the tags and the search input */
+  .container {
     display: flex;
-    flex-direction: row;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto;
   }
+
+  /* Top bar containing buttons and filter */
+  .top-bar {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 5px;
+  }
+  /* Buttons for expand and collapse all */
+  .button {
+    padding: 10px 15px;
+    margin-right: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    white-space: nowrap;
+    width: 100px;
+  }
+
+  .button:hover {
+    background-color: #0056b3;
+  }
+  /* Container for the list of selectable tags */
+  .tags-container {
+    display: none;
+    flex-wrap: wrap;
+    margin-left: 220px; /* Buttons + margin */
+    margin-bottom: 20px;
+  }
+
+  .clear-filter {
+    display: none; 
+    cursor: pointer; 
+    position: absolute; 
+    right: 10px;
+  }
+
+  /* Filter container styling */
+  .filter {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    border: 1px solid #ccc;
+    padding: 5px;
+    border-radius: 5px;
+    flex-grow: 1;
+    position: relative;
+    z-index: 1;
+    /* Search input field styling */
+    & input {
+      border: none;
+      outline: none;
+      padding: 5px;
+      font-size: 16px;
+    }
+    & input:last-child {
+      flex-grow: 1;
+    }
+    & .tags-toggle {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      margin-right: 15px;
+      padding-right: 10px;
+      border-right: 1px solid #ddd;
+      & i {
+        margin-left: 5px;
+        transition: transform 0.3s ease;
+      }
+    }
+    & .tags-toggle.open i {
+      transform: rotate(180deg) translateX(5px);
+    }
+  }
+
   a {
     text-decoration: none;
   }
@@ -84,10 +165,15 @@
     }
   }
   .tag {
+    font-size: 12px;
+    display: inline-flex;
+    align-items: center;
     color: white;
-    margin-right: 5px;
+    margin: 2px;
     font-weight: bold;
-    padding: 2px;
+    padding: 3px;
+    border-radius: 3px;
+    cursor: pointer;
     white-space: pre-wrap !important;
     span& {
       display: inline-block;
@@ -132,6 +218,17 @@
       background-color: #9890C4;
     }
   }
+
+  /* Tags added to the filter container */
+  .selected-tag {
+    color: white;
+    cursor: pointer;
+  }
+  /* Close (remove) icon for selected tags */
+  .selected-tag i {
+    margin-left: 5px;
+    cursor: pointer;
+  }
   .ag-center-cols-viewport {
     min-height: unset !important;
   }
@@ -150,18 +247,21 @@
       <p><strong>Contribute</strong>, if a benchmark is missing or something is incomplete/wrong! <a href="https://github.com/FZJ-JSC/benchmark-survey">Help us on GitHub</a> to improve this table!</p>
     </header>
     <main>
-      <header>
-        <div id="filter"></div>
-        <button id="expandAll" class="button" onclick="expandAll()">Expand All</button>
-        <button id="collapseAll" class="button" onclick="collapseAll()">Collapse All</button>
-      </header>
+      <div class="container">
+        <div class="top-bar">
+          <button id="expandAll" class="button" onclick="expandAll()">Expand All</button>
+          <button id="collapseAll" class="button" onclick="collapseAll()">Collapse All</button>
+          <div class="filter" id="filter"></div>
+        </div>
+        <div class="tags-container" id="tags-container"></div>
+      </div>
       <div id="content" style="height: 100%;">
         <div id="myGrid" class="ag-theme-balham grid"></div>
       </div>
     </main>
     <footer>
       <p>This website uses Google Fonts (served remotely), JQuery, AG-Grid, JS-YAML, bibtexParseJs and FontAwesome5 (all served locally).</p>
-      <p>HPC Benchmark Survey by A. Herten, O. Pearce, F. S. M.  Guimaraes; 2025.</p>
+      <p>HPC Benchmark Survey by A. Herten, O. Pearce, F. Guimaraes; 2025.</p>
     </footer>
   </body>
   <script src="website/js/jquery-3.6.0.min.js"></script>
@@ -206,13 +306,58 @@
   let gridApi;
   let externalFilter = new Set();
   let allSuites = new Set();
+  let allTags = new Set();
 
   function onFilterTextBoxChanged(event) {
-    let filter_text = document.getElementById("filter-text-box").value;
+    // Checking if input is empty to remove it (if not the last)
+    $('#filter > input').each((i,input) => {
+      // Removing previous input if there's no text
+      const text = $(input).val();
+      if (!$(input).is(":focus")&&!$(input).is(':last-child')&&(!text.length)) {
+        input.remove()
+        return;
+      }
+    })
+    const elements = $('#filter').contents().map(function () {
+          if ($(this).is('input')) return $(this).val();
+          if ($(this).hasClass('selected-tag')) return $(this).text().replace('×', '').trim();
+          return '';
+        }).get();
+
+    const filter_text = elements.filter(Boolean).join(' ');
+
+    adjustClearButtonVisibility(filter_text);
+
+    // console.log("filter_text",filter_text)
     gridApi.setGridOption(
                               "quickFilterText",
                               filter_text,
                             );
+  }
+
+  /* Function to adjust the width of the input inside the filter */
+  function adjustInputWidth(input) {
+    const text = input.val();
+    const testSpan = $('<span>').text(text).css({
+      visibility: 'hidden',
+      position: 'absolute',
+      whiteSpace: 'nowrap',
+      fontSize: input.css('font-size')
+    });
+    $('body').append(testSpan);
+    input.width(testSpan.width() + 10);
+    testSpan.remove();
+  }
+
+  /* Checks if the clearFilter button should be shown or not and change its visibility */
+  function adjustClearButtonVisibility(filter_text) {
+    const hasInput = filter_text.length > 0;
+
+    if (hasInput) {
+      $('#clearFilter').show();
+    } else {
+      $('#clearFilter').hide();
+    }
   }
 
   /* Function to parse Array of tags into the cell */
@@ -322,6 +467,7 @@
         if (typeof bench.notes == 'string') {
           unique_words.add(bench.notes.split(' '))
         }
+        bench.tags?.forEach(allTags.add, allTags)
         benchmarks.push({
           'name': bench.name, 
           'tags': bench.tags,
@@ -336,6 +482,8 @@
       }
       // Storing all Suite names (for collapse/expand)
       allSuites.add(value.name.replace(/\s/g,"_"));
+      // Storing all tag names
+      value.tags?.forEach(allTags.add, allTags)
       // Adding Suite to the rows, with all names and tags as hidden field
       rows.push({
         'name': value.name, 
@@ -356,6 +504,8 @@
       if(value.benchmarks) { return; }
       // Loop over benchmarks inside a suite and storing their name and tags in an array
       for (let [name, bench] of Object.entries(value)) {
+        // Storing all tag names
+        bench.tags?.forEach(allTags.add, allTags)
         rows.push({
           'name': bench.name, 
           'tags': bench.tags,
@@ -369,7 +519,6 @@
         })
       }
     })
-
     // Options for main grid (containing main Suites)
     const gridOptions = { 
       rowData: rows,
@@ -457,13 +606,91 @@
     
     // Adding filter field, when it is not there
     if (!$('#filter > input').length) {
+      // Adding toggle to open/close tags drawer
+      let tagsToggle = $('<div class="tags-toggle"><i class="fa fa-chevron-down"></i><span>Tags</span></div>')
+      $('#filter').append(tagsToggle)
+      $('.tags-toggle').on('click', function () {
+        const drawer = $('#tags-container');
+        if (drawer.is(':hidden')) {
+          drawer.slideDown();
+        } else {
+          drawer.slideUp();
+        }
+        drawer.toggleClass('open');
+        $(this).toggleClass('open');
+      });
+
+      // Adding filter input
       let filter = $('<input>').attr('type',"text")
                               .attr('id',"filter-text-box") 
                               .attr('placeholder',"Filter")
                               .on('input',() => {onFilterTextBoxChanged(); return;})
-      $('#filter').css('width',"170px")
+
+      $('#filter').css('width',"100%")
                   .append(filter)
-    } 
+      $('#filter').on('input', 'input', function () {
+        adjustInputWidth($(this));
+        onFilterTextBoxChanged();
+      });
+
+      // Adding clear filter button
+      let clearFilter = $('<i class="fa fa-times clear-filter" id="clearFilter"></i>')
+      $('#filter').append(clearFilter)
+      $('#clearFilter').on('click', function () {
+        // Clear all inputs
+        $('#filter input').remove();
+
+        // Remove selected tags
+        $('#filter .selected-tag').each(function () {
+          const originalTag = $(`.tags .tag:contains("${$(this).text().replace('×', '').trim()}")`);
+          originalTag.show();
+          $(this).remove();
+        });
+
+        // Re-add an empty input field
+        $('#filter').append('<input type="text" placeholder="Filter">');
+
+        // Trigger the filter change event
+        onFilterTextBoxChanged();
+      });
+
+      // Dynamically populate the tags container
+      Array.from(allTags).sort().forEach((tagname) => {
+        [ myclass , mytag ] = tagname.split(":")
+
+        const tag_element = $(`<div class="tag ${myclass}"><i class="fa ${icons[myclass]}" aria-hidden="true"></i>${mytag}</div>`);
+        tag_element.on('click', function () {
+          const tag = $(this);
+          const newTag = tag.clone().addClass('selected-tag').append('<i class="fa fa-times"></i>');
+
+          /* Merging text of inputs when a tag between them is removed */
+          newTag.on('click', function () {
+            const prevInput = $(this).prev('input');
+            const nextInput = $(this).next('input');
+            $(this).remove();
+            tag.show();
+
+            if (prevInput.length && nextInput.length) {
+              prevInput.val(prevInput.val() + nextInput.val());
+              adjustInputWidth(prevInput);
+              nextInput.remove();
+            }
+
+            onFilterTextBoxChanged();
+          });
+
+          const lastElement = $('#filter').children().last();
+          if (lastElement.is('input')) {
+            adjustInputWidth(lastElement);
+          }
+          $('#filter').append(newTag).append('<input type="text" placeholder="Filter">');
+
+          tag.hide();
+          onFilterTextBoxChanged();
+        });
+        $('#tags-container').append(tag_element);
+      })
+    }
   }
 
   let deferrer = [] // To store promises
