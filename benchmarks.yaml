@@ -474,110 +474,110 @@ benchpark:
   url: https://github.com/LLNL/benchpark
   notes: The suite comes with re-implementations of well-known benchmarks/benchmark suites in a variety of programming models
   benchmarks:
-    ad:
+    bpad:
       name: AD
       tags: [method-type:automatic-differentiation, method-type:compiler-transformation, programming-language:c, programming-language:c++, compute-performance-characteristics:high-fp,  memory-access-characteristics:high-memory-bandwidth]
       notes: "AD is an automatic differentiation benchmark using Enzyme, a tool that takes arbitrary existing code as LLVM IR and computes the derivative (and gradient) of that function."
-    amg2023:
+    bpamg2023:
       name: AMG2023
       tags: [application-domain:asc, method-type:solver, method-type:sparse-linear-algebra, benchmark-scale:large-scale, communication:mpi, programming-model:openmp, programming-model:cuda, programming-language:c, memory-access-characteristics:irregular-memory-access, memory-access-characteristics:high-memory-bandwidth, memory-access-characteristics:high-memory-latency, memory-access-characteristics:large-memory-footprint, communication-performance-characteristics:network-collectives, communication-performance-characteristics:network-latency-bound, mesh-representation:block-structured-grid, compute-performance-characteristics:high-branching, compute-performance-characteristics:mixed-precision]
       notes: "AMG is a parallel algebraic multigrid solver for linear systems arising from problems on unstructured grids."
-    babelstream:
+    bpbabelstream:
       name: BabelStream  
       tags: [application-domain:synthetic, benchmark-scale:single-node, programming-model:openmp, programming-language:c, memory-access-characteristics:high-memory-bandwidth, memory-access-characteristics:regular-memory-access]
       notes: "See dedicated entry."  
-    branson:
+    bpbranson:
       name: Branson
       tags: [application-domain:physics, benchmark-scale:multi-node, method-type:montecarlo, method-type:particles, method-type:transport, programming-model:cuda]
       notes: ""
-    genesis:
+    bpgenesis:
       name: GENESIS
       tags: [application-domain:molecular-dynamics, benchmark-scale:multi-node, method-type:particles, programming-model:openmp, programming-model:cuda, communication:mpi]
       notes: "GENESIS package contains two MD programs (atdyn and spdyn), trajectory analysis programs, and other useful tools. GENESIS (GENeralized-Ensemble SImulation System) has been developed mainly by Sugita group in RIKEN-CCS"  
-    gpcnet:
+    bpgpcnet:
       name: GPCNet
       tags: [benchmark-scale:large-scale, programming-language:c, communication:mpi, communication-performance-characteristics:network-bandwidth-bound, communication-performance-characteristics:network-bisection-bandwidth-bound, communication-performance-characteristics:network-collectives, communication-performance-characteristics:network-latency-bound]
       license: Apache-2.0
       url: https://github.com/netbench/GPCNET
       ref: 10.1145/3295500.3356215
       notes: "Global Performance and Congestion Network Tests."
-    gromacs:
+    bpgromacs:
       name: GROMACS
       license: LGPL-2.1
       tags: [application-domain:molecular-dynamics, programming-language:c++, programming-model:cuda, programming-model:sycl, benchmark-scale:multi-node, benchmark-scale:large-scale, communication:mpi]
       url: https://www.gromacs.org  
-    hpcg:
+    bphpcg:
       name: HPCG
       url: https://www.hpcg-benchmark.org
       tags: [benchmark-scale:large-scale, programming-language:c++, programming-model:openmp, communication:mpi, method-type:conjugate-gradient, method-type:sparse-linear-algebra, method-type:solver]
       notes: "See dedicated entry.  High Performance Conjugate Gradients is a complement to Linpack (HPL)"  
-    hpl:
+    bphpl:
       name: HPL
       notes: "See dedicated entry"
-    ior:
+    bpior:
       name: IOR
       tags: [application-domain:synthetic, compute-performance-characteristics:i-o, benchmark-scale:large-scale, communication:mpi, programming-language:c]
       notes: "File system metadata benchmark. Interleaved or Random I/O benchmark. Used for testing the performance of parallel filesystems and burst buffers using various interfaces and access patterns."  
-    kripke:
+    bpkripke:
       name: Kripke
       url:  https://github.com/LLNL/Kripke.git
       tags: [application-domain:asc, method-type:deterministic, method-type:transport, method-type:sparse-linear-algebra, benchmark-scale:large-scale, communication:mpi, programming-model:raja, programming-model:openmp, programming-model:cuda, programming-language:c++, memory-access-characteristics:regular-memory-access, memory-access-characteristics:high-memory-bandwidth, memory-access-characteristics:high-memory-latency, memory-access-characteristics:large-memory-footprint, communication-performance-characteristics:network-latency-bound, mesh-representation:structured-grid, compute-performance-characteristics:atomics, compute-performance-characteristics:high-fp, compute-performance-characteristics:register-pressure, compute-performance-characteristics:simd, compute-performance-characteristics:vectorization, compute-performance-characteristics:mixed-precision]
       notes: "Kripke is a structured deterministic (Sn) transport using RAJA. It contains wavefront algorithms."
-    laghos:
+    bpaghos:
       name: Laghos
       url:  https://github.com/CEED/Laghos
       tags: [application-domain:asc, method-type:time-dependent, method-type:hydrodynamics, method-type:eulerian, method-type:lagrangian, method-type:high-order, method-type:finite-element, math-libraries:mfem, method-type:explicit-timestepping, method-type:conjugate-gradient, method-type:dense-linear-algebra, benchmark-scale:large-scale, communication:mpi, programming-model:cuda, programming-language:c++]
       notes: "Laghos (LAGrangian High-Order Solver) is a miniapp that solves the time-dependent Euler equations of compressible gas dynamics in a moving Lagrangian frame using unstructured high-order finite element spatial discretization and explicit high-order time-stepping.  Laghos supports full assembly and partial assembly modes." 
-    lammps:
+    bplammps:
       name: LAMMPS
       tags: [application-domain:molecular-dynamics, benchmark-scale:large-scale, communication:mpi, programming-model:openmp, programming-model:cuda, programming-language:c++, compute-performance-characteristics:high-fp,  memory-access-characteristics:high-memory-bandwidth, communication-performance-characteristics:network-bandwidth-bound,communication-performance-characteristics:network-latency-bound]
       notes: "Short and long range interactions."    
-    mdtest:
+    bpmdtest:
       name: MDTest
       tags: [application-domain:synthetic, compute-performance-characteristics:i-o, benchmark-scale:large-scale, communication:mpi, programming-language:c]
       notes: "File system metadata benchmark. "
-    miniem:
+    bpminiem:
       name: MiniEM
       tags: [application-domain:electromagnetics, math-libraries:tpetra, mesh-representation:structured-grid]
       notes: "Proxy for EMPIRE"  
-    osu:
+    bposu:
       name: OSU Micro-Benchmarks
       url: https://mvapich.cse.ohio-state.edu/benchmarks/
       tags: [benchmark-scale:single-node, benchmark-scale:multi-node, benchmark-scale:large-scale, communication:mpi, communication:nccl, communication:rccl, communication:openshmem, communication:upc, communication:upc++, communication-performance-characteristics:network-bandwidth-bound, communication-performance-characteristics:network-bisection-bandwidth-bound, communication-performance-characteristics:network-collectives, communication-performance-characteristics:network-latency-bound, communication-performance-characteristics:network-multi-threaded, communication-performance-characteristics:network-nonblocking-collectives, communication-performance-characteristics:network-onesided, communication-performance-characteristics:network-point-to-point, compute-performance-characteristics:atomics, memory-access-characteristics:managed-memory, memory-access-characteristics:regular-memory-access, programming-language:c, programming-language:java, programming-language:python, programming-model:cuda, programming-model:openacc, programming-model:rocm, application-domain:synthetic]
       notes: "See dedicated entry.  A vast collection of network-related micro-benchmarks."  
-    parthenon-vibe:
+    bpparthenon-vibe:
       name: Parthenon-VIBE
       tags: [mesh-representation:amr, mesh-representation:block-structured-grid, method-type:finite-volume, programming-model:kokkos, benchmark-scale:multi-node]
       notes: "Solves the Vector Inviscid Burgers' Equation on a block-AMR mesh."
-    phloem:
+    bpphloem:
       name: Phloem
       url: https://github.com/LLNL/phloem
       tags: [benchmark-scale:single-node, benchmark-scale:multi-node, benchmark-scale:large-scale, communication:mpi, communication:nccl, communication:rccl, communication:openshmem, communication:upc, communication:upc++, communication-performance-characteristics:network-bandwidth-bound, communication-performance-characteristics:network-bisection-bandwidth-bound, communication-performance-characteristics:network-collectives, communication-performance-characteristics:network-latency-bound, communication-performance-characteristics:network-multi-threaded, communication-performance-characteristics:network-nonblocking-collectives, communication-performance-characteristics:network-onesided, communication-performance-characteristics:network-point-to-point, compute-performance-characteristics:atomics, memory-access-characteristics:managed-memory, memory-access-characteristics:regular-memory-access, programming-language:c, programming-language:java, programming-language:python, programming-model:cuda, programming-model:openacc, programming-model:rocm, application-domain:synthetic]
       notes: "This is a package containing three MPI benchmarks intended for use during system procurement"  
-    quicksilver:
+    bpquicksilver:
       name: Quicksilver
       tags: [application-domain:asc, method-type:montecarlo, method-type:transport, benchmark-scale:large-scale, communication:mpi, programming-model:openmp, programming-model:cuda, programming-language:c++, memory-access-characteristics:irregular-memory-access, memory-access-characteristics:high-memory-latency, memory-access-characteristics:large-memory-footprint, communication-performance-characteristics:network-latency-bound, compute-performance-characteristics:high-branching, compute-performance-characteristics:register-pressure]
       notes: "Monte Carlo transport benchmark with multi-group cross section lookups. One large kernel that is 1000’s of lines big."
-    qws:
+    bpqws:
       name: QWS
       url: https://www.riken.jp/en/research/labs/r-ccs/field_theor/index.html
-      tags: application-domain:qcd, programming-language:c++, communication:mpi, benchmark-scale:weak-scaling
+      tags: [application-domain:qcd, programming-language:c++, communication:mpi, benchmark-scale:weak-scaling]
       notes: "QWS benchmark for Lattice quantum chromodynamics simulation library for Fugaku and computers with wide SIMD."
-    rajaperf:
+    bprajaperf:
       name: RAJAPerf
       tags: [application-domain:asc, benchmark-scale:single-node, programming-model:raja, programming-model:openmp, programming-model:cuda, programming-language:c++]
       notes: "See dedicated entry."  
-    remhos:
+    bpremhos:
       name: Remhos
       url:  https://github.com/CEED/Remhos
       tags: [application-domain:asc, method-type:time-dependent, method-type:hydrodynamics, method-type:eulerian, method-type:lagrangian, method-type:high-order, method-type:finite-element, math-libraries:mfem, method-type:explicit-timestepping, method-type:conjugate-gradient, method-type:dense-linear-algebra, benchmark-scale:large-scale, communication:mpi, programming-model:cuda, programming-language:c++]
       notes: "Remhos (REMap High-Order Solver) is a miniapp that solves the pure advection equations that are used to perform monotonic and conservative discontinuous field interpolation (remap) as part of the Eulerian phase in Arbitrary Lagrangian Eulerian (ALE) simulations."   
-    smb:
+    bpsmb:
       name: SMB
       url: https://github.com/sandialabs/SMB
       tags: [benchmark-scale:single-node, benchmark-scale:multi-node, benchmark-scale:large-scale, communication:mpi, communication:nccl, communication:rccl, communication:openshmem, communication:upc, communication:upc++, communication-performance-characteristics:network-bandwidth-bound, communication-performance-characteristics:network-bisection-bandwidth-bound, communication-performance-characteristics:network-collectives, communication-performance-characteristics:network-latency-bound, communication-performance-characteristics:network-multi-threaded, communication-performance-characteristics:network-nonblocking-collectives, communication-performance-characteristics:network-onesided, communication-performance-characteristics:network-point-to-point, compute-performance-characteristics:atomics, memory-access-characteristics:managed-memory, memory-access-characteristics:regular-memory-access, programming-language:c, programming-language:java, programming-language:python, programming-model:cuda, programming-model:openacc, programming-model:rocm, application-domain:synthetic]
       notes: "A vast collection of network-related micro-benchmarks."   
-    stream:
+    bpstream:
       name: STREAM
       tags: [application-domain:synthetic, benchmark-scale:single-node, programming-model:openmp, programming-language:c, memory-access-characteristics:high-memory-bandwidth, memory-access-characteristics:regular-memory-access]
       notes: "See dedicated entry. Memory subsystem functionality and performance tests."
