@@ -467,6 +467,13 @@ benchmarks:
     license: BSD-2-Clause
     tags: [programming-language:fortran, programming-language:c, communication:mpi, math-libraries:blas, math-libraries:lapack, programming-language:c++, application-domain:physics, application-domain:hep, application-domain:cfd, application-domain:climate, application-domain:molecular-dynamics, application-domain:chemistry]
     notes: "Suite of miniapps with: CCS QCD, FFVC, NICAM-DC, mVMC, NGS Analyzer, MODYLAS, NTChem, FFB. Different licenses. Last update: 2015."
+  lulesh:
+    name: LULESH
+    url: https://asc.llnl.gov/codes/proxy-apps/lulesh
+    license: None
+    ref: 10.2172/1117905
+    tags: [programming-language:c, communication:mpi, programming-language:c++, programming-model:openmp, programming-model:openmp-target, programming-model:cuda, programming-model:openacc, programming-model:pstl, application-domain:physics, application-domain:cfd, mesh-representation:unstructured-grid, method-type:hydrodynamics, method-type:lagrangian]
+    notes: "Suite of proxy apps for 3D Lagrangian hydrodynamics on unstructured mesh. Current version is 2, but no update has happened in quite some time."
 benchpark:
   name: "benchpark"
   tags: [programming-model:openmp, programming-model:cuda, programming-model:raja, programming-language:c++, programming-language:c, programming-language:python]
